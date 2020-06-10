@@ -1,0 +1,13 @@
+
+#********************************************user_info*******************************************
+insert into user_info values(1,'wangyi','male','1999-12-01');
+insert into user_info values(2,'wanger','female','1999-12-02');
+insert into user_info values(3,'wangsan','male','1999-12-03');
+insert into user_info values(4,'wangsi','male','1999-12-04');
+insert into user_info values(5,'wangwu','female','1999-12-05');
+insert into user_info values(6,'wangliu','male','1999-12-06');
+insert into user_info values(7,'wangqi','secret','1999-12-07');
+insert into user_info values(8,'wangba','male','1999-12-08');
+
+
+#******************************************user_auths*****************************************

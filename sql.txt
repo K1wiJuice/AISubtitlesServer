@@ -1,0 +1,83 @@
+#******************************用户基础信息************************************************
+CREATE TABLE `user_info`  (
+  `user_id` int NOT NULL,
+  `user_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_gender` enum('male','female','secret') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'secret',
+  `user_birthday` date NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+
+#*******************************用户授权信息***********************************************
+CREATE TABLE `user_auths`  (
+  `user_auths_id` int NOT NULL,
+  `user_id` int NULL,
+  `login_type` enum('phone','email','wechat_id','qqid') NULL DEFAULT 'email',
+  `login_identifier` varchar(255) NULL,
+  `credential` varchar(255) NULL,
+  PRIMARY KEY (`user_auths_id`)
+);
+
+
+#****************************信息的修改***********************************************
+CREATE TABLE `update_user_info_event`  (
+  `event_id` int(0) NOT NULL,
+  `user_id` int(0) NULL DEFAULT NULL,
+  `user_info_field_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_info_field_old_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_info_field_new_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`event_id`) USING BTREE,
+  INDEX `user_id`(`user_id`) USING BTREE,
+  CONSTRAINT `update_user_info_event_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `sdu_project_training`.`user_info` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+
+#****************************************信息**************************************************
+CREATE TABLE `msg`  (
+  `msg_receiveder_id` int(0) NOT NULL,
+  `msg_sender_id` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`msg_receiveder_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+
+#**************************************视频信息**********************************************
+CREATE TABLE `video_info`  (
+  `video_id` int(0) NOT NULL,
+  `user_id` int(0) NULL DEFAULT NULL,
+  `video_pqth` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `video_size` double NULL DEFAULT NULL,
+  `video_format` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `video_cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `video_duration` double NULL DEFAULT NULL,
+  `video_favors` int(0) NULL DEFAULT NULL,
+  `video_browses` int(0) NULL DEFAULT NULL,
+  `video_shares` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`video_id`) USING BTREE,
+  INDEX `user_id`(`user_id`) USING BTREE,
+  CONSTRAINT `video_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `sdu_project_training`.`user_info` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+
+#*************************************点赞信息******************************************************
+CREATE TABLE `video_favors`  (
+  `video_id` int(0) NOT NULL,
+  `user_id` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`video_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+
+#***************************************浏览信息**************************************************
+CREATE TABLE `video_browses`  (
+  `video_id` int(0) NOT NULL,
+  `user_id` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`video_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+
+
+#******************************************分享信息************************************************
+CREATE TABLE `video_shares`  (
+  `video_id` int(0) NOT NULL,
+  `user_id` int(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`video_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
