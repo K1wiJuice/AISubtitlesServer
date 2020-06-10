@@ -8,10 +8,10 @@ import org.apache.ibatis.annotations.*;
 @Mapper
 public interface UserMapper {
 
-    User getUserById(Integer userId);
+    User findUserByEmail(@Param("userEmail") String userEmail);
 
-    int deleteUserById(Integer user_id);
+    User findUserByPhoneNumber(@Param("userPhoneNumber") String userPhoneNumber);
 
-    int insertUser(User user);
-
+    @Options(useGeneratedKeys = true,keyProperty = "userId",keyColumn = "user_id")
+    int regist(User user);
 }

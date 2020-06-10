@@ -1,27 +1,21 @@
 package com.AISubtitles.Server.domain;
 
-import javax.xml.crypto.Data;
-import java.util.List;
+import org.springframework.stereotype.Component;
+import java.sql.Date;
 
+
+@Component
 public class User {
 
     private int userId;
     private String userName;
     private String UserGender;
-    private Data userBirthday;
-    private List<Account> accountList;
+    private Date userBirthday;
+    private String userPassword;
+    private String userEmail;
+    private String image;
+    private String userPhoneNumber;
 
-    public User() {
-    }
-
-
-
-    //构造方法还没写好
-//    public User(int userId, String userName, String userGender) {
-//        this.userId = userId;
-//        this.userName = userName;
-//        UserGender = userGender;
-//    }
 
     @Override
     public String toString() {
@@ -30,15 +24,43 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", UserGender='" + UserGender + '\'' +
                 ", userBirthday=" + userBirthday +
+                ", userPassword='" + userPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", image='" + image + '\'' +
+                ", userPhoneNumber='" + userPhoneNumber + '\'' +
                 '}';
     }
 
-    public List<Account> getAccountList() {
-        return accountList;
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
     }
 
-    public void setAccountList(List<Account> accountList) {
-        this.accountList = accountList;
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getUserId() {
@@ -65,11 +87,11 @@ public class User {
         UserGender = userGender;
     }
 
-    public Data getUserBirthday() {
+    public Date getUserBirthday() {
         return userBirthday;
     }
 
-    public void setUserBirthday(Data userBirthday) {
+    public void setUserBirthday(Date userBirthday) {
         this.userBirthday = userBirthday;
     }
 }
