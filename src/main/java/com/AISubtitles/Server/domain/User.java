@@ -1,6 +1,7 @@
 package com.AISubtitles.Server.domain;
 
 import org.springframework.stereotype.Component;
+<<<<<<< HEAD
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -8,6 +9,12 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "user_info")
+=======
+import java.sql.Date;
+
+
+@Component
+>>>>>>> ee2c2b0cef44ee90ff420df110f29c39318c8171
 public class User {
 
     @Id
@@ -16,6 +23,7 @@ public class User {
     private int userId;
     @Column(name = "user_name")
     private String userName;
+<<<<<<< HEAD
     @Column(name = "user_gender")
     private String UserGender;
     @Column(name = "user_birthday")
@@ -30,12 +38,22 @@ public class User {
     private String userPhoneNumber;
 
 
+=======
+    private String userGender;
+    private Date userBirthday;
+    private String userPassword;
+    private String userEmail;
+    private String image;
+    private String userPhoneNumber;
+
+
+>>>>>>> ee2c2b0cef44ee90ff420df110f29c39318c8171
     @Override
     public String toString() {
         return "User{" +
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
-                ", UserGender='" + UserGender + '\'' +
+                ", UserGender='" + userGender + '\'' +
                 ", userBirthday=" + userBirthday +
                 ", userPassword='" + userPassword + '\'' +
                 ", userEmail='" + userEmail + '\'' +
