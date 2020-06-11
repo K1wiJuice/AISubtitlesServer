@@ -7,9 +7,10 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   resources:
     static-locations: classpath:/templates
-mybatis:
-  config-location: classpath:mybatis/mybatisconfig.xml
-  mapper-locations: classpath:mybatis/mapper/*.xml
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 logging:
   level:
     com.AISubtitles.Server.mapper: debug
