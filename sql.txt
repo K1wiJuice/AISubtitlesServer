@@ -25,14 +25,15 @@ CREATE TABLE If Not Exists `user_auths`  (
 
 #****************************信息的修改***********************************************
 CREATE TABLE If Not Exists `update_user_info_event`  (
-  `event_id` int(0) NOT NULL,
+  `event_id` int(0) NOT NULL AUTO_INCREMENT,
   `user_id` int(0) NULL DEFAULT NULL,
   `user_info_field_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `user_info_field_old_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `user_info_field_new_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `operation_time` timestamp DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`event_id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE,
-  CONSTRAINT `update_user_info_event_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `sdu_project_training`.`user_info` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `update_user_info_event_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 

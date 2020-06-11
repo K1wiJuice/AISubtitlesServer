@@ -3,8 +3,11 @@ package com.AISubtitles.Server.controller;
 import javax.servlet.http.HttpSession;
 
 import com.AISubtitles.Server.dao.UserDao;
+import com.AISubtitles.Server.dao.UserModificationDao;
 import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
+import com.AISubtitles.Server.domain.UserModification;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +21,26 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    UserModificationDao userModificationDao;
+
+    //操作时间字段由数据库自动记录
+    public void add_user_modification_record(int userId, String fieldName,
+                                            String oldValue, String newValue) {
+        UserModification um = new UserModification();
+        um.setUserId(userId);
+        um.setFieldName(fieldName);
+        um.setOldValue(oldValue);
+        um.setNewValue(newValue);
+        userModificationDao.save(um);
+    }
+
+    @GetMapping("/test")
+    public User insertUser(User user) {
+        userDao.save(user);
+        add_user_modification_record(user.getUserId(), "new", user.getUserName(), user.getUserName());
+        return user;
+    }
 
     @PostMapping(value = "user/regist")
     public Result handleRegist(User user) {
@@ -49,11 +72,11 @@ public class UserController {
     }
 
     @PostMapping(value = "user/login")
-    public String login(@RequestParam String usereamil,
-                        @RequestParam String userpassword,
+    public String login(@RequestParam String userEmail,
+                        @RequestParam String userPassword,
                         HttpSession session,
                         RedirectAttributes attributes){
-        User user = userDao.findByUserEmailAndUserPassword(useremail,userpassword);
+        User user = userDao.findByUserEmailAndUserPassword(userEmail,userPassword);
         if (user != null) {
             user.setUserPassword(null);
             session.setAttribute("user",user);
@@ -69,6 +92,5 @@ public class UserController {
         session.removeAttribute("user");
         return "redirect:user/login";
     }
-
 
 }

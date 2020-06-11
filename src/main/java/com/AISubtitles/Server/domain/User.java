@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//不设置setUserId方法
+
 @Entity
 @Table(name = "user_info")
 public class User {
@@ -34,10 +36,6 @@ public class User {
 
     public int getUserId() {
         return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
    
     public String getUserName() {
