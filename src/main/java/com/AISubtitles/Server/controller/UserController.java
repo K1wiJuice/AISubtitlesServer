@@ -40,7 +40,7 @@ public class UserController {
         userModificationDao.save(um);
     }
 
-    // 对用户信息的增删改查
+    // 对用户信息的修改
     @GetMapping(value = "user/motify4person")
     public Result motify4person(int userId, String fieldName, String newValue) {
         Result<User> result = new Result<User>();
@@ -89,23 +89,6 @@ public class UserController {
         result.setStatus(200);
         result.setData(userDao.findById(userId).get());
         return result;
-    }
-
-    @GetMapping("/test")
-    public User insertUser(User user) {
-        userDao.save(user);
-        add_user_modification_record(user.getUserId(), "new", user.getUserName(), user.getUserName());
-        return user;
-    }
-    @GetMapping("/test1")
-    public User testUser(int userId) {
-        try{
-            System.out.println(userDao.findById(userId));
-            return userDao.findById(userId).get();
-        }catch(NoSuchElementException e) {
-            return null;
-        }
-
     }
 
     @PostMapping(value = "user/regist")
