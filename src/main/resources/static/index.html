@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+   有几处url是绝对路径，
+   -->
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/forgetPwd.css" />
+<script type="text/javascript" src="../assets/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/js/validform_5.3.2.js"></script>
+<script type="text/javascript" src="../assets/js/jQuery.md5.js"></script>
+<script type="text/javascript" src="../assets/js/pagecommon.js"></script>
+<title>找回密码</title>
+<style>
+.Validform_checktip {
+	float: right;
+	text-align: center;
+}
+</style>
+</head>
+<style>
+</style>
+
+<body>
+	<div id="forget-pwd">
+		<div class="header-wrapper" style="height:120px;">
+			<div class="content">
+				<img src="../assets/images/wangji.png" onclick="redirectIndex();" style="cursor: pointer;"> <span>|</span> <span
+					class="text">密码重置</span> <span class="login"><a href="login.html">登录</a></span>
+			</div>
+		</div>
+		<div class="step-wrapper">
+			<div class="content">
+				<ul>
+					<li>
+						<p class="num one pass-color">1</p>
+						<p class="text">填写账号</p>
+						<div class="line line-1"></div>
+					</li>
+					<li>
+						<p class="num two">2</p>
+						<p class="text">身份验证</p>
+						<div class="line line-2"></div>
+					</li>
+					<li>
+						<p class="num three">3</p>
+						<p class="text">设置新密码</p>
+						<div class="line line-3"></div>
+					</li>
+					<li>
+						<p class="num four">4</p>
+						<p class="text">完成</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="con-wrapper">
+			<div class="step step-1">
+				<div class="form-group">
+					<label for="username">账号:</label> <input type="text"
+						class="form-control" id="username" name="username"
+						placeholder="请输入您的账号"/>
+					<p id="summary" style="color: red"></p>
+				</div>
+				<div class="drag">
+					<div class="drag-bg"></div>
+					<div class="drag-text" onselectstart="return false;">请拖动滑块进行验证</div>
+					<div class="drag-btn">&gt;&gt;</div>
+				</div>
+				<button type="button" class="btn one-step-btn" id="buttonPassword">确定</button>
+			</div>
+
+			<div class="step step-2" style="display: none;">
+				<div class="form-group">
+					<label for="mobile">验证方式:</label> <input type="text"
+						class="form-control" id="emailNumber" maxlength="30"
+						placeholder="请输入手机号或邮箱">
+				</div>
+				<p id="email" style="color: red"></p>
+				<label for="check-code">验证码:</label>
+				<div class="input-group">
+					<input type="text" class="form-control" id="emailCode"
+						name="emailCode" maxlength="6" placeholder="请输入验证码">
+					<div class="input-group-addon code-text" style="pointer: courser;"
+						id="getEmailCode">发送验证码</div>
+				</div>
+				<p id="code" style="color: red"></p>
+				<button type="button" class="btn back back-step-1">返回上一步</button>
+				<button type="button" class="btn two-step-btn" id="validateCode">确定</button>
+			</div>
+			<div class="step step-3" style="display: none;">
+				<div class="form-group">
+					<label for="password">设置新密码:</label> <input type="password"
+						class="form-control" id="password" maxlength="30"
+						placeholder="请输入新密码">
+				</div>
+				<p id="pwd" style="color: red"></p>
+				<div class="form-group">
+					<label for="password-2">确认密码:</label> <input type="password"
+						class="form-control" id="password-2" maxlength="30"
+						placeholder="再次输入密码">
+				</div>
+				<p id="newpwd" style="color: red"></p>
+				<p id="message" style="color: red"></p>
+				<button type="button" class="btn back back-step-2">返回上一步</button>
+				<button type="button" id="buttonUpdatePassword"
+					class="btn three-step-btn">确定</button>
+			</div>
+			<div class="step step-4" style="display: none;">
+				<div class="success"></div>
+				<a href="/index.html"><button id="indexLogin">密码重置成功，点此返回登录>></button></a>
+			</div>
+		</div>
+		<div class="footer-wrapper"style="height:50px;">
+			<div class="content"style="height:25px;">
+				<p>xxxxxxxxxxxxxxxxx © Ai字幕君2020 xxxxxxxxxxxxxxxxxxxx</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		//一、定义一个获取DOM元素的方法
+		var q = function(selector) {
+			return document.querySelector(selector);
+		}, box = q(".drag"), //容器
+		bg = q(".drag-bg"), //背景
+		text = q(".drag-text"), //文字
+		btn = q(".drag-btn"), //滑块
+		success = false, //是否通过验证的标志
+		distance = box.offsetWidth - btn.offsetWidth;//滑动成功的宽度（距离）
+
+		//二、给滑块注册鼠标按下事件
+		btn.onmousedown = function btnFun(e){
+
+			//1.鼠标按下之前必须清除掉后面设置的过渡属性
+			btn.style.transition = "";
+			bg.style.transition = "";
+
+			//说明：clientX 事件属性会返回当事件被触发时，鼠标指针向对于浏览器页面(或客户区)的水平坐标。
+
+			//2.当滑块位于初始位置时，得到鼠标按下时的水平位置
+			var e = e || window.event;
+			var downX = e.clientX;
+
+			//三、给文档注册鼠标移动事件
+			document.onmousemove = function(e) {
+
+				var e = e || window.event;
+				//1.获取鼠标移动后的水平位置
+				var moveX = e.clientX;
+				//2.得到鼠标水平位置的偏移量（鼠标移动时的位置 - 鼠标按下时的位置）
+				var offsetX = moveX - downX;
+
+				//3.在这里判断一下：鼠标水平移动的距离 与 滑动成功的距离 之间的关系
+				if (offsetX > distance) {
+					offsetX = distance;//如果滑过了终点，就将它停留在终点位置
+				} else if (offsetX < 0) {
+					offsetX = 0;//如果滑到了起点的左侧，就将它重置为起点位置
+				}
+
+				//4.根据鼠标移动的距离来动态设置滑块的偏移量和背景颜色的宽度
+				btn.style.left = offsetX + "px";
+				bg.style.width = offsetX + "px";
+
+				//如果鼠标的水平移动距离 = 滑动成功的宽度
+				if (offsetX == distance) {
+					
+					var username = $("#username").val();
+                    if (username != null) {
+                        $.ajax({
+                            type : "POST",
+                            dataType : "json",
+                            url : "../findpassword/selectuserinfo",
+                            data : {
+                                qqnum : username
+                            },
+                            success : function(data) {
+                                if (data.code == 200) {
+                                    $(document).ready(function() {
+                                        $("#buttonPassword").click(function(){
+                                            $(".step-2").show().siblings().hide();
+                                            $(".line-1,.two").addClass("pass-color");
+                                        })
+									})
+                                } else { 
+                                	$("#summary").show();
+                                    $('#summary').html(data.message); 
+                                    success = false;
+                                    btn.style.left = 0;
+                                    bg.style.width = 0;
+                                    btn.style.transition = "left 1s ease";
+                                    bg.style.transition = "width 1s ease";
+                                    text.innerHTML = "验证失败！";
+                                    text.style.color = "red";
+                                    btn.innerHTML = "&gt;&gt";
+                                    btn.style.color = "#666";
+                                    bg.style.backgroundColor = "#75CDF9";
+                                  
+                				
+                                }
+                            }
+                        })
+                    } 
+					//1.设置滑动成功后的样式
+					text.innerHTML = "验证通过";
+					text.style.color = "#fff";
+					btn.innerHTML = "&radic;";
+					btn.style.color = "green";
+					bg.style.backgroundColor = "lightgreen";
+
+					//2.设置滑动成功后的状态
+					success = true;
+					//成功后，清除掉鼠标按下事件和移动事件（因为移动时并不会涉及到鼠标松开事件）
+					//btn.onmousedown = null;
+					document.onmousemove = null;
+                    
+				}
+			}
+			//四、给文档注册鼠标松开事件
+			document.onmouseup = function btnFun2(e) {
+
+				//如果鼠标松开时，滑到了终点，则验证通过
+				if (success) {
+					return;
+				} else {
+					//反之，则将滑块复位（设置了1s的属性过渡效果）
+					btn.style.left = 0;
+					bg.style.width = 0;
+					btn.style.transition = "left 1s ease";
+					bg.style.transition = "width 1s ease"; 
+				}
+				//只要鼠标松开了，说明此时不需要拖动滑块了，那么就清除鼠标移动和松开事件。
+				document.onmousemove = null;
+				document.onmouseup = null; 
+			}
+		}
+		
+		
+		/**/
+		
+	</script>
+</body>
+
+<script>
+	var verifyTimer;
+	$(document).ready(function() {
+        $(".form-control").blur(function() {
+            var username = $("#username").val();
+            if (username == null || username == "") {
+                $('#summary').html("请输入您的账号！");
+                $("#summary").show();
+            }else{
+            	$('#summary').html("滑动滑块进行验证！");
+                $("#summary").hide();
+            }
+        });
+        $("#buttonPassword").click(function() {
+            var username = $("#username").val();
+            if (username != null || username != "") {
+            	$('#summary').html("请拖动滑块进行验证！");
+                $("#summary").show();
+            }else{
+                $("#summary").hide();
+            }
+        });
+        $("#emailNumber").blur(function() {
+            var emailNumber=$("#emailNumber").val();
+            if (emailNumber == null || emailNumber == "") {
+                $('#email').html("请输入您的邮箱！");
+            }else{
+                $("#email").hide();
+            }
+        });
+        $("#password").blur(function() {
+            var password=$("#password").val();
+            if (password == null || password == "") {
+                $('#pwd').html("请输入密码！");
+            }else{
+                $("#pwd").hide();
+			}
+
+        });
+        $("#password-2").blur(function() {
+            var password1=$("#password-2").val();
+            if (password1 == null || password1 == "") {
+                $('#newpwd').html("确认密码不能为空！");
+            }else{
+                $("#newpwd").hide();
+            }
+        });
+
+		$(".two-step-btn").click(function validateCode() {
+			var emailCode = $("#emailCode").val();
+			$.ajax({
+				type : "POST",
+				dataType : "json",
+				url : "http://localhost:8083/findpassword/validatecode",
+				data : {
+					emailCode : emailCode
+				},
+				success : function(data) {
+					if (data.code == 200) {
+						$(".step-3").show().siblings().hide();
+                        $(".line-2,.three").addClass("pass-color");
+					} else {
+						$('#code').html(data.message);
+					}
+				}
+			})
+		});
+
+		$(".three-step-btn").click(function() {
+			var password = $("#password").val();
+            var newpassword = $("#password-2").val();
+			$.ajax({
+				type : "POST",
+				dataType : "json",
+				url : "http://localhost:8083/findpassword/update",
+				data : {
+					password : password,
+					newpassword : newpassword
+				},
+				success : function(data) {
+					if (data.code == 200) {
+						$(".step-4").show().siblings().hide();
+						$(".line-3,.four").addClass("pass-color");
+						
+						
+					} else {
+						$('#message').html(data.message);
+					}
+				}
+			})
+		});
+		
+		$("#indexLogin").click(function() {
+			 $(".choose-role").hide();
+             $(".regist-wrapper").hide();
+             $(".regist-badge").hide();
+             $(".info-wrapper").show();
+             $(".login-wrapper").show();
+             $(".login-badge").show();
+			
+		})
+		
+	
+		//上一步
+		$(".back-step-1").click(function() {
+			$(".step-1").show().siblings().hide();
+			$(".line-1,.two").removeClass("pass-color");
+		});
+		$(".back-step-2").click(function() {
+			$(".step-2").show().siblings().hide();
+			$(".line-2,.three").removeClass("pass-color");
+		})
+		$("#getEmailCode").click(function(event) {
+			if (end == 0) {
+				var email = $("#emailNumber").val();
+
+				$.ajax({
+					url : "../email/sendCode",
+					type : "POST",
+					data : {
+						email : email
+					},
+					async : false,
+					success : function(result) {
+						if (result == "success") {
+							countDown1();
+						}
+					}
+				});
+			}
+		});
+	});
+
+	var seconds = 60, end = 0;
+	function countDown1() {
+		var emailCode = $("#getEmailCode");
+		if (end == 0) {
+			emailCode.html("获取邮箱验证码");
+			end = seconds;
+		} else {
+			end--;
+			emailCode.html("重新发送(" + end + ")");
+		}
+		if (end == 0) {
+			clearTimeout(verifyTimer);
+			emailCode.html("获取邮箱验证码");
+			return false;
+		}
+		verifyTimer = setTimeout(function() {
+			countDown1();
+		}, 1000)
+	}
+</script>
+</html>
