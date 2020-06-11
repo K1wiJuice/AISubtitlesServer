@@ -9,7 +9,7 @@ public class User {
 
     private int userId;
     private String userName;
-    private String UserGender;
+    private String userGender;
     private Date userBirthday;
     private String userPassword;
     private String userEmail;
@@ -22,7 +22,7 @@ public class User {
         return "User{" +
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
-                ", UserGender='" + UserGender + '\'' +
+                ", UserGender='" + userGender + '\'' +
                 ", userBirthday=" + userBirthday +
                 ", userPassword='" + userPassword + '\'' +
                 ", userEmail='" + userEmail + '\'' +
