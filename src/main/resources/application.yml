@@ -10,8 +10,12 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 52128800
 logging:
   level:
     com.AISubtitles.Server.mapper: debug
 server:
   port: 8080
+

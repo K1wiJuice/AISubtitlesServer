@@ -1,5 +1,11 @@
 package com.AISubtitles.Server.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +16,12 @@ import javax.persistence.Table;
 
 //不设置setUserId方法
 
+
+@Accessors(chain = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "user_info")
 public class User {
