@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 //不设置setUserId方法
-
 
 @Accessors(chain = true)
 @Data
@@ -33,7 +32,7 @@ public class User {
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_gender")
-    private String UserGender;
+    private String userGender;
     @Column(name = "user_birthday")
     private Date userBirthday;
     @Column(name = "user_passwrod")
@@ -44,7 +43,6 @@ public class User {
     private String image;
     @Column(name = "user_phone_number")
     private String userPhoneNumber;
-
 
     public int getUserId() {
         return userId;
@@ -59,11 +57,11 @@ public class User {
     }
 
     public String getUserGender() {
-        return UserGender;
+        return userGender;
     }
 
     public void setUserGender(String userGender) {
-        UserGender = userGender;
+        userGender = userGender;
     }
 
     public Date getUserBirthday() {
