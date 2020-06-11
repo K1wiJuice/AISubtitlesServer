@@ -1,17 +1,19 @@
 package com.AISubtitles.Server.domain;
 
-import org.springframework.stereotype.Component;
-
-import javax.persistence.*;
 import java.sql.Date;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_info")
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private int userId;
     @Column(name = "user_name")
@@ -30,52 +32,6 @@ public class User {
     private String userPhoneNumber;
 
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", UserGender='" + UserGender + '\'' +
-                ", userBirthday=" + userBirthday +
-                ", userPassword='" + userPassword + '\'' +
-                ", userEmail='" + userEmail + '\'' +
-                ", image='" + image + '\'' +
-                ", userPhoneNumber='" + userPhoneNumber + '\'' +
-                '}';
-    }
-
-    public String getUserPhoneNumber() {
-        return userPhoneNumber;
-    }
-
-    public void setUserPhoneNumber(String userPhoneNumber) {
-        this.userPhoneNumber = userPhoneNumber;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public int getUserId() {
         return userId;
     }
@@ -83,7 +39,7 @@ public class User {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
+   
     public String getUserName() {
         return userName;
     }
@@ -106,5 +62,37 @@ public class User {
 
     public void setUserBirthday(Date userBirthday) {
         this.userBirthday = userBirthday;
+    }
+    
+    public String getImage() {
+        return userName;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+    
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
+    }
+
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
     }
 }

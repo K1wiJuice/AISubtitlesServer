@@ -1,16 +1,20 @@
 #******************************用户基础信息************************************************
-CREATE TABLE `user_info`  (
-  `user_id` int NOT NULL,
+CREATE TABLE If Not Exists `user_info`  (
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `user_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `user_gender` enum('male','female','secret') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'secret',
   `user_birthday` date NULL DEFAULT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_phone_number` String(12) NULL,
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 
 #*******************************用户授权信息***********************************************
-CREATE TABLE `user_auths`  (
-  `user_auths_id` int NOT NULL,
+CREATE TABLE If Not Exists `user_auths`  (
+  `user_auths_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NULL,
   `login_type` enum('phone','email','wechat_id','qqid') NULL DEFAULT 'email',
   `login_identifier` varchar(255) NULL,
@@ -20,7 +24,7 @@ CREATE TABLE `user_auths`  (
 
 
 #****************************信息的修改***********************************************
-CREATE TABLE `update_user_info_event`  (
+CREATE TABLE If Not Exists `update_user_info_event`  (
   `event_id` int(0) NOT NULL,
   `user_id` int(0) NULL DEFAULT NULL,
   `user_info_field_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
@@ -33,7 +37,7 @@ CREATE TABLE `update_user_info_event`  (
 
 
 #****************************************信息**************************************************
-CREATE TABLE `msg`  (
+CREATE TABLE If Not Exists `msg`  (
   `msg_receiveder_id` int(0) NOT NULL,
   `msg_sender_id` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`msg_receiveder_id`) USING BTREE
@@ -41,7 +45,7 @@ CREATE TABLE `msg`  (
 
 
 #**************************************视频信息**********************************************
-CREATE TABLE `video_info`  (
+CREATE TABLE If Not Exists `video_info`  (
   `video_id` int(0) NOT NULL,
   `user_id` int(0) NULL DEFAULT NULL,
   `video_pqth` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
@@ -59,7 +63,7 @@ CREATE TABLE `video_info`  (
 
 
 #*************************************点赞信息******************************************************
-CREATE TABLE `video_favors`  (
+CREATE TABLE If Not Exists `video_favors`  (
   `video_id` int(0) NOT NULL,
   `user_id` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`video_id`) USING BTREE
@@ -67,7 +71,7 @@ CREATE TABLE `video_favors`  (
 
 
 #***************************************浏览信息**************************************************
-CREATE TABLE `video_browses`  (
+CREATE TABLE If Not Exists `video_browses`  (
   `video_id` int(0) NOT NULL,
   `user_id` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`video_id`) USING BTREE
@@ -76,7 +80,7 @@ CREATE TABLE `video_browses`  (
 
 
 #******************************************分享信息************************************************
-CREATE TABLE `video_shares`  (
+CREATE TABLE If Not Exists `video_shares`  (
   `video_id` int(0) NOT NULL,
   `user_id` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`video_id`) USING BTREE
