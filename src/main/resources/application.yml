@@ -5,6 +5,13 @@ spring:
     url: jdbc:mysql://localhost:3306/test01?useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+  resources:
+    static-locations: classpath:/templates
 mybatis:
   config-location: classpath:mybatis/mybatisconfig.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
+logging:
+  level:
+    com.AISubtitles.Server.mapper: debug
+server:
+  port: 8083
