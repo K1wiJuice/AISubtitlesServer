@@ -1,21 +1,28 @@
 package com.AISubtitles.Server.service;
 
-import com.AISubtitles.Server.dao.UserRepository;
+import com.AISubtitles.Server.dao.UserDao;
 import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
-import com.AISubtitles.Server.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-@Transactional(rollbackFor = RuntimeException.class)
+// @Transactional(rollbackFor = RuntimeException.class)
 public class UserService {
 
-    @Autowired(required = false)
-    private UserMapper userMapper;
-    private UserRepository userRepository;
+    @Autowired
+    private UserDao userDao;
+
+    public User test01(Integer userId) {
+        return userDao.findById(userId).get();
+    }
+
+    public User test02(User user) {
+        userDao.save(user);
+        return user;
+    }
 
     public Result regist(User user) {
         Result result = new Result();
@@ -24,8 +31,8 @@ public class UserService {
 
         try {
             //判断邮箱和手机号是否已经有人使用过
-            User userBondEmail = userMapper.findUserByEmail(user.getUserEmail());
-            User userBondPhoneNumber = userMapper.findUserByPhoneNumber(user.getUserPhoneNumber());
+            User userBondEmail = userDao.findByUserEmail(user.getUserEmail());
+            User userBondPhoneNumber = userDao.findByUserPhoneNumber(user.getUserPhoneNumber());
             if (userBondEmail != null) {
                 result.setStatus(601);
                 result.setData("该邮箱已存在");
@@ -33,7 +40,7 @@ public class UserService {
                 result.setStatus(602);
                 result.setData("手机号已经存在");
             } else {
-                userMapper.regist(user);
+                userDao.save(user);
                 result.setStatus(200);
                 result.setCode(200);
                 result.setData(user);
@@ -44,9 +51,8 @@ public class UserService {
         return result;
     }
 
-
     public User checkUser(String useremail, String userpassword) {
-                User user = userRepository.findByUserNameAndPassword(useremail,userpassword);
+        User user = userDao.findByUserEmailAndUserPassword(useremail,userpassword);
         return user;
     }
 }

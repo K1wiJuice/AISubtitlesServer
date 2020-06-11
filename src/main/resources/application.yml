@@ -1,24 +1,13 @@
 spring:
   datasource:
     username: root
-    password: 1
+    password: zzz
     url: jdbc:mysql://localhost:3306/test01?useSSL=false&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
   resources:
     static-locations: classpath:/templates
-<<<<<<< HEAD
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
-=======
-mybatis:
-  config-location: classpath:mybatis/mybatisconfig.xml
-  mapper-locations: classpath:mybatis/mapper/*.xml
->>>>>>> ee2c2b0cef44ee90ff420df110f29c39318c8171
-logging:
-  level:
-    com.AISubtitles.Server.mapper: debug
 server:
-  port: 8083
+  port: 8080
