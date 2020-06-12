@@ -5,8 +5,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
-import com.AISubtitles.Server.entity.User;
-import com.AISubtitles.Server.util.Result;
+import com.AISubtitles.Server.domain.User;
+import com.AISubtitles.Server.domain.Result;
 
 /**
  * 

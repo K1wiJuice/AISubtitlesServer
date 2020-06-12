@@ -6,10 +6,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.AISubtitles.Server.dao.FindPasswordDao;
-import com.AISubtitles.Server.entity.User;
+//import com.AISubtitles.Server.dao.FindPasswordDao;
+import com.AISubtitles.Server.dao.UserDao;
+
+import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.service.FindPasswordService;
-import com.AISubtitles.Server.util.Result;
+import com.AISubtitles.Server.domain.Result;
 
 /**
  * @author Gavin
@@ -19,7 +21,7 @@ import com.AISubtitles.Server.util.Result;
 public class FindPasswordServiceImpl implements FindPasswordService {
 
 	@Autowired
-	private FindPasswordDao findPasswordDao;
+	private UserDao userDao;
 
 	User user = new User();
 
@@ -30,13 +32,13 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	public Result<User> update(String password, String newpassword) {
 		Result<User> resultUser = new Result<>();
 		if (password.equals(newpassword)) {
-			Integer success = findPasswordDao.update(newpassword, user.getId());
+			Integer success = userDao.update(newpassword, user.getUserEmail());
 			if (success > 0) {
 				resultUser.setCode(200);
 			}
 			return resultUser;
 		} else {
-			resultUser.setCode(500);
+			resultUser.setCode(608);
 			resultUser.setMessage("两次密码输入的不一致！");
 			return resultUser;
 		}
@@ -51,7 +53,7 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 			resultUser.setMessage("");
 			return resultUser;
 		} else {
-			resultUser.setCode(500);
+			resultUser.setCode(606);
 			resultUser.setMessage("验证码错误");
 			return resultUser;
 		}
@@ -64,15 +66,16 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	@Override
 	public Result<User> select(HttpServletRequest request) {
 		Result<User> resultUser = new Result<>();
-		String qqnum = request.getParameter("qqnum");
-		user = findPasswordDao.select(qqnum);
-		int qq = findPasswordDao.selectUserCount(qqnum);
-		if (qq > 0) {
+		String accountnum = request.getParameter("accountnum");
+		
+		user = userDao.findByUserName(accountnum);
+		int account = userDao.countByUserName(accountnum);
+		if (account > 0) {
 			resultUser.setCode(200);
 			resultUser.setData(user);
 			return resultUser;
 		} else {
-			resultUser.setCode(500);
+			resultUser.setCode(604);
 			resultUser.setMessage("您录入的账号不存在！");
 			return resultUser;
 		}

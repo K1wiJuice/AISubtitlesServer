@@ -10,14 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.AISubtitles.Server.entity.User;
+import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.service.FindPasswordService;
-import com.AISubtitles.Server.util.Result;
+import com.AISubtitles.Server.domain.Result;
 
 /**
  * 
  * @author Gavin
  * session保存服务器发送的验证码,redis存储session
+ * 写在前面：为了安全性，发送验证码后不能再修改邮箱（eg：点击发送验证码跳转页面）
  *
  */
 @Controller
