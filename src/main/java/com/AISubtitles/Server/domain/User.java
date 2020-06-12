@@ -1,6 +1,12 @@
 package com.AISubtitles.Server.domain;
 
-import java.sql.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +14,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//不设置setUserId方法
+
+@Accessors(chain = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "user_info")
 public class User {
@@ -19,7 +32,7 @@ public class User {
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_gender")
-    private String UserGender;
+    private String userGender;
     @Column(name = "user_birthday")
     private Date userBirthday;
     @Column(name = "user_password")
@@ -31,13 +44,8 @@ public class User {
     @Column(name = "user_phone_number")
     private String userPhoneNumber;
 
-
     public int getUserId() {
         return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
    
     public String getUserName() {
@@ -49,11 +57,11 @@ public class User {
     }
 
     public String getUserGender() {
-        return UserGender;
+        return userGender;
     }
 
     public void setUserGender(String userGender) {
-        UserGender = userGender;
+        userGender = userGender;
     }
 
     public Date getUserBirthday() {
