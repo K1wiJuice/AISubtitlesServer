@@ -121,18 +121,23 @@ public class UserController {
     }
 
     @PostMapping(value = "user/login")
-    public String login(@RequestParam String userEmail,
+    public Result login(@RequestParam String userEmail,
                         @RequestParam String userPassword,
                         HttpSession session,
                         RedirectAttributes attributes){
+        Result result = new Result();
+        result.setCode(500);
+        result.setData(null);
         User user = userDao.findByUserEmailAndUserPassword(userEmail,userPassword);
         if (user != null) {
             user.setUserPassword(null);
             session.setAttribute("user",user);
-            return "user/index";
+            result.setCode(200);
+            return result;
         }else {
             attributes.addFlashAttribute("message","y用户名密码错误");
-            return "redirect:/user/login";
+            result.setCode(605);
+            return result;
         }
     }
 
