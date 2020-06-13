@@ -6,7 +6,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//import com.AISubtitles.Server.dao.FindPasswordDao;
+import com.AISubtitles.common.CodeConsts;
+import com.AISubtitles.common.StatusConsts;
+
 import com.AISubtitles.Server.dao.UserDao;
 
 import com.AISubtitles.Server.domain.User;
@@ -34,11 +36,13 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 		if (password.equals(newpassword)) {
 			Integer success = userDao.update(newpassword, user.getUserEmail());
 			if (success > 0) {
-				resultUser.setCode(200);
+				resultUser.setCode(CodeConsts.CODE_SUCCESS);
+				resultUser.setStatus(StatusConsts.STATUS_SUCCESS);
 			}
 			return resultUser;
 		} else {
-			resultUser.setCode(608);
+			resultUser.setCode(CodeConsts.CODE_SUCCESS);
+			resultUser.setStatus(StatusConsts.STATUS_RECOVER_PASSWORD_ERROR);
 			resultUser.setMessage("两次密码输入的不一致！");
 			return resultUser;
 		}
@@ -49,11 +53,13 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 		Result<User> resultUser = new Result<>();
 		String code = (String) session.getAttribute("code");
 		if (code.equals(emailCode)) {
-			resultUser.setCode(200);
+			resultUser.setCode(CodeConsts.CODE_SUCCESS);
+			resultUser.setStatus(StatusConsts.STATUS_SUCCESS);
 			resultUser.setMessage("");
 			return resultUser;
 		} else {
-			resultUser.setCode(606);
+			resultUser.setCode(CodeConsts.CODE_SUCCESS);
+			resultUser.setStatus(StatusConsts.STATUS_RECOVER_PASSWORD_ERROR);
 			resultUser.setMessage("验证码错误");
 			return resultUser;
 		}
@@ -71,11 +77,11 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 		user = userDao.findByUserName(accountnum);
 		int account = userDao.countByUserName(accountnum);
 		if (account > 0) {
-			resultUser.setCode(200);
+			resultUser.setStatus(StatusConsts.STATUS_SUCCESS);
 			resultUser.setData(user);
 			return resultUser;
 		} else {
-			resultUser.setCode(604);
+			resultUser.setStatus(StatusConsts.STATUS_ACCOUNT_NOT_EXIST);
 			resultUser.setMessage("您录入的账号不存在！");
 			return resultUser;
 		}

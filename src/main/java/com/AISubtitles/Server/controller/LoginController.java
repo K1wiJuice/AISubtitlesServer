@@ -1,6 +1,10 @@
 package com.AISubtitles.Server.controller;
 
+import com.AISubtitles.common.CodeConsts;
+import com.AISubtitles.common.StatusConsts;
+
 import com.AISubtitles.Server.dao.UserDao;
+import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,18 +20,25 @@ public class LoginController {
     UserDao userDao;
 
     @PostMapping(value = "user/login")
-    public String login(@RequestParam String useremail,
-                        @RequestParam String userpassword,
+    public Result login(@RequestParam String userEmail,
+                        @RequestParam String userPassword,
                         HttpSession session,
                         RedirectAttributes attributes){
-        User user = userDao.findByUserEmailAndUserPassword(useremail,userpassword);
+        Result result = new Result();
+        result.setCode(CodeConsts.CODE_SERVER_ERROR);
+        result.setData(null);
+        User user = userDao.findByUserEmailAndUserPassword(userEmail,userPassword);
         if (user != null) {
             user.setUserPassword(null);
             session.setAttribute("user",user);
-            return "user/index";
+            result.setCode(CodeConsts.CODE_SUCCESS);
+            result.setStatus(StatusConsts.STATUS_SUCCESS);
+            return result;
         }else {
             attributes.addFlashAttribute("message","y用户名密码错误");
-            return "redirect:/user/login";
+            result.setCode(CodeConsts.CODE_SUCCESS);            
+            result.setStatus(StatusConsts.STATUS_WRONG_PASSWORD);
+            return result;
         }
     }
 
@@ -36,5 +47,4 @@ public class LoginController {
         session.removeAttribute("user");
         return "redirect:user/login";
     }
-
 }

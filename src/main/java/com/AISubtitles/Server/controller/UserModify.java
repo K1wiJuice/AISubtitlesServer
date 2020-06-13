@@ -6,6 +6,9 @@ import java.util.NoSuchElementException;
 
 import javax.servlet.http.HttpSession;
 
+import com.AISubtitles.common.CodeConsts;
+import com.AISubtitles.common.StatusConsts;
+
 import com.AISubtitles.Server.dao.UserDao;
 import com.AISubtitles.Server.dao.UserModificationDao;
 import com.AISubtitles.Server.domain.Result;
@@ -22,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javassist.Loader.Simple;
 
 @RestController
-public class UserController {
+public class UserModify {
 
     @Autowired
     UserDao userDao;
@@ -41,15 +44,15 @@ public class UserController {
     }
 
     // 对用户信息的修改
-    @GetMapping(value = "user/motify4person")
+    @GetMapping(value = "user/userModify")
     public Result motify4person(int userId, String fieldName, String newValue) {
-        Result<User> result = new Result<User>();
+        Result result = new Result();
         User user;
         try {
             user = userDao.findById(userId).get();
         } catch (NoSuchElementException e) {
-            result.setCode(500);
-            result.setStatus(608);
+            result.setCode(CodeConsts.CODE_SERVER_ERROR);
+            result.setStatus(StatusConsts.STATUS_MODIFY_ERROR);
             result.setData(null);
             return result;
         }
@@ -78,73 +81,17 @@ public class UserController {
             userDao.saveAndFlush(user);
         } catch (Exception e) {
             //NullPointerException or ParseException
-            result.setCode(500);
-            result.setStatus(607);
+            result.setCode(CodeConsts.CODE_SERVER_ERROR);
+            result.setStatus(StatusConsts.STATUS_MODIFY_ERROR);
             result.setData(null);
             return result;
         }
 
         add_user_modification_record(userId, fieldName, oldValue, newValue);
-        result.setCode(200);
-        result.setStatus(200);
+        result.setCode(CodeConsts.CODE_SUCCESS);
+        result.setStatus(StatusConsts.STATUS_SUCCESS);
         result.setData(userDao.findById(userId).get());
         return result;
-    }
-
-    @PostMapping(value = "user/regist")
-    public Result handleRegist(User user) {
-        Result result = new Result();
-        result.setCode(500);
-        result.setData(null);
-
-        try {
-            User userByPhoneNumber = userDao.findByUserPhoneNumber(user.getUserPhoneNumber());
-            User userByEmail = userDao.findByUserEmail(user.getUserEmail());
-            if (userByEmail != null) {
-                result.setStatus(601);
-                result.setData("该邮箱已存在");
-            } else if (userByPhoneNumber != null)  {
-                result.setStatus(602);
-                result.setData("手机号已存在");
-            } else {
-                userDao.save(user);
-                result.setStatus(200);
-                result.setCode(200);
-                result.setData(user);
-            }
-        } catch (Exception e) {
-            result.setData(e.getCause());
-            e.printStackTrace();
-        }
-
-        return result;
-    }
-
-    @PostMapping(value = "user/login")
-    public Result login(@RequestParam String userEmail,
-                        @RequestParam String userPassword,
-                        HttpSession session,
-                        RedirectAttributes attributes){
-        Result result = new Result();
-        result.setCode(500);
-        result.setData(null);
-        User user = userDao.findByUserEmailAndUserPassword(userEmail,userPassword);
-        if (user != null) {
-            user.setUserPassword(null);
-            session.setAttribute("user",user);
-            result.setCode(200);
-            return result;
-        }else {
-            attributes.addFlashAttribute("message","y用户名密码错误");
-            result.setCode(605);
-            return result;
-        }
-    }
-
-    @PostMapping(value = "user/logout")
-    public String logout(HttpSession session){
-        session.removeAttribute("user");
-        return "redirect:user/login";
     }
 
 }
