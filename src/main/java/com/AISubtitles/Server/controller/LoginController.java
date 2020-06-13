@@ -41,9 +41,13 @@ public class LoginController {
     }
 
     @PostMapping(value = "user/logout")
-    public String logout(HttpSession session){
+    public Result logout(HttpSession session){
+        Result result = new Result();
+        result.setCode(500);
+        result.setData(null);
         session.removeAttribute("user");
-        return "redirect:user/login";
+        result.setCode(200);
+        return result;
     }
 
 }
