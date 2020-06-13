@@ -1,5 +1,6 @@
 package com.AISubtitles.Server.controller;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.NoSuchElementException;
@@ -44,9 +45,10 @@ public class UserModity {
 
     // 对用户信息的修改
     @PostMapping(value = "user/userModify")
-    public Result motify4person(int userId, String fieldName, String newValue) {
+    public Result motify4person(HttpSession session, String fieldName, String newValue) {
         Result<User> result = new Result<User>();
-        User user;
+        User user = (User) session.getAttribute("user");
+        int userId = user.getUserId();
         try {
             user = userDao.findById(userId).get();
         } catch (NoSuchElementException e) {
@@ -68,7 +70,7 @@ public class UserModity {
             } else if (fieldName.equals("userBirthday")) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 oldValue = simpleDateFormat.format(user.getUserBirthday());
-                user.setUserBirthday(simpleDateFormat.parse(newValue));
+                user.setUserBirthday(new Date(simpleDateFormat.parse(newValue).getTime()));
             } else if (fieldName.equals("userEmail")) {
                 oldValue = user.getUserEmail();
                 user.setUserEmail(newValue);
