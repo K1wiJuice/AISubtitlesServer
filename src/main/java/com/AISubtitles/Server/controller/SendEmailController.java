@@ -24,7 +24,7 @@ public class SendEmailController {
 	@Autowired
 	SendMailService sendMailService;
 
-	@Value("${mail.fromMail.addr}")
+	@Value("705256817@qq.com")
 	public String from;
 
 	@PostMapping("/sendCode")

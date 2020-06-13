@@ -11,7 +11,7 @@ spring:
     default-encoding: utf-8
   datasource:
     username: root
-    password: zzz
+    password: 1
     url: jdbc:mysql://localhost:3306/test01?useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
   resources:
