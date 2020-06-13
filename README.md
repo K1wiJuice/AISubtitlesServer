@@ -8,7 +8,7 @@
 
     - 建表 user_info和update_user_info_event，建表信息在sql.txt中
 
-  - 修改resources目录下application.ymldatasource:username和password
+  - 修改resources目录下application.yml中datasource的username和password
 
 - #### 使用方法：
 
