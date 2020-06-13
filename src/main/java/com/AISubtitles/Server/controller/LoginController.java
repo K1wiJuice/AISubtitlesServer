@@ -1,7 +1,11 @@
 package com.AISubtitles.Server.controller;
 
+import com.AISubtitles.common.CodeConsts;
+import com.AISubtitles.common.StatusConsts;
 import com.AISubtitles.Server.dao.UserDao;
+import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,18 +20,23 @@ public class LoginController {
     UserDao userDao;
 
     @PostMapping(value = "user/login")
-    public String login(@RequestParam String useremail,
-                        @RequestParam String userpassword,
+    public Result login(@RequestParam String userEmail,
+                        @RequestParam String userPassword,
                         HttpSession session,
                         RedirectAttributes attributes){
-        User user = userDao.findByUserEmailAndUserPassword(useremail,userpassword);
+        Result result = new Result();
+        result.setCode(500);
+        result.setData(null);
+        User user = userDao.findByUserEmailAndUserPassword(userEmail,userPassword);
         if (user != null) {
             user.setUserPassword(null);
             session.setAttribute("user",user);
-            return "user/index";
+            result.setCode(200);
+            return result;
         }else {
             attributes.addFlashAttribute("message","y用户名密码错误");
-            return "redirect:/user/login";
+            result.setCode(605);
+            return result;
         }
     }
 
