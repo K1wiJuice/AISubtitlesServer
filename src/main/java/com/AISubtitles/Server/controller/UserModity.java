@@ -45,7 +45,7 @@ public class UserModity {
 
     // 对用户信息的修改
     @PostMapping(value = "user/userModify")
-    public Result motify4person(HttpSession session, String fieldName, String newValue) {
+    public Result modify4person(HttpSession session, String fieldName, String newValue) {
         Result<User> result = new Result<User>();
         User user = (User) session.getAttribute("user");
         int userId = user.getUserId();
