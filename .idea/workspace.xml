@@ -26,31 +26,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="123">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/UserAuthsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/UserAuths.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/RegistService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/RegistServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/RegistTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="重新设计了数据库，将判断手机号和邮箱是否存在从注册中分离出来。User类即将删除password属性。">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/md5Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/SendEmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/SendEmailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SendMailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SendMailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/common/StatusConsts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/common/StatusConsts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/AISubtitles_regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/AISubtitles_regist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/AISubtitles_repwd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/AISubtitles_repwd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/ServerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/ServerApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/AISubtitles_regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/AISubtitles_regist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/AISubtitles/Server/ServerApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/AISubtitles/Server/ServerApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/Md5Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/Md5Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/uploadFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/uploadFile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/RegistTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/RegistTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/subtitles.kotlin_module" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,8 +79,24 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.AISubtitles.Server.domain" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\24113\Desktop\AISubtitlesServer\src\main\resources\static" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegistTest.testRegist">
+  <component name="RunManager" selected="Spring Boot.ServerApplication">
+    <configuration name="Md5Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.utils.Md5Utils" />
+      <module name="subtitles" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AISubtitles.Server.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.ServerApplication" />
       <module name="subtitles" />
@@ -137,6 +137,22 @@
       <option name="PACKAGE_NAME" value="com.AISubtitles.Server" />
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.ServerApplicationTests" />
       <option name="METHOD_NAME" value="testFind" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="md5Test.md5Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="subtitles" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AISubtitles.Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.AISubtitles.Server" />
+      <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.md5Test" />
+      <option name="METHOD_NAME" value="md5Test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -199,6 +215,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.RegistTest.testRegist" />
+        <item itemvalue="JUnit.md5Test.md5Test" />
+        <item itemvalue="Application.Md5Utils" />
         <item itemvalue="JUnit.ServerApplicationTests.testFind" />
         <item itemvalue="Application.ServerApplication" />
       </list>
@@ -217,7 +235,9 @@
       <workItem from="1591807311253" duration="15897000" />
       <workItem from="1591865901034" duration="18769000" />
       <workItem from="1591947351134" duration="1079000" />
-      <workItem from="1592012270122" duration="10183000" />
+      <workItem from="1592012270122" duration="11576000" />
+      <workItem from="1592028104120" duration="291000" />
+      <workItem from="1592029036204" duration="2919000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -226,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591839324847</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="重新设计了数据库，将判断手机号和邮箱是否存在从注册中分离出来。User类即将删除password属性。">
+      <created>1592025139001</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1592025139001</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,9 +285,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加了登录和注销的模块，但还未测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了登录和注销的模块，但还未测试" />
+    <MESSAGE value="重新设计了数据库，将判断手机号和邮箱是否存在从注册中分离出来。User类即将删除password属性。" />
+    <option name="LAST_COMMIT_MESSAGE" value="重新设计了数据库，将判断手机号和邮箱是否存在从注册中分离出来。User类即将删除password属性。" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592034285948">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1592034285948" />
     <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1592024703228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -281,42 +313,42 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591866874315" />
-    <state width="1493" height="398" key="GridCell.Tab.0.bottom" timestamp="1592024755108">
+    <state width="1493" height="189" key="GridCell.Tab.0.bottom" timestamp="1592034198165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="398" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592024755108" />
-    <state width="1493" height="398" key="GridCell.Tab.0.center" timestamp="1592024755107">
+    <state width="1493" height="189" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592034198165" />
+    <state width="1493" height="189" key="GridCell.Tab.0.center" timestamp="1592034198165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="398" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592024755107" />
-    <state width="1493" height="398" key="GridCell.Tab.0.left" timestamp="1592024755107">
+    <state width="1493" height="189" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592034198165" />
+    <state width="1493" height="189" key="GridCell.Tab.0.left" timestamp="1592034198165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="398" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592024755107" />
-    <state width="1493" height="398" key="GridCell.Tab.0.right" timestamp="1592024755108">
+    <state width="1493" height="189" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592034198165" />
+    <state width="1493" height="189" key="GridCell.Tab.0.right" timestamp="1592034198165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="398" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592024755108" />
-    <state width="1493" height="191" key="GridCell.Tab.1.bottom" timestamp="1592023768880">
+    <state width="1493" height="189" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592034198165" />
+    <state width="1493" height="189" key="GridCell.Tab.1.bottom" timestamp="1592034198166">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="191" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592023768880" />
-    <state width="1493" height="191" key="GridCell.Tab.1.center" timestamp="1592023768879">
+    <state width="1493" height="189" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592034198166" />
+    <state width="1493" height="189" key="GridCell.Tab.1.center" timestamp="1592034198165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="191" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592023768879" />
-    <state width="1493" height="191" key="GridCell.Tab.1.left" timestamp="1592023768879">
+    <state width="1493" height="189" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592034198165" />
+    <state width="1493" height="189" key="GridCell.Tab.1.left" timestamp="1592034198165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="191" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592023768879" />
-    <state width="1493" height="191" key="GridCell.Tab.1.right" timestamp="1592023768880">
+    <state width="1493" height="189" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592034198165" />
+    <state width="1493" height="189" key="GridCell.Tab.1.right" timestamp="1592034198166">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="191" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592023768880" />
+    <state width="1493" height="189" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592034198166" />
     <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1591948330695">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -329,10 +361,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592012125548" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1591844026620">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1592025156332">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591844026620" />
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592025156332" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -362,21 +395,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="371" y="211" key="git4idea.ui.GitUnstashDialog/0.0.1366.728@0.0.1366.728" timestamp="1591865732054" />
+    <state x="178" y="73" key="new project wizard" timestamp="1592027992695">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="178" y="73" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1592027992695" />
     <state x="389" y="55" width="756" height="768" key="search.everywhere.popup" timestamp="1592012116323">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1591835545424" />
     <state x="389" y="55" width="756" height="768" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1592012116323" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/UserController.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

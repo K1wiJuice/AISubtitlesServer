@@ -4,6 +4,7 @@ package com.AISubtitles.Server;
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.domain.UserAuths;
 import com.AISubtitles.Server.service.RegistService;
+import com.AISubtitles.Server.utils.Md5Utils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +30,7 @@ public class RegistTest {
 
         UserAuths userAuths = new UserAuths();
         userAuths.setUserId(user.getUserId());
-        userAuths.setUserPassword("byc123");
+        userAuths.setUserPassword(Md5Utils.md5("byc123"));
         userAuths.setLoginType("email");
 
         System.out.println(registService.findByUserEmail(user.getUserEmail()));

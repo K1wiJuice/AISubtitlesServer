@@ -4,6 +4,7 @@ import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.domain.UserAuths;
 import com.AISubtitles.Server.service.RegistService;
+import com.AISubtitles.Server.utils.Md5Utils;
 import com.AISubtitles.common.CodeConsts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +38,7 @@ public class RegisterController {
 
             UserAuths userAuths = new UserAuths();
             userAuths.setLoginType("email");
-            userAuths.setUserPassword(userPassword);
+            userAuths.setUserPassword(Md5Utils.md5(userPassword));
 
             result = registService.regist(user, userAuths);
 
