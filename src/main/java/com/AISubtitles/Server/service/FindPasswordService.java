@@ -23,7 +23,7 @@ public interface FindPasswordService {
      * @param newpassword
      * @return
      */
-    public Result<User> update(String password, String newpassword);
+    public Result<User> update(String newpassword);
 
     /**
      * 验证码

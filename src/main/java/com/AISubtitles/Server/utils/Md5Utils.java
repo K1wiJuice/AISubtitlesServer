@@ -1,55 +1,31 @@
 package com.AISubtitles.Server.utils;
 
-import java.nio.charset.StandardCharsets;
+import java.math.BigInteger;
 import java.security.MessageDigest;
-
+import java.security.NoSuchAlgorithmException;
 
 public class Md5Utils {
+    /**
+     * 使用md5的算法进行加密
+     */
+    public static String md5(String plainText) {
+        byte[] secretBytes = null;
 
-    private static final String ALGORITHM = "MD5";
-
-    private static byte[] md5(String s) {
-        MessageDigest algorithm;
         try {
-            algorithm = MessageDigest.getInstance(ALGORITHM);
-            algorithm.reset();
-            algorithm.update(s.getBytes(StandardCharsets.UTF_8));
-            byte[] messageDigest = algorithm.digest();
-            return messageDigest;
+            secretBytes = MessageDigest.getInstance("md5").digest(plainText.getBytes());
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("没有md5这个算法！");
         }
 
-        return null;
-    }
+        String md5code = new BigInteger(1, secretBytes).toString(16);// 16进制数字
 
-    private static final String toHex(byte hash[]) {
-        if (hash == null) return null;
-
-        StringBuffer buf = new StringBuffer(hash.length * 2);
-        int i;
-        for (i = 0; i < hash.length; i++) {
-            if ((hash[i] & 0xff) < 0x10) {
-                buf.append("0");
-            }
-            buf.append(Long.toString(hash[i] & 0xff, 16));
+        // 如果生成数字未满32位，需要前面补0
+        for (int i = 0; i < 32 - md5code.length(); i++) {
+            md5code = "0" + md5code;
         }
 
-        return buf.toString();
+        return md5code;
     }
 
-    public static String hash(String s) {
-        try {
-            String toHexed = toHex(md5(s));
-            if (toHexed != null) {
-                return new String(toHexed.getBytes(StandardCharsets.UTF_8),
-                                StandardCharsets.UTF_8);
-            } else {
-                return s;
-            }
-        } catch (Exception e) {
-            return s;
-        }
-    }
 }

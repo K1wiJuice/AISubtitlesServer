@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form action="/user/userModify" method="post">
+        字段名：
+        <select name="fieldName">
+            <option value="userName">userName</option>
+            <option value="userGender">userGender</option>
+            <option value="userBirthday">userBirthday</option>
+            <option value="userEmail">userEmail</option>
+            <option value="userPhoneNumber">userPhoneNumber</option>
+        </select>
+        <br>
+        修改后：<input name="newValue" type="text">
+        <br>
+        <input type="submit" value="提交修改">
+    </form>
+</body>
+</html>

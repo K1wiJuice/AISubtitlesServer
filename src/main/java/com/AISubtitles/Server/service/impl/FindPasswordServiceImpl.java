@@ -6,13 +6,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.AISubtitles.common.CodeConsts;
-import com.AISubtitles.common.StatusConsts;
-
+//import com.AISubtitles.Server.dao.FindPasswordDao;
 import com.AISubtitles.Server.dao.UserDao;
 
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.service.FindPasswordService;
+import com.AISubtitles.common.CodeConsts;
 import com.AISubtitles.Server.domain.Result;
 
 /**
@@ -26,41 +25,32 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	private UserDao userDao;
 
 	User user = new User();
-
+	User userE = new User();
+	User userEN = new User();
 	/**
 	 * 修改用户密码
 	 */
 	@Override
-	public Result<User> update(String password, String newpassword) {
+	public Result<User> update(String newpassword) {
 		Result<User> resultUser = new Result<>();
-		if (password.equals(newpassword)) {
-			Integer success = userDao.update(newpassword, user.getUserEmail());
-			if (success > 0) {
-				resultUser.setCode(CodeConsts.CODE_SUCCESS);
-				resultUser.setStatus(StatusConsts.STATUS_SUCCESS);
-			}
-			return resultUser;
-		} else {
+		Integer success = userDao.update(newpassword, user.getUserId());
+		if (success > 0) {
 			resultUser.setCode(CodeConsts.CODE_SUCCESS);
-			resultUser.setStatus(StatusConsts.STATUS_RECOVER_PASSWORD_ERROR);
-			resultUser.setMessage("两次密码输入的不一致！");
-			return resultUser;
 		}
+		return resultUser;
 	}
 
 	@Override
-	public Result<User> validateCode(String emailCode, HttpSession session) {
-		Result<User> resultUser = new Result<>();
+	public Result validateCode(String emailCode, HttpSession session) {
+		Result resultUser = new Result();
 		String code = (String) session.getAttribute("code");
 		if (code.equals(emailCode)) {
 			resultUser.setCode(CodeConsts.CODE_SUCCESS);
-			resultUser.setStatus(StatusConsts.STATUS_SUCCESS);
-			resultUser.setMessage("");
+			resultUser.setData(null);
 			return resultUser;
 		} else {
-			resultUser.setCode(CodeConsts.CODE_SUCCESS);
-			resultUser.setStatus(StatusConsts.STATUS_RECOVER_PASSWORD_ERROR);
-			resultUser.setMessage("验证码错误");
+			resultUser.setCode(CodeConsts.CODE_RECOVER_PASSWORD_ERROR);
+			resultUser.setData("验证码错误");
 			return resultUser;
 		}
 
@@ -70,19 +60,21 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	 * 查询用户信息
 	 */
 	@Override
-	public Result<User> select(HttpServletRequest request) {
-		Result<User> resultUser = new Result<>();
+	public Result select(HttpServletRequest request) {
+		Result resultUser = new Result();
 		String accountnum = request.getParameter("accountnum");
 		
-		user = userDao.findByUserName(accountnum);
-		int account = userDao.countByUserName(accountnum);
-		if (account > 0) {
-			resultUser.setStatus(StatusConsts.STATUS_SUCCESS);
-			resultUser.setData(user);
+		userE = userDao.findByUserEmail(accountnum);
+		userEN = userDao.findByUserEmailOrUserPhoneNumber(accountnum, accountnum);
+		int countuEmail = userDao.countByUserEmail(accountnum);
+		int countuPhoneNumber = userDao.countByUserPhoneNumber(accountnum);
+		if (countuEmail > 0 || countuPhoneNumber > 0) {
+			resultUser.setCode(CodeConsts.CODE_SUCCESS);
+			resultUser.setData(userEN);
 			return resultUser;
 		} else {
-			resultUser.setStatus(StatusConsts.STATUS_ACCOUNT_NOT_EXIST);
-			resultUser.setMessage("您录入的账号不存在！");
+			resultUser.setCode(CodeConsts.CODE_ACCOUNT_NOT_EXIST);
+			resultUser.setData("您录入的账号不存在！");
 			return resultUser;
 		}
 	}

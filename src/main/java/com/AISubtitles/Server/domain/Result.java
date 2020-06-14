@@ -23,22 +23,11 @@ public class Result<T> {
     *606 登录失败，找回密码失败，邮箱/手机验证码错误
     *607 修改个人信息失败，输入内容不符合格式
     *608 修改个人信息失败，用户不存在
-    *609 重新设置密码时两次输入密码不同
 
     */
-    private int status;
+
     //具体返回的数据
     private T data;
-    // 返回描述信息(接口描述)
-    private String message;
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
     
     public int getCode() {
         return code;
@@ -48,19 +37,19 @@ public class Result<T> {
         this.code = code;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     public T getData() {
         return data;
     }
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "code=" + code +
+                ", data=" + data +
+                '}';
     }
 }

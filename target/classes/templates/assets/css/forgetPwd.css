@@ -1,0 +1,222 @@
+ul,
+li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.pass-color {
+	background: #50c6fa !important;
+}
+
+#forget-pwd {
+	background: #FFFFFF;
+	font-family: "微软雅黑" !important;
+}
+
+
+/* 头部*/
+
+#forget-pwd label {
+	font-size: 18px;
+	color: #3E3E3E;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+#forget-pwd input {
+	height: 48px !important;
+}
+
+.header-wrapper {
+	width: 100%;
+	background: #50c6fa;
+}
+
+.header-wrapper .content {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 20px 0;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+.header-wrapper .content img {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.header-wrapper .content .text {
+	margin-left: 20px;
+}
+
+.header-wrapper .content .login {
+	float: right;
+	margin-top: 8px;
+	cursor: pointer;
+}
+
+
+/*步骤条*/
+
+.step-wrapper {
+	width: 100%;
+	background: #F5F5F5;
+}
+
+.step-wrapper .content {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 30px 130px 20px;
+	text-align: center;
+}
+
+.step-wrapper .content ul {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.step-wrapper .content li {
+	position: relative;
+}
+
+.step-wrapper .content li .num {
+	display: inline-block;
+	width: 44px;
+	height: 44px;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	background: #d9d9d9;
+	line-height: 44px;
+	color: #FFFFFF;
+	font-weight: 600;
+}
+
+.step-wrapper .content li .text {
+	font-size: 14px;
+	color: #8f8f8f;
+}
+
+.step-wrapper .content li .line {
+	position: absolute;
+	top: 20px;
+	left: 75px;
+	display: inline-block;
+	width: 200px;
+	height: 2px;
+	background: #d9d9d9;
+}
+
+
+/*步骤输入框组*/
+
+.con-wrapper {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.con-wrapper .step {
+	margin: 60px 420px;
+}
+
+.con-wrapper .step .btn {
+	display: inline-block;
+	margin-top: 40px;
+	padding: 0;
+	width: 170px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	background: #50c6fa;
+	color: #FFFFFF;
+	font-size: 18px;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	box-shadow: 0 4px 0 #0e8fc8;
+}
+
+.con-wrapper .step .back {
+	background: #FFFFFF;
+	color: #50c6fa;
+	border: 1px solid #50c6fa;
+	box-shadow: none;
+	margin-right: 10px;
+}
+
+.con-wrapper .step-4 .success {
+	margin: 0 auto;
+	width: 114px;
+	height: 115px;
+	background: url(../images/success-set.png) no-repeat;
+	background-size: 100%;
+}
+
+.con-wrapper .step-4 p {
+	margin-top: 30px;
+	font-size: 18px;
+	color: #50c6fa;
+	text-align: center;
+}
+
+.footer-wrapper {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: #E7E7E7;
+}
+
+.footer-wrapper .content {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.footer-wrapper .content p {
+	padding: 50px 0;
+	text-align: center;
+	font-size: 14px;
+	color: #aaaaaa;
+}
+
+
+/*拖动滑块进行验证*/
+
+.drag {
+	width: 360px;
+	height: 50px;
+	line-height: 50px;
+	background-color: #f3f3f3;
+	position: relative;
+	border-radius: 8px;
+	margin: 30px auto 0;
+}
+
+.drag-bg {
+	width: 40px;
+	height: 100%;
+	position: absolute;
+	background-color: #75CDF9;
+	border-radius: 8px;
+}
+
+.drag-text {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	user-select: none;
+}
+
+.drag-btn {
+	width: 40px;
+	height: 48px;
+	position: absolute;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	cursor: move;
+	font-family: "宋体";
+	text-align: center;
+	background-color: #fff;
+	user-select: none;
+	color: #666;
+}
