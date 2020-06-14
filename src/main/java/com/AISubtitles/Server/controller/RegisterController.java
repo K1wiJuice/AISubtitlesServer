@@ -1,46 +1,46 @@
 package com.AISubtitles.Server.controller;
 
-import com.AISubtitles.Server.dao.UserDao;
 import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
+import com.AISubtitles.Server.domain.UserAuths;
+import com.AISubtitles.Server.service.RegistService;
+import com.AISubtitles.Server.utils.Md5Utils;
 import com.AISubtitles.common.CodeConsts;
-import com.AISubtitles.common.StatusConsts;
-import com.AISubtitles.common.StringConsts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.sql.Date;
 
 
 @RestController
 public class RegisterController {
 
     @Autowired
-    UserDao userDao;
+    RegistService registService;
 
 
     @PostMapping(value = "user/regist")
-    public Result handleRegist(User user, HttpSession session) {
+    public Result handleRegist(HttpSession session, String userName,
+                               String userEmail, String userPassword,
+                               Date userBirthday) {
         Result result = new Result();
 
         try {
-            User userByPhoneNumber = userDao.findByUserPhoneNumber(user.getUserPhoneNumber());
-            User userByEmail = userDao.findByUserEmail(user.getUserEmail());
-            if (userByEmail != null) {
-                result.setStatus(StatusConsts.STATUS_DUPLICATE_EMAIL);
-                result.setData(StringConsts.EMAIL_EXIST);
+            User user = new User();
+            user.setUserName(userName);
+            user.setUserBirthday(userBirthday);
+            user.setUserEmail(userEmail);
+            user.setUserPhoneNumber("111");
+            user.setUserGender("male");
+            user.setImage("");
 
-            } else if (userByPhoneNumber != null)  {
-                result.setStatus(StatusConsts.STATUS_DUPLICATE_PHONE_NUMBER);
-                result.setData(StringConsts.PHONE_EXIST);
+            UserAuths userAuths = new UserAuths();
+            userAuths.setLoginType("email");
+            userAuths.setUserPassword(Md5Utils.md5(userPassword));
 
-            } else {
-                userDao.save(user);
-                result.setStatus(StatusConsts.STATUS_SUCCESS);
-                result.setCode(CodeConsts.CODE_SUCCESS);
-                result.setData(user);
-            }
+            result = registService.regist(user, userAuths);
 
         } catch (Exception e) {
             result.setCode(CodeConsts.CODE_SERVER_ERROR);

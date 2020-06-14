@@ -29,6 +29,7 @@ public class SendMailService{
         // 启用html
         mimeMessageHelper.setText(content, true);
         // 发送邮件
+        System.out.println(content);
         mailSender.send(mimeMessage);
         System.out.println("邮件已发送");
     }

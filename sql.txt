@@ -1,26 +1,27 @@
 #******************************用户基础信息************************************************
-CREATE TABLE If Not Exists `user_info`  (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_gender` enum('male','female','secret') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'secret',
-  `user_birthday` date NULL DEFAULT NULL,
-  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+#******************************用户基础信息************************************************
+CREATE TABLE `user_info`  (
+  `user_id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `user_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `user_phone_number` String(12) NULL,
+  `user_birthday` date NULL DEFAULT '1999-12-12',
+  `user_age` int(0) NULL DEFAULT 0,
+  `user_gender` enum('male','female') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'male',
+  `user_phone_number` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 
 #*******************************用户授权信息***********************************************
-CREATE TABLE If Not Exists `user_auths`  (
-  `user_auths_id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NULL,
-  `login_type` enum('phone','email','wechat_id','qqid') NULL DEFAULT 'email',
-  `login_identifier` varchar(255) NULL,
-  `credential` varchar(255) NULL,
-  PRIMARY KEY (`user_auths_id`)
-);
+CREATE TABLE `user_auths`  (
+  `user_auths_id` int(0) NOT NULL AUTO_INCREMENT,
+  `user_id` int(0) NULL DEFAULT NULL,
+  `login_type` enum('phone','email','wechat_id','qqid') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'email',
+  `login_identifier` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `credential` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `user_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '0000',
+  PRIMARY KEY (`user_auths_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 
 #****************************信息的修改***********************************************

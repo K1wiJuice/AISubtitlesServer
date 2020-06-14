@@ -26,4 +26,7 @@ public class StatusConsts {
     //修改个人信息失败，输入内容不符合格式
     public static final int STATUS_MODIFY_ERROR = 607;
 
+    //邮箱和手机号还未绑定用户，可以创建
+    public static final int STATUS_CAN_CREATE_USER = 608;
+
 }
