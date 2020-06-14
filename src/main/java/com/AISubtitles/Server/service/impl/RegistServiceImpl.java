@@ -59,7 +59,13 @@ public class RegistServiceImpl implements RegistService {
 
     @Override
     public Result regist(User user, UserAuths userAuths) {
-        Result result = new Result();
+        Result result = findByUserEmail(user.getUserEmail());
+        if(result.getStatus() == StatusConsts.STATUS_CAN_CREATE_USER);
+        else return result;
+        result = findByUserPhoneNumber(user.getUserPhoneNumber());
+        if(result.getStatus() == StatusConsts.STATUS_CAN_CREATE_USER);
+        else return result;
+        result = new Result();
         result.setStatus(StatusConsts.STATUS_SUCCESS);
         result.setCode(CodeConsts.CODE_SUCCESS);
         userDao.save(user);
