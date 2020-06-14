@@ -91,7 +91,7 @@ public class UserModity {
         add_user_modification_record(userId, fieldName, oldValue, newValue);
         result.setCode(CodeConsts.CODE_SUCCESS);
         result.setStatus(StatusConsts.STATUS_SUCCESS);
-        session.setAttibute("user", userDao.findById(userId).get());
+        session.setAttribute("user", userDao.findById(userId).get());
         result.setData(null);
         return result;
     }

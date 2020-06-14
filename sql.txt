@@ -27,7 +27,7 @@ CREATE TABLE `user_auths`  (
 #****************************信息的修改***********************************************
 CREATE TABLE If Not Exists `update_user_info_event`  (
   `event_id` int(0) NOT NULL AUTO_INCREMENT,
-  `user_id` int(0) NULL DEFAULT NULL,
+  `user_id` int(0) UNSIGNED NULL DEFAULT NULL,
   `user_info_field_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `user_info_field_old_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `user_info_field_new_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,

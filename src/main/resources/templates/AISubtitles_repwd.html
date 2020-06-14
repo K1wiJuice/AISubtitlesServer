@@ -304,7 +304,7 @@
 			$.ajax({
 				type : "POST",
 				dataType : "json",
-				url : "http://localhost:8080/findpassword/validatecode",
+				url : "http://localhost:8083/findpassword/validatecode",
 				data : {
 					emailCode : emailCode
 				},
@@ -325,7 +325,7 @@
 			$.ajax({
 				type : "POST",
 				dataType : "json",
-				url : "http://localhost:8080/findpassword/update",
+				url : "http://localhost:8083/findpassword/update",
 				data : {
 					password : password,
 					newpassword : newpassword
