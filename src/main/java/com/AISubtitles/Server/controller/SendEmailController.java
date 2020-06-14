@@ -24,7 +24,7 @@ public class SendEmailController {
 	@Autowired
 	SendMailService sendMailService;
 
-	@Value("705256817@qq.com")
+	@Value("${spring.mail.from}")
 	public String from;
 
 	@PostMapping("/sendCode")
