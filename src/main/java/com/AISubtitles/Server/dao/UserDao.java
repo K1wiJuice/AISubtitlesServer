@@ -9,12 +9,15 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserDao extends JpaRepository<User, Integer>{
-    User findByUserEmail(String userEmail);
+	User findByUserName(String userName);
+	User findByUserEmail(String userEmail);
+	User findByUserEmailOrUserPhoneNumber(String userEmail,String userPhoneNumber);
     User findByUserPhoneNumber(String userPhoneNumber);
-
     User findByUserEmailAndUserPassword(String userEmail, String userPassword);
-    User findByUserName(String userName);
+    //User findByUserEmail(String userEmail);
     Integer countByUserName(String accountnum);
+    Integer countByUserEmail(String accountnum);
+    Integer countByUserPhoneNumber(String accountnum);
     //public User findByUserName(String accountnum);
 
     /**
@@ -34,10 +37,10 @@ public interface UserDao extends JpaRepository<User, Integer>{
      */
     @Transactional
     @Modifying
-    //黑科技
-    //@Query(value = "update user_info  set user_password = :userPassword  where user_id = :userEmail",nativeQuery = true)
-    //public Integer update(@Param("userPassword")String userPassword,@Param("userEmail") int userEmail);
-    @Query(value = "update user_info  set user_password = :userPassword  where user_email = :userEmail",nativeQuery = true)
-    public Integer update(@Param("userPassword")String userPassword,@Param("userEmail") String userEmail);
+    
+    @Query(value = "update user_auths  set user_password = :userPassword  where user_id = :userId",nativeQuery = true)
+    public Integer update(@Param("userPassword")String userPassword,@Param("userId") int userId);
+    //@Query(value = "update user_info  set user_password = :userPassword  where user_email = :userEmail",nativeQuery = true)
+    //public Integer update(@Param("userPassword")String userPassword,@Param("userEmail") String userEmail);
 
 }

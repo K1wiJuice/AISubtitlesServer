@@ -24,7 +24,8 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	private UserDao userDao;
 
 	User user = new User();
-
+	User userE = new User();
+	User userEN = new User();
 	/**
 	 * 修改用户密码
 	 */
@@ -32,13 +33,13 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	public Result<User> update(String password, String newpassword) {
 		Result<User> resultUser = new Result<>();
 		if (password.equals(newpassword)) {
-			Integer success = userDao.update(newpassword, user.getUserEmail());
+			Integer success = userDao.update(newpassword, user.getUserId());
 			if (success > 0) {
 				resultUser.setCode(200);
 			}
 			return resultUser;
 		} else {
-			resultUser.setCode(608);
+			resultUser.setCode(609);
 			resultUser.setMessage("两次密码输入的不一致！");
 			return resultUser;
 		}
@@ -68,14 +69,16 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 		Result<User> resultUser = new Result<>();
 		String accountnum = request.getParameter("accountnum");
 		
-		user = userDao.findByUserName(accountnum);
-		int account = userDao.countByUserName(accountnum);
-		if (account > 0) {
+		userE = userDao.findByUserEmail(accountnum);
+		userEN = userDao.findByUserEmailOrUserPhoneNumber(accountnum, accountnum);
+		int countuEmail = userDao.countByUserEmail(accountnum);
+		int countuPhoneNumber = userDao.countByUserPhoneNumber(accountnum);
+		if (countuEmail > 0 || countuPhoneNumber > 0) {
 			resultUser.setCode(200);
-			resultUser.setData(user);
+			resultUser.setData(userEN);
 			return resultUser;
 		} else {
-			resultUser.setCode(604);
+			resultUser.setStatus(604);
 			resultUser.setMessage("您录入的账号不存在！");
 			return resultUser;
 		}
