@@ -11,6 +11,7 @@ import com.AISubtitles.Server.dao.UserDao;
 
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.service.FindPasswordService;
+import com.AISubtitles.common.CodeConsts;
 import com.AISubtitles.Server.domain.Result;
 
 /**
@@ -30,32 +31,26 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	 * 修改用户密码
 	 */
 	@Override
-	public Result<User> update(String password, String newpassword) {
+	public Result<User> update(String newpassword) {
 		Result<User> resultUser = new Result<>();
-		if (password.equals(newpassword)) {
-			Integer success = userDao.update(newpassword, user.getUserId());
-			if (success > 0) {
-				resultUser.setCode(200);
-			}
-			return resultUser;
-		} else {
-			resultUser.setCode(609);
-			resultUser.setMessage("两次密码输入的不一致！");
-			return resultUser;
+		Integer success = userDao.update(newpassword, user.getUserId());
+		if (success > 0) {
+			resultUser.setCode(CodeConsts.CODE_SUCCESS);
 		}
+		return resultUser;
 	}
 
 	@Override
-	public Result<User> validateCode(String emailCode, HttpSession session) {
-		Result<User> resultUser = new Result<>();
+	public Result validateCode(String emailCode, HttpSession session) {
+		Result resultUser = new Result();
 		String code = (String) session.getAttribute("code");
 		if (code.equals(emailCode)) {
-			resultUser.setCode(200);
-			resultUser.setMessage("");
+			resultUser.setCode(CodeConsts.CODE_SUCCESS);
+			resultUser.setData(null);
 			return resultUser;
 		} else {
-			resultUser.setCode(606);
-			resultUser.setMessage("验证码错误");
+			resultUser.setCode(CodeConsts.CODE_RECOVER_PASSWORD_ERROR);
+			resultUser.setData("验证码错误");
 			return resultUser;
 		}
 
@@ -65,8 +60,8 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	 * 查询用户信息
 	 */
 	@Override
-	public Result<User> select(HttpServletRequest request) {
-		Result<User> resultUser = new Result<>();
+	public Result select(HttpServletRequest request) {
+		Result resultUser = new Result();
 		String accountnum = request.getParameter("accountnum");
 		
 		userE = userDao.findByUserEmail(accountnum);
@@ -74,12 +69,12 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 		int countuEmail = userDao.countByUserEmail(accountnum);
 		int countuPhoneNumber = userDao.countByUserPhoneNumber(accountnum);
 		if (countuEmail > 0 || countuPhoneNumber > 0) {
-			resultUser.setCode(200);
+			resultUser.setCode(CodeConsts.CODE_SUCCESS);
 			resultUser.setData(userEN);
 			return resultUser;
 		} else {
-			resultUser.setStatus(604);
-			resultUser.setMessage("您录入的账号不存在！");
+			resultUser.setCode(CodeConsts.CODE_ACCOUNT_NOT_EXIST);
+			resultUser.setData("您录入的账号不存在！");
 			return resultUser;
 		}
 	}

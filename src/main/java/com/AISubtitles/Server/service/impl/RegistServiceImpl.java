@@ -8,7 +8,6 @@ import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.domain.UserAuths;
 import com.AISubtitles.Server.service.RegistService;
 import com.AISubtitles.common.CodeConsts;
-import com.AISubtitles.common.StatusConsts;
 import com.AISubtitles.common.StringConsts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,12 +27,10 @@ public class RegistServiceImpl implements RegistService {
         Result result = new Result();
         User byUserPhoneNumber = userDao.findByUserPhoneNumber(userPhoneNumber);
         if (byUserPhoneNumber != null) {
-            result.setStatus(StatusConsts.STATUS_DUPLICATE_PHONE_NUMBER);
-            result.setData(StringConsts.PHONE_EXIST);
+            result.setCode(CodeConsts.CODE_DUPLICATE_PHONE_NUMBER);
             result.setData("手机号已注册");
         } else {
-            result.setStatus(StatusConsts.STATUS_CAN_CREATE_USER);
-            result.setCode(CodeConsts.CODE_SUCCESS);
+            result.setCode(CodeConsts.CODE_CAN_CREATE_USER);
             result.setData("手机号未使用，可以创建");
         }
         return result;
@@ -45,12 +42,10 @@ public class RegistServiceImpl implements RegistService {
         Result result = new Result();
         User byUserPhoneNumber = userDao.findByUserPhoneNumber(userEmail);
         if (byUserPhoneNumber != null) {
-            result.setStatus(StatusConsts.STATUS_DUPLICATE_EMAIL);
-            result.setData(StringConsts.EMAIL_EXIST);
+            result.setCode(CodeConsts.CODE_DUPLICATE_EMAIL);
             result.setData("手机号已注册");
         } else {
-            result.setStatus(StatusConsts.STATUS_CAN_CREATE_USER);
-            result.setCode(CodeConsts.CODE_SUCCESS);
+            result.setCode(CodeConsts.CODE_CAN_CREATE_USER);
             result.setData("邮箱未使用，可以创建");
         }
         return result;
@@ -60,13 +55,12 @@ public class RegistServiceImpl implements RegistService {
     @Override
     public Result regist(User user, UserAuths userAuths) {
         Result result = findByUserEmail(user.getUserEmail());
-        if(result.getStatus() == StatusConsts.STATUS_CAN_CREATE_USER);
+        if(result.getCode() == CodeConsts.CODE_CAN_CREATE_USER);
         else return result;
         result = findByUserPhoneNumber(user.getUserPhoneNumber());
-        if(result.getStatus() == StatusConsts.STATUS_CAN_CREATE_USER);
+        if(result.getCode() == CodeConsts.CODE_CAN_CREATE_USER);
         else return result;
         result = new Result();
-        result.setStatus(StatusConsts.STATUS_SUCCESS);
         result.setCode(CodeConsts.CODE_SUCCESS);
         userDao.save(user);
         System.out.println(user);

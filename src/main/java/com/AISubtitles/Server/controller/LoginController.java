@@ -1,7 +1,6 @@
 package com.AISubtitles.Server.controller;
 
 import com.AISubtitles.common.CodeConsts;
-import com.AISubtitles.common.StatusConsts;
 import com.AISubtitles.Server.dao.UserAuthsDao;
 import com.AISubtitles.Server.dao.UserDao;
 import com.AISubtitles.Server.domain.Result;
@@ -30,19 +29,17 @@ public class LoginController {
                         @RequestParam String userPassword,
                         HttpSession session){
         Result result = new Result();
-        result.setCode(500);
+        result.setCode(CodeConsts.CODE_SERVER_ERROR);
         result.setData(null);
         User user = userDao.findByUserEmail(userEmail);
         UserAuths userAuths = userAuthsDao.findByUserIdAndUserPassword(user.getUserId(), Md5Utils.md5(userPassword));
         if (userAuths != null) {
             session.setAttribute("user",user);
-            result.setCode(200);
-            result.setStatus(200);
+            result.setCode(CodeConsts.CODE_SUCCESS);
             return result;
         }else {
-            result.setData("y用户名密码错误");
-            result.setCode(500);
-            result.setStatus(605);
+            result.setData("用户名密码错误");
+            result.setCode(CodeConsts.CODE_WRONG_PASSWORD);
             return result;
         }
     }
@@ -52,8 +49,7 @@ public class LoginController {
         Result result = new Result();
         session.removeAttribute("user");
         result.setData(null);
-        result.setCode(200);
-        result.setStatus(200);
+        result.setCode(CodeConsts.CODE_SUCCESS);
         return result;
     }
 

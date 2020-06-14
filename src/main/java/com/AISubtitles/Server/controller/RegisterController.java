@@ -7,7 +7,6 @@ import com.AISubtitles.Server.service.FindPasswordService;
 import com.AISubtitles.Server.service.RegistService;
 import com.AISubtitles.Server.utils.Md5Utils;
 import com.AISubtitles.common.CodeConsts;
-import com.AISubtitles.common.StatusConsts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

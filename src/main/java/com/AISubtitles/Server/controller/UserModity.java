@@ -8,7 +8,6 @@ import java.util.NoSuchElementException;
 import javax.servlet.http.HttpSession;
 
 import com.AISubtitles.common.CodeConsts;
-import com.AISubtitles.common.StatusConsts;
 import com.AISubtitles.Server.dao.UserDao;
 import com.AISubtitles.Server.dao.UserModificationDao;
 import com.AISubtitles.Server.domain.Result;
@@ -52,8 +51,7 @@ public class UserModity {
         try {
             user = userDao.findById(userId).get();
         } catch (NoSuchElementException e) {
-            result.setCode(CodeConsts.CODE_SERVER_ERROR);
-            result.setStatus(StatusConsts.STATUS_MODIFY_ERROR);
+            result.setCode(CodeConsts.CODE_MODIFY_ERROR);
             result.setData(null);
             return result;
         }
@@ -82,15 +80,13 @@ public class UserModity {
             userDao.saveAndFlush(user);
         } catch (Exception e) {
             //NullPointerException or ParseException
-            result.setCode(CodeConsts.CODE_SERVER_ERROR);
-            result.setStatus(StatusConsts.STATUS_MODIFY_ERROR);
+            result.setCode(CodeConsts.CODE_MODIFY_ERROR);
             result.setData(null);
             return result;
         }
 
         add_user_modification_record(userId, fieldName, oldValue, newValue);
         result.setCode(CodeConsts.CODE_SUCCESS);
-        result.setStatus(StatusConsts.STATUS_SUCCESS);
         session.setAttribute("user", userDao.findById(userId).get());
         result.setData(null);
         return result;

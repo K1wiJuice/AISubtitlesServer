@@ -57,7 +57,7 @@ public class FindPasswordController {
      */
     @ResponseBody
     @PostMapping("/update")
-    public Result<User> update(String password, String newpassword) {
-        return this.findPasswordService.update(password, newpassword);
+    public Result<User> update(String newpassword) {
+        return this.findPasswordService.update(newpassword);
     }
 }
