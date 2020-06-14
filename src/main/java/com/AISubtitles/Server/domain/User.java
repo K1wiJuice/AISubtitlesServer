@@ -48,7 +48,4 @@ public class User {
     @Column(name = "user_phone_number")
     private String userPhoneNumber;
 
-    @Column
-    private String userPassword;
-
 }
