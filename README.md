@@ -15,6 +15,12 @@
   ```sh
   ./mvnw spring-boot:run
   ```
+  
+- #### 打包命令：
+
+  ```sh
+  ./mvnw clean package -Dmaven.test.skip=true
+  ```
 
 - #### 我们提供的接口：
 
