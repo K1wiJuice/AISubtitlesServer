@@ -13,7 +13,7 @@
 - #### 使用方法：
 
   ```sh
-  ./mvnw springboot:run
+  ./mvnw spring-boot:run
   ```
 
 - #### 我们提供的接口：
