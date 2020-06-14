@@ -6,6 +6,7 @@ import com.AISubtitles.Server.domain.UserAuths;
 import com.AISubtitles.Server.service.RegistService;
 import com.AISubtitles.Server.utils.Md5Utils;
 import com.AISubtitles.common.CodeConsts;
+import com.AISubtitles.common.StatusConsts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,16 @@ public class RegisterController {
 
     @Autowired
     RegistService registService;
+
+    @PostMapping(value = "user/regist/validPhone")
+    public Result isExistPhoneNumber(String userPhoneNumber) {
+        return registService.findByUserPhoneNumber(userPhoneNumber);
+    }
+
+    @PostMapping(value = "user/regist/validEmail")
+    public Result isExistEmail(String userEmail) {
+        return registService.findByUserEmail(userEmail);
+    }
 
 
     @PostMapping(value = "user/regist")
