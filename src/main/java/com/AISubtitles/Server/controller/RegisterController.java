@@ -3,6 +3,7 @@ package com.AISubtitles.Server.controller;
 import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.domain.UserAuths;
+import com.AISubtitles.Server.service.FindPasswordService;
 import com.AISubtitles.Server.service.RegistService;
 import com.AISubtitles.Server.utils.Md5Utils;
 import com.AISubtitles.common.CodeConsts;
@@ -31,13 +32,18 @@ public class RegisterController {
         return registService.findByUserEmail(userEmail);
     }
 
+    @Autowired
+    FindPasswordService findPasswordService;
 
     @PostMapping(value = "user/regist")
     public Result handleRegist(HttpSession session, String userName,
                                String userEmail, String userPassword,
-                               Date userBirthday) {
-        Result result = new Result();
-
+                               String emailCode, Date userBirthday) {
+        Result result = findPasswordService.validateCode(emailCode, session);
+        if (result.getCode() == CodeConsts.CODE_SUCCESS);
+        else return result;
+        result = new Result();
+        
         try {
             User user = new User();
             user.setUserName(userName);
