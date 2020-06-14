@@ -37,7 +37,7 @@ public class RegisterController {
     @PostMapping(value = "user/regist")
     public Result handleRegist(HttpSession session, String userName,
                                String userEmail, String userPassword,
-                               String emailCode, Date userBirthday) {
+                               Date userBirthday, String emailCode) {
         Result result = findPasswordService.validateCode(emailCode, session);
         if (result.getCode() == CodeConsts.CODE_SUCCESS);
         else return result;
