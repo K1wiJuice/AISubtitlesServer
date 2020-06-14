@@ -7,8 +7,16 @@
 <body>
 
     <form action="/user/userModify" method="post">
-        字段名：<input name="fieldName" type="text">
+        字段名：
+        <select name="fieldName">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+        <br>
         修改后：<input name="newValue" type="text">
+        <br>
         <input type="submit" value="提交修改">
     </form>
 </body>
