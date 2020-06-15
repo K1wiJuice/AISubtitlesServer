@@ -43,6 +43,6 @@ public interface FindPasswordService {
      * @param request
      * @return
      */
-    public Result<User> select(HttpServletRequest request);
+    public Result<User> select(String accountnum);
 
 }

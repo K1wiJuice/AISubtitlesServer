@@ -32,8 +32,8 @@ public class FindPasswordController {
 
     @ResponseBody
     @PostMapping("/selectuserinfo")
-    public Result<User> select(HttpServletRequest request) {
-        return findPasswordService.select(request);
+    public Result<User> select(String accountnum) {
+        return findPasswordService.select(accountnum);
     }
 
     /**

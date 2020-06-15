@@ -85,9 +85,8 @@ public class FindPasswordServiceImpl implements FindPasswordService {
 	 * 查询用户信息
 	 */
 	@Override
-	public Result select(HttpServletRequest request) {
+	public Result select(String accountnum) {
 		Result resultUser = new Result();
-		String accountnum = request.getParameter("accountnum");
 		
 		userE = userDao.findByUserEmail(accountnum);
 		userEN = userDao.findByUserEmailOrUserPhoneNumber(accountnum, accountnum);
