@@ -1,6 +1,7 @@
 package com.AISubtitles.Server.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public interface FindPasswordService {
      * @param session
      * @return
      */
-    Result<User> validateCode(String emailCode, HttpSession session);
+    Result<User> validateCode(String emailCode, HttpServletResponse response, HttpSession session);
 
    
 

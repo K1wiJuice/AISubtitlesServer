@@ -33,6 +33,7 @@ public class SendEmailController {
 		StringBuilder sb = new StringBuilder();
 		String code = getCode();
 		session.setAttribute("code", code);
+		session.setAttribute("userEmail", email);
 		sb.append("<html><head></head>");
 		sb.append("<body><h1>你的验证码是： </h1><p>");
 		sb.append(code);

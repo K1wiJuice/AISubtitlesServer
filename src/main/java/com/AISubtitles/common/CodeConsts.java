@@ -6,6 +6,9 @@ public class CodeConsts {
     //注册成功，登陆成功，修改个人信息成功
     public static final int CODE_SUCCESS = 200;
 
+    //没有访问权限，请登录
+    public static final int CODE_NEED_LOGIN = 401;
+
     //服务器内部错误
     public static final int CODE_SERVER_ERROR = 500;
 

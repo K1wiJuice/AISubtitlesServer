@@ -13,6 +13,8 @@ import com.AISubtitles.Server.dao.UserModificationDao;
 import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.domain.UserModification;
+import com.AISubtitles.Server.utils.TokenUtil;
+import com.AISubtitles.Server.annotation.UserLoginToken;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javassist.Loader.Simple;
 
 @RestController
-public class UserModity {
+public class UserModityController {
 
     @Autowired
     UserDao userDao;
@@ -43,11 +45,12 @@ public class UserModity {
     }
 
     // 对用户信息的修改
+    @UserLoginToken
     @PostMapping(value = "user/userModify")
     public Result modify4person(HttpSession session, String fieldName, String newValue) {
-        Result<User> result = new Result<User>();
-        User user = (User) session.getAttribute("user");
-        int userId = user.getUserId();
+        Result result = new Result();
+        User user;
+        int userId = TokenUtil.getTokenUserId();
         try {
             user = userDao.findById(userId).get();
         } catch (NoSuchElementException e) {

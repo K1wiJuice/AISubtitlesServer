@@ -5,5 +5,6 @@ import com.AISubtitles.Server.domain.UserAuths;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserAuthsDao extends JpaRepository<UserAuths, Integer> {
+    UserAuths findByUserId(int userId);
     UserAuths findByUserIdAndUserPassword(int userId, String userPassword);
 }

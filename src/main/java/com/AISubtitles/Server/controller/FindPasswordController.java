@@ -1,6 +1,7 @@
 package com.AISubtitles.Server.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.service.FindPasswordService;
+import com.AISubtitles.Server.annotation.UserLoginToken;
 import com.AISubtitles.Server.domain.Result;
 
 /**
@@ -44,18 +46,18 @@ public class FindPasswordController {
      */
     @ResponseBody
     @PostMapping("/validatecode")
-    public Result<User> validateCode(@RequestParam("emailCode") String emailCode, HttpSession session) {
-        return this.findPasswordService.validateCode(emailCode, session);
+    public Result<User> validateCode(@RequestParam("emailCode") String emailCode, HttpServletResponse response, HttpSession session) {
+        return this.findPasswordService.validateCode(emailCode, response, session);
     }
 
     /**
      * 修改密码
      * 
-     * @param password
      * @param newpassword
      * @return
      */
     @ResponseBody
+    @UserLoginToken
     @PostMapping("/update")
     public Result<User> update(String newpassword) {
         return this.findPasswordService.update(newpassword);

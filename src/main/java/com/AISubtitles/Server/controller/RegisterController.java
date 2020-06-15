@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.Date;
 
@@ -35,10 +36,10 @@ public class RegisterController {
     FindPasswordService findPasswordService;
 
     @PostMapping(value = "user/regist")
-    public Result handleRegist(HttpSession session, String userName,
-                               String userEmail, String userPassword,
+    public Result handleRegist(HttpSession session, HttpServletResponse response,
+                               String userName, String userEmail, String userPassword,
                                Date userBirthday, String emailCode) {
-        Result result = findPasswordService.validateCode(emailCode, session);
+        Result result = findPasswordService.validateCode(emailCode, response, session);
         if (result.getCode() == CodeConsts.CODE_SUCCESS);
         else return result;
         result = new Result();
