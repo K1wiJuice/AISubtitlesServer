@@ -47,10 +47,10 @@ public class RegistServiceImpl implements RegistService {
     @Override
     public Result findByUserEmail(String userEmail) {
         Result result = new Result();
-        User byUserPhoneNumber = userDao.findByUserPhoneNumber(userEmail);
-        if (byUserPhoneNumber != null) {
+        User byUserEmail = userDao.findByUserEmail(userEmail);
+        if (byUserEmail != null) {
             result.setCode(CodeConsts.CODE_DUPLICATE_EMAIL);
-            result.setData("手机号已注册");
+            result.setData("邮箱已注册");
         } else {
             result.setCode(CodeConsts.CODE_CAN_CREATE_USER);
             result.setData("邮箱未使用，可以创建");
