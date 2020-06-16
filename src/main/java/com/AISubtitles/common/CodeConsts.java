@@ -30,10 +30,13 @@ public class CodeConsts {
     //登录失败，找回密码失败，邮箱/手机验证码错误
     public static final int CODE_RECOVER_PASSWORD_ERROR = 606;
 
-    //修改个人信息失败，输入内容不符合格式
+    //修改个人信息失败，点赞/收藏/分享失败，输入内容不符合格式
     public static final int CODE_MODIFY_ERROR = 607;
 
     //邮箱和手机号还未绑定用户，可以创建
     public static final int CODE_CAN_CREATE_USER = 608;
+
+    //点赞/收藏失败，已经点赞/收藏过
+    public static final int CODE_HAVE_DONE = 609;
     
 }

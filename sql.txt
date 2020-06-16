@@ -48,9 +48,10 @@ CREATE TABLE If Not Exists `msg`  (
 
 #**************************************视频信息**********************************************
 CREATE TABLE If Not Exists `video_info`  (
-  `video_id` int(0) NOT NULL,
+  `video_id` int(0) NOT NULL AUTO_INCREMENT,
   `user_id` int(0) NULL DEFAULT NULL,
-  `video_pqth` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `video_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `video_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `video_size` double NULL DEFAULT NULL,
   `video_format` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `video_cover` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
@@ -66,24 +67,48 @@ CREATE TABLE If Not Exists `video_info`  (
 
 #*************************************点赞信息******************************************************
 CREATE TABLE If Not Exists `video_favors`  (
+  `favor_id` int(0) NOT NULL AUTO_INCREMENT,
   `video_id` int(0) NOT NULL,
   `user_id` int(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`video_id`) USING BTREE
+  `operation_time` timestamp DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`favor_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 
 #***************************************浏览信息**************************************************
 CREATE TABLE If Not Exists `video_browses`  (
+  `browse_id` int(0) NOT NULL AUTO_INCREMENT,
   `video_id` int(0) NOT NULL,
   `user_id` int(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`video_id`) USING BTREE
+  `operation_time` timestamp DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`browse_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 
+#***************************************收藏信息**************************************************
+CREATE TABLE If Not Exists `video_collections`  (
+  `collection_id` int(0) NOT NULL AUTO_INCREMENT,
+  `video_id` int(0) NOT NULL,
+  `user_id` int(0) NULL DEFAULT NULL,
+  `operation_time` timestamp DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`collection_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 #******************************************分享信息************************************************
 CREATE TABLE If Not Exists `video_shares`  (
+  `share_id` int(0) NOT NULL AUTO_INCREMENT,
   `video_id` int(0) NOT NULL,
   `user_id` int(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`video_id`) USING BTREE
+  `operation_time` timestamp DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`share_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+#******************************************评论信息************************************************
+CREATE TABLE If Not Exists `video_comments`  (
+  `comment_id` int(0) NOT NULL AUTO_INCREMENT,
+  `video_id` int(0) NOT NULL,
+  `user_id` int(0) NULL DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `operation_time` timestamp DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`comment_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;

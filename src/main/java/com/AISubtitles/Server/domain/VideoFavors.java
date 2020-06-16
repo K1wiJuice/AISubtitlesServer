@@ -26,24 +26,18 @@ import lombok.experimental.Accessors;
 @ToString
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "update_user_info_event")
-public class UserModification {
+@Table(name = "video_favors")
+public class VideoFavors {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "event_id")
-    private int eventId;
+    @Column(name = "favor_id")
+    private int favorId;
+
+    @Column(name = "video_id")
+    private int videoId;
 
     @Column(name = "user_id")
     private int userId;
-
-    @Column(name = "user_info_field_name", length = 255)
-    private String fieldName;
-
-    @Column(name = "user_info_field_old_value", length = 255)
-    private String oldValue;
-
-    @Column(name = "user_info_field_new_value", length = 255)
-    private String newValue;
 
     @CreatedDate
     @Column(name = "operation_time")
