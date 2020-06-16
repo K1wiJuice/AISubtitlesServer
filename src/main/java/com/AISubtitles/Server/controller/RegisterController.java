@@ -38,18 +38,16 @@ public class RegisterController {
     @PostMapping(value = "user/regist")
     public Result handleRegist(HttpSession session, HttpServletResponse response,
                                String userName, String userEmail, String userPassword,
+                               String userPhoneNumber, String userGender,
                                Date userBirthday, String emailCode) {
-        Result result = findPasswordService.validateCode(emailCode, response, session);
-        if (result.getCode() == CodeConsts.CODE_SUCCESS);
-        else return result;
-        result = new Result();
+        Result result = new Result();
         
         try {
             User user = new User();
             user.setUserName(userName);
             user.setUserBirthday(userBirthday);
             user.setUserEmail(userEmail);
-            user.setUserPhoneNumber("111");
+            user.setUserPhoneNumber(userPhoneNumber);
             user.setUserGender("male");
             user.setImage("");
 
@@ -57,7 +55,7 @@ public class RegisterController {
             userAuths.setLoginType("email");
             userAuths.setUserPassword(Md5Utils.md5(userPassword));
 
-            result = registService.regist(user, userAuths);
+            result = registService.regist(user, userAuths, emailCode, response, session);
 
         } catch (Exception e) {
             result.setCode(CodeConsts.CODE_SERVER_ERROR);

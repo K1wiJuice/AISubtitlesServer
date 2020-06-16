@@ -7,7 +7,7 @@ CREATE TABLE `user_info`  (
   `user_birthday` date NULL DEFAULT '1999-12-12',
   `user_age` int(0) NULL DEFAULT 0,
   `user_gender` enum('male','female') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'male',
-  `user_phone_number` int(0) NULL DEFAULT NULL,
+  `user_phone_number` varchar(13) NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
