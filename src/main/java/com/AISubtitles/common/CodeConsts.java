@@ -38,5 +38,14 @@ public class CodeConsts {
 
     //点赞/收藏失败，已经点赞/收藏过
     public static final int CODE_HAVE_DONE = 609;
-    
+
+    //文件块上传失败
+    public static final int CODE_CHUNK_UPLOAD_FAIL = 610;
+
+    //该块已经上传过
+    public static final int CODE_CHUNK_EXIST = 611;
+
+    //该块未上传
+    public static final int CODE_CHUNK_NOT_EXITS = 612;
+
 }

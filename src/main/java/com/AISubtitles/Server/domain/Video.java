@@ -1,9 +1,12 @@
 package com.AISubtitles.Server.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "video_info")
+@Data
 public class Video {
 
     @Id

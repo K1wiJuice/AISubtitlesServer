@@ -6,8 +6,12 @@
 </head>
 <body>
 <h3>上传文件</h3>
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="videoToUpload">
+<form action="/uploader/chunk" method="post" enctype="multipart/form-data">
+    <input type="text" name="chunkNumber">
+    <input type="text" name="chunkSize">
+    <input type="text" name="videoName">
+    <input type="text" name="userId">
+    <input type="file" name="file">
     <input type="submit" value="上传文件">
 </form>
 

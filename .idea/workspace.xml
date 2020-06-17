@@ -26,13 +26,20 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="重新设计了数据库，将判断手机号和邮箱是否存在从注册中分离出来。User类即将删除password属性。">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/ExecuteCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/SubtitleSupport.java" afterDir="false" />
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="修正注册验证邮箱问题">
+      <change afterPath="$PROJECT_DIR$/files/node-v14.4.0-x64.msi--1node-v14.4.0-x64.msi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/UploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/ChunkDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Chunk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/ChunkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/ChunkServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/uploadTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/RegistServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/RegistServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/common/CodeConsts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/common/CodeConsts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/uploadFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/uploadFile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +68,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -74,36 +82,24 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\Server\utils" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.AISubtitles.Server.domain" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\24113\Desktop\AISubtitlesServer\src\main\resources\static" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.AISubtitles.Server.utils" />
+      <recent name="com.AISubtitles.Server.domain" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\Server\utils" />
+    </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ServerApplication">
+  <component name="RunManager" selected="JUnit.uploadTest.mergeTest">
     <configuration name="Md5Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.utils.Md5Utils" />
       <module name="subtitles" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.AISubtitles.Server.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.ServerApplication" />
-      <module name="subtitles" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.AISubtitles.Server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,6 +150,22 @@
       <option name="PACKAGE_NAME" value="com.AISubtitles.Server" />
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.md5Test" />
       <option name="METHOD_NAME" value="md5Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="uploadTest.mergeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="subtitles" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AISubtitles.Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.AISubtitles.Server" />
+      <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.uploadTest" />
+      <option name="METHOD_NAME" value="mergeTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -215,11 +227,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.uploadTest.mergeTest" />
         <item itemvalue="JUnit.RegistTest.testRegist" />
         <item itemvalue="JUnit.md5Test.md5Test" />
         <item itemvalue="Application.Md5Utils" />
         <item itemvalue="JUnit.ServerApplicationTests.testFind" />
-        <item itemvalue="Application.ServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -241,7 +253,9 @@
       <workItem from="1592029036204" duration="2919000" />
       <workItem from="1592291865107" duration="1218000" />
       <workItem from="1592299535716" duration="367000" />
-      <workItem from="1592300002067" duration="1805000" />
+      <workItem from="1592300002067" duration="2507000" />
+      <workItem from="1592357046833" duration="2331000" />
+      <workItem from="1592367348063" duration="15438000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -257,7 +271,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592025139001</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="修正注册验证邮箱问题">
+      <created>1592302856436</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592302856436</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修正注册验证邮箱问题">
+      <created>1592302944634</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592302944634</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,19 +316,21 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="添加了登录和注销的模块，但还未测试" />
     <MESSAGE value="重新设计了数据库，将判断手机号和邮箱是否存在从注册中分离出来。User类即将删除password属性。" />
-    <option name="LAST_COMMIT_MESSAGE" value="重新设计了数据库，将判断手机号和邮箱是否存在从注册中分离出来。User类即将删除password属性。" />
+    <MESSAGE value="修正注册验证邮箱问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正注册验证邮箱问题" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592034285948">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1592034285948" />
-    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1592024703228">
+    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1592373281349">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592024703228" />
+    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592373281349" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592021617382">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -317,42 +347,42 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591866874315" />
-    <state width="1493" height="336" key="GridCell.Tab.0.bottom" timestamp="1592298041549">
+    <state width="1493" height="122" key="GridCell.Tab.0.bottom" timestamp="1592395328238">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="336" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592298041549" />
-    <state width="1493" height="336" key="GridCell.Tab.0.center" timestamp="1592298041549">
+    <state width="1493" height="122" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
+    <state width="1493" height="122" key="GridCell.Tab.0.center" timestamp="1592395328238">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="336" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592298041549" />
-    <state width="1493" height="336" key="GridCell.Tab.0.left" timestamp="1592298041548">
+    <state width="1493" height="122" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
+    <state width="1493" height="122" key="GridCell.Tab.0.left" timestamp="1592395328238">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="336" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592298041548" />
-    <state width="1493" height="336" key="GridCell.Tab.0.right" timestamp="1592298041549">
+    <state width="1493" height="122" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
+    <state width="1493" height="122" key="GridCell.Tab.0.right" timestamp="1592395328238">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="336" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592298041549" />
-    <state width="1493" height="336" key="GridCell.Tab.1.bottom" timestamp="1592298041549">
+    <state width="1493" height="122" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
+    <state width="1493" height="142" key="GridCell.Tab.1.bottom" timestamp="1592394713022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="336" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592298041549" />
-    <state width="1493" height="336" key="GridCell.Tab.1.center" timestamp="1592298041549">
+    <state width="1493" height="142" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
+    <state width="1493" height="142" key="GridCell.Tab.1.center" timestamp="1592394713022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="336" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592298041549" />
-    <state width="1493" height="336" key="GridCell.Tab.1.left" timestamp="1592298041549">
+    <state width="1493" height="142" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
+    <state width="1493" height="142" key="GridCell.Tab.1.left" timestamp="1592394713022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="336" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592298041549" />
-    <state width="1493" height="336" key="GridCell.Tab.1.right" timestamp="1592298041549">
+    <state width="1493" height="142" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
+    <state width="1493" height="142" key="GridCell.Tab.1.right" timestamp="1592394713022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="336" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592298041549" />
+    <state width="1493" height="142" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
     <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1591948330695">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -369,11 +399,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592012125548" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1592025156332">
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1592302955272">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591844026620" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592025156332" />
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592302955272" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -382,11 +412,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591947356056" />
-    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592302710665">
+    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592392194636">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591839101683" />
-    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592302710665" />
+    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592392194636" />
     <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1591945873172">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -403,10 +433,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="371" y="211" key="git4idea.ui.GitUnstashDialog/0.0.1366.728@0.0.1366.728" timestamp="1591865732054" />
-    <state x="178" y="45" key="new project wizard" timestamp="1592300026976">
+    <state x="178" y="45" key="new project wizard" timestamp="1592357310298">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="178" y="45" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1592300026976" />
+    <state x="178" y="45" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1592357310298" />
     <state x="389" y="55" width="756" height="768" key="search.everywhere.popup" timestamp="1592012116323">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

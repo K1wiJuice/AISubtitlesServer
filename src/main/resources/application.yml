@@ -11,7 +11,7 @@ spring:
     default-encoding: utf-8
   datasource:
     username: root
-    password: zzz
+    password: 1
     url: jdbc:mysql://localhost:3306/test01?useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
   resources:
@@ -20,8 +20,15 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
 logging:
   level:
     com.AISubtitles.Server.mapper: debug
 server:
   port: 8083
+
+prop:
+  upload-folder: ./files
