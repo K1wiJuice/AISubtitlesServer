@@ -2,12 +2,14 @@ package com.AISubtitles.Server.domain;
 
 
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 
 @Data
 @Entity
+@ToString
 public class Chunk {
 
     @Id
@@ -21,7 +23,7 @@ public class Chunk {
     private Long chunkSize;
 
     @Column
-    private String videoNameAndUserId;
+    private String videoNameUserId;
 
     @Transient
     private MultipartFile file;

@@ -26,20 +26,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="修正注册验证邮箱问题">
-      <change afterPath="$PROJECT_DIR$/files/node-v14.4.0-x64.msi--1node-v14.4.0-x64.msi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/UploadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/ChunkDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Chunk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/ChunkService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/ChunkServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/uploadTest.java" afterDir="false" />
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="分块上传">
+      <change afterPath="$PROJECT_DIR$/files/node-v14.4.0-x64.msi--1/node-v14.4.0-x64.msi--1-1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/node-v14.4.0-x64.msi--1/node-v14.4.0-x64.msi--1-2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/common/CodeConsts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/common/CodeConsts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/uploadFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/uploadFile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/UploadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/ChunkDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/ChunkDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Chunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Chunk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/ChunkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/ChunkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/ChunkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/ChunkServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +88,7 @@
       <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\Server\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.uploadTest.mergeTest">
+  <component name="RunManager" selected="Spring Boot.ServerApplication">
     <configuration name="Md5Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.utils.Md5Utils" />
       <module name="subtitles" />
@@ -255,7 +250,10 @@
       <workItem from="1592299535716" duration="367000" />
       <workItem from="1592300002067" duration="2507000" />
       <workItem from="1592357046833" duration="2331000" />
-      <workItem from="1592367348063" duration="15438000" />
+      <workItem from="1592367348063" duration="17133000" />
+      <workItem from="1592444795922" duration="3754000" />
+      <workItem from="1592531330517" duration="3480000" />
+      <workItem from="1592539733789" duration="5541000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -285,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592302944634</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="分块上传">
+      <created>1592395718436</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592395718436</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,17 +325,18 @@
     <MESSAGE value="添加了登录和注销的模块，但还未测试" />
     <MESSAGE value="重新设计了数据库，将判断手机号和邮箱是否存在从注册中分离出来。User类即将删除password属性。" />
     <MESSAGE value="修正注册验证邮箱问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正注册验证邮箱问题" />
+    <MESSAGE value="分块上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="分块上传" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592034285948">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1592034285948" />
-    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1592373281349">
+    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1592545305591">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592373281349" />
+    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592545305591" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592021617382">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -347,42 +353,42 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1591866874315" />
-    <state width="1493" height="122" key="GridCell.Tab.0.bottom" timestamp="1592395328238">
+    <state width="1493" height="275" key="GridCell.Tab.0.bottom" timestamp="1592546310666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="122" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
-    <state width="1493" height="122" key="GridCell.Tab.0.center" timestamp="1592395328238">
+    <state width="1493" height="275" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592546310666" />
+    <state width="1493" height="275" key="GridCell.Tab.0.center" timestamp="1592546310666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="122" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
-    <state width="1493" height="122" key="GridCell.Tab.0.left" timestamp="1592395328238">
+    <state width="1493" height="275" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592546310666" />
+    <state width="1493" height="275" key="GridCell.Tab.0.left" timestamp="1592546310666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="122" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
-    <state width="1493" height="122" key="GridCell.Tab.0.right" timestamp="1592395328238">
+    <state width="1493" height="275" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592546310666" />
+    <state width="1493" height="275" key="GridCell.Tab.0.right" timestamp="1592546310666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="122" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
-    <state width="1493" height="142" key="GridCell.Tab.1.bottom" timestamp="1592394713022">
+    <state width="1493" height="275" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592546310666" />
+    <state width="1493" height="275" key="GridCell.Tab.1.bottom" timestamp="1592546310666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
-    <state width="1493" height="142" key="GridCell.Tab.1.center" timestamp="1592394713022">
+    <state width="1493" height="275" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592546310666" />
+    <state width="1493" height="275" key="GridCell.Tab.1.center" timestamp="1592546310666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
-    <state width="1493" height="142" key="GridCell.Tab.1.left" timestamp="1592394713022">
+    <state width="1493" height="275" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592546310666" />
+    <state width="1493" height="275" key="GridCell.Tab.1.left" timestamp="1592546310666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
-    <state width="1493" height="142" key="GridCell.Tab.1.right" timestamp="1592394713022">
+    <state width="1493" height="275" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592546310666" />
+    <state width="1493" height="275" key="GridCell.Tab.1.right" timestamp="1592546310666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
+    <state width="1493" height="275" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592546310666" />
     <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1591948330695">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -399,11 +405,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592012125548" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1592302955272">
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1592395743977">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1591844026620" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592302955272" />
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592395743977" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -412,11 +418,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591947356056" />
-    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592392194636">
+    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592544992926">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591839101683" />
-    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592392194636" />
+    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592544992926" />
     <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1591945873172">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
