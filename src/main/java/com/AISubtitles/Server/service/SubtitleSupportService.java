@@ -38,7 +38,7 @@ public class SubtitleSupportService {
                                 final int b) throws IOException, InterruptedException {
         final List<String> commList = new ArrayList<>(
                 Arrays.asList(this.pythonExe, pyFilePath, videoPath, compressedVideoPath, "" + b));
-        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+        ExecuteCommandService.exec(commList);
     }
 
     /**
@@ -54,7 +54,7 @@ public class SubtitleSupportService {
     public void exportAudio(final String pyFilePath, final String videoPath, final String audioPath)
             throws IOException, InterruptedException {
         final List<String> commList = new ArrayList<>(Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
-        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+        ExecuteCommandService.exec(commList);
     }
 
     /**
@@ -72,7 +72,7 @@ public class SubtitleSupportService {
                                final String videoWithSubtitlePath) throws IOException, InterruptedException {
         final List<String> commList = new ArrayList<>(
                 Arrays.asList(this.pythonExe, pyFilePath, videoPath, subtitlePath, videoWithSubtitlePath));
-        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+        ExecuteCommandService.exec(commList);
     }
 
     /**
@@ -89,7 +89,7 @@ public class SubtitleSupportService {
             throws IOException, InterruptedException {
         final List<String> commList = new ArrayList<>(
                 Arrays.asList(this.pythonExe, pyFilePath, audioPath, subtitlePath));
-        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+        ExecuteCommandService.exec(commList);
     }
 
     /**
@@ -108,7 +108,7 @@ public class SubtitleSupportService {
                                   final String source, final String target) throws IOException, InterruptedException {
         final List<String> commList = new ArrayList<>(
                 Arrays.asList(this.pythonExe, pyFilePath, subtitlePath, transSubtitlePath, source, target));
-        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+        ExecuteCommandService.exec(commList);
     }
 
     /**
@@ -126,6 +126,6 @@ public class SubtitleSupportService {
                               final String mergedSubtitlePath) throws IOException, InterruptedException {
         final List<String> commList = new ArrayList<>(
                 Arrays.asList(this.pythonExe, pyFilePath, zhSubtitlePath, enSubtitlePath, mergedSubtitlePath));
-        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+        ExecuteCommandService.exec(commList);
     }
 }

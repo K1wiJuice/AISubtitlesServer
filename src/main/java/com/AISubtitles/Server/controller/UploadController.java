@@ -7,6 +7,9 @@ import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.Video;
 import com.AISubtitles.Server.service.ChunkService;
 import com.AISubtitles.common.CodeConsts;
+import it.sauronsoftware.jave.Encoder;
+import it.sauronsoftware.jave.EncoderException;
+import it.sauronsoftware.jave.MultimediaInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +21,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -91,41 +97,56 @@ public class UploadController {
     }
 
 
-    @PostMapping("/mergeFile")
+    @GetMapping("/mergeFile")
     public Result mergeFile(Integer userId,
-                            String videoName,
-                            Double videoSize,
-                            String videoFormat,
-                            String videoCover,
-                            Double videoDuration) {
+                            String videoName) {
         Result result = new Result();
         Video video = new Video();
 
-        video.setVideoShares(0);
-        video.setVideoBrowses(0);
-        video.setVideoFavors(0);
-        video.setVideoDuration(videoDuration);
-        video.setVideoFormat(videoFormat);
-        video.setVideoName(videoName);
-        video.setVideoSize(videoSize);
-        video.setVideoCover(videoCover);
-        video.setUserId(userId);
-
-        String videoPath = uploadFolder + "/" + videoName + "--" + userId + videoName;
+        String videoPath = uploadFolder + "/" + videoName + "--" + userId + "/" + videoName;
         String folder = uploadFolder + "/" + videoName + "--" + userId;
         merge(videoPath, folder, videoName);
-        video.setVideoPath(videoPath);
-        videoDao.save(video);
-        result.setCode(CodeConsts.CODE_SUCCESS);
-        result.setData("合并成功");
+        File mergedVideo = new File(videoPath);
+
+        Encoder encoder = new Encoder();
+        MultimediaInfo info = null;
+        try {
+            info = encoder.getInfo(mergedVideo);
+            //获取视频时长
+            long videoDuration = info.getDuration() / 60;
+            //过去视频格式
+            String videoFormat = info.getFormat();
+            //获取视频大小
+            FileInputStream fis = new FileInputStream(mergedVideo);
+            FileChannel fc= fis.getChannel();
+            BigDecimal videoSize = new BigDecimal(fc.size());
+
+            video.setVideoShares(0);
+            video.setVideoBrowses(0);
+            video.setVideoFavors(0);
+            video.setVideoDuration(videoDuration);
+            video.setVideoFormat(videoFormat);
+            video.setVideoName(videoName);
+            video.setVideoSize(videoSize.doubleValue());
+            video.setVideoCover("videoCover");
+            video.setUserId(userId);
+            video.setVideoPath(videoPath);
+            videoDao.save(video);
+
+            result.setCode(CodeConsts.CODE_SUCCESS);
+            result.setData("合并成功");
+
+        } catch (Exception e) {
+            result.setCode(CodeConsts.CODE_MERGED_FAILED);
+            result.setData("合并失败");
+            e.printStackTrace();
+        }
 
         return result;
     }
 
 
     //result中的data是用户正在上传的文件的列表
-    //目前有两种方案，一种是通过数据库查询，一种是通过文件搜索
-    //通过文件搜索的待实现...
     @GetMapping("/uploadingVideos")
     public Result getVideoUploading(Integer userId) {
         Result result = getVideoUploadingViaDatabase(userId);
@@ -170,6 +191,9 @@ public class UploadController {
     //合并文件块
     public static void merge(String targetFile, String folder, String filename) {
         try {
+            System.out.println(targetFile);
+            System.out.println(folder);
+            System.out.println(filename);
             Files.createFile(Paths.get(targetFile));
             Files.list(Paths.get(folder))
                     .filter(path -> !path.getFileName().toString().equals(filename))
@@ -185,7 +209,7 @@ public class UploadController {
                             //以追加的形式写入文件
                             Files.write(Paths.get(targetFile), Files.readAllBytes(path), StandardOpenOption.APPEND);
                             //合并后删除该块
-                            Files.delete(path);
+//                            Files.delete(path);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -214,17 +238,6 @@ public class UploadController {
         }
 
         System.out.println(result);
-        return result;
-    }
-
-
-    //通过文件夹查找正在上传的视频
-    //还有分块文件的视频就是正在上传的视频
-    //暂未实现
-    public Result getVideoUploadingViaFile(Integer userId) {
-        Result result = new Result();
-
-
         return result;
     }
 

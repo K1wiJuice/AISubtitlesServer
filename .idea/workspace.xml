@@ -26,8 +26,59 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="">
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="实现了取消上传的接口&#10;提供了通过用户id查询该用户所有正在上传的文件的接口&#10;只经过简单测试">
+      <change afterPath="$PROJECT_DIR$/files/1512443-testmp4/test.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/1512443-testmp4/test.mp4-1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/BaiduNetdisk_6.9.10.1.exe--1/BaiduNetdisk_6.9.10.1.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/BaiduNetdisk_6.9.10.1.exe--1/BaiduNetdisk_6.9.10.1.exe-1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/BaiduNetdisk_6.9.10.1.exe--1/BaiduNetdisk_6.9.10.1.exe-2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/BaiduNetdisk_6.9.10.1.exe--1/BaiduNetdisk_6.9.10.1.exe-3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-10" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-13" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-14" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-15" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-16" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-17" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-18" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-19" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-20" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-21" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-22" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-23" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-24" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-25" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-26" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-27" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-28" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-29" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/files/ldinst_4.0.26.exe--1/ldinst_4.0.26.exe-9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/lib/jave-1.0.2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/node-v14.4.0-x64.msi--1/node-v14.4.0-x64.msi--1-1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/node-v14.4.0-x64.msi--1/node-v14.4.0-x64.msi--1-2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/UploadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/ExecuteCommandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/ExecuteCommandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/common/CodeConsts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/common/CodeConsts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/uploadFile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/uploadFile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/AISubtitles/Server/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/AISubtitles/Server/dao/UserDao.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,22 +118,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/lib" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\24113\Desktop\AISubtitlesServer\src\main\resources\static" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\resources\lib" />
+      <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\Server\utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.AISubtitles.Server.utils" />
       <recent name="com.AISubtitles.Server.domain" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\Server\utils" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\24113\Desktop\AISubtitlesServer\src\main\resources\static" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.uploadTest.mergeTest">
+  <component name="RunManager" selected="Spring Boot.ServerApplication">
     <configuration name="Md5Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.utils.Md5Utils" />
       <module name="subtitles" />
@@ -160,7 +212,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+    <configuration default="true" type="JetRunConfigurationType">
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -173,7 +225,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <option name="filePath" />
       <option name="vmParameters" />
       <option name="alternativeJrePath" />
@@ -224,18 +276,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -259,6 +299,8 @@
       <workItem from="1592367348063" duration="15438000" />
       <workItem from="1592469505735" duration="24685000" />
       <workItem from="1592610650819" duration="7279000" />
+      <workItem from="1592657578231" duration="3095000" />
+      <workItem from="1592661296248" duration="990000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -299,7 +341,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -318,12 +360,12 @@
                   </entry>
                 </map>
               </option>
-              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -381,42 +423,42 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592468933106" />
-    <state width="1493" height="122" key="GridCell.Tab.0.bottom" timestamp="1592395328238">
+    <state width="1493" height="522" key="GridCell.Tab.0.bottom" timestamp="1592661850723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="122" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
-    <state width="1493" height="122" key="GridCell.Tab.0.center" timestamp="1592395328238">
+    <state width="1493" height="522" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592661850723" />
+    <state width="1493" height="522" key="GridCell.Tab.0.center" timestamp="1592661850723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="122" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
-    <state width="1493" height="122" key="GridCell.Tab.0.left" timestamp="1592395328238">
+    <state width="1493" height="522" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592661850723" />
+    <state width="1493" height="522" key="GridCell.Tab.0.left" timestamp="1592661850723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="122" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
-    <state width="1493" height="122" key="GridCell.Tab.0.right" timestamp="1592395328238">
+    <state width="1493" height="522" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592661850723" />
+    <state width="1493" height="522" key="GridCell.Tab.0.right" timestamp="1592661850723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="122" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592395328238" />
-    <state width="1493" height="142" key="GridCell.Tab.1.bottom" timestamp="1592394713022">
+    <state width="1493" height="522" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592661850723" />
+    <state width="1493" height="522" key="GridCell.Tab.1.bottom" timestamp="1592661850723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
-    <state width="1493" height="142" key="GridCell.Tab.1.center" timestamp="1592394713022">
+    <state width="1493" height="522" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592661850723" />
+    <state width="1493" height="522" key="GridCell.Tab.1.center" timestamp="1592661850723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
-    <state width="1493" height="142" key="GridCell.Tab.1.left" timestamp="1592394713022">
+    <state width="1493" height="522" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592661850723" />
+    <state width="1493" height="522" key="GridCell.Tab.1.left" timestamp="1592661850723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
-    <state width="1493" height="142" key="GridCell.Tab.1.right" timestamp="1592394713022">
+    <state width="1493" height="522" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592661850723" />
+    <state width="1493" height="522" key="GridCell.Tab.1.right" timestamp="1592661850723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="142" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592394713022" />
+    <state width="1493" height="522" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592661850723" />
     <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1591948330695">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -447,11 +489,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592610667673" />
-    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592392194636">
+    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592658359436">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591839101683" />
-    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592392194636" />
+    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592658359436" />
     <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1592617923778">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

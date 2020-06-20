@@ -48,4 +48,7 @@ public class CodeConsts {
     //该块未上传
     public static final int CODE_CHUNK_NOT_EXITS = 612;
 
+    //视频合并失败
+    public static final int CODE_MERGED_FAILED = 613;
+
 }

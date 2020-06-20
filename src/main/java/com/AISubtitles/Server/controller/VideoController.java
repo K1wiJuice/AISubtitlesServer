@@ -109,55 +109,55 @@ public class VideoController {
         IOUtils.closeQuietly(outputStream);
 
     }
-        @GetMapping("/compress")
-        public Result compressVideo(final String pyFilePath, final String videoPath, final String compressedVideoPath,
-                                    final int b) throws IOException, InterruptedException {
-            Result result = new Result();
-            try {
-                final List<String> commList = new ArrayList<>(
-                        Arrays.asList(this.pythonExe, pyFilePath, videoPath, compressedVideoPath, "" + b));
-                ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
-                videoDao.update(videoPath,compressedVideoPath, b);
-                result.setCode(200);
-
-            }catch (Exception e){
-                e.printStackTrace();
-                result.setCode(500);
-            }
-            return result;
-        }
-
-@GetMapping("/inputSubtitle")
-    public Result importSubtitle(final String pyFilePath, final String videoPath, final String subtitlePath,
-                               final String videoWithSubtitlePath) throws IOException, InterruptedException {
-    Result result = new Result();
-    try {
-        final List<String> commList = new ArrayList<>(
-                Arrays.asList(this.pythonExe, pyFilePath, videoPath, subtitlePath, videoWithSubtitlePath));
-        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
-        videoWithSubtitleDao.add(videoPath, subtitlePath, videoWithSubtitlePath);
-        result.setCode(200);
-
-    }catch (Exception e){
-        e.printStackTrace();
-        result.setCode(500);
-    }
-    return result;
-}
-
-@GetMapping("/exportAudio")
-public Result exportAudio(final String pyFilePath, final String videoPath, final String audioPath)
-        throws IOException, InterruptedException {
-        Result result = new Result();
-        try{
-                 final List<String> commList = new ArrayList<>(Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
-                 ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
-                 audioDao.add(videoPath,audioPath);
-                 result.setCode(200);
-        }catch (Exception e){
-                e.printStackTrace();
-                result.setCode(500);
-        }
-         return  result;
-}
+//        @GetMapping("/compress")
+//        public Result compressVideo(final String pyFilePath, final String videoPath, final String compressedVideoPath,
+//                                    final int b) throws IOException, InterruptedException {
+//            Result result = new Result();
+//            try {
+//                final List<String> commList = new ArrayList<>(
+//                        Arrays.asList(this.pythonExe, pyFilePath, videoPath, compressedVideoPath, "" + b));
+//                ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+//                videoDao.update(videoPath,compressedVideoPath, b);
+//                result.setCode(200);
+//
+//            }catch (Exception e){
+//                e.printStackTrace();
+//                result.setCode(500);
+//            }
+//            return result;
+//        }
+//
+//@GetMapping("/inputSubtitle")
+//    public Result importSubtitle(final String pyFilePath, final String videoPath, final String subtitlePath,
+//                               final String videoWithSubtitlePath) throws IOException, InterruptedException {
+//    Result result = new Result();
+//    try {
+//        final List<String> commList = new ArrayList<>(
+//                Arrays.asList(this.pythonExe, pyFilePath, videoPath, subtitlePath, videoWithSubtitlePath));
+//        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+//        videoWithSubtitleDao.add(videoPath, subtitlePath, videoWithSubtitlePath);
+//        result.setCode(200);
+//
+//    }catch (Exception e){
+//        e.printStackTrace();
+//        result.setCode(500);
+//    }
+//    return result;
+//}
+//
+//@GetMapping("/exportAudio")
+//public Result exportAudio(final String pyFilePath, final String videoPath, final String audioPath)
+//        throws IOException, InterruptedException {
+//        Result result = new Result();
+//        try{
+//                 final List<String> commList = new ArrayList<>(Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
+//                 ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+//                 audioDao.add(videoPath,audioPath);
+//                 result.setCode(200);
+//        }catch (Exception e){
+//                e.printStackTrace();
+//                result.setCode(500);
+//        }
+//         return  result;
+//}
 }

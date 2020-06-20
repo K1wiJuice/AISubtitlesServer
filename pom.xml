@@ -136,7 +136,30 @@
 		        <groupId>org.springframework.boot</groupId>
 		        <artifactId>spring-boot-devtools</artifactId>
 		        <optional>true</optional>
-		</dependency>	
+		</dependency>
+
+		<dependency>
+			<groupId>it.sauronsoftware</groupId>
+			<artifactId>jave</artifactId>
+			<version>1.0.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jave-1.0.2.jar</systemPath>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

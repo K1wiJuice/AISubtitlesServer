@@ -9,9 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface VideoDao extends JpaRepository<Video, Integer> {
 
-    @Transactional
-    @Modifying
+//    @Transactional
+//    @Modifying
 
-    @Query(value = "update video_info  set video_path = :compressedVideoPath and video_p = :videoP where video_path = :videoPath" ,nativeQuery = true)
-    public Integer update(@Param("video_path")String videoPath, @Param("video_compressedPath")String compressedVideoPath,@Param("video_p") int videoP);
+//    @Query(value = "update video_info  set video_path = :compressedVideoPath and video_p = :videoP where video_path = :videoPath" ,nativeQuery = true)
+//    public Integer update(@Param("video_path")String videoPath, @Param("video_compressedPath")String compressedVideoPath,@Param("video_p") int videoP);
+
 }

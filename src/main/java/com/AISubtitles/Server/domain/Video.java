@@ -33,8 +33,8 @@ public class Video {
     private int videoBrowses;
     @Column(name = "video_shares")
     private int videoShares;
-    @Column(name = "video_p")
-    private int videoP;
+//    @Column(name = "video_p")
+//    private int videoP;
 
 
 
