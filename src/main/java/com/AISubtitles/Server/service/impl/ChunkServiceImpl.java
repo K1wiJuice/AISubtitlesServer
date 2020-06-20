@@ -38,4 +38,16 @@ public class ChunkServiceImpl implements ChunkService {
 
         return chunkDao.findOne(specification).orElse(null) == null;
     }
+
+    @Override
+    public List<String> getAllVideosUploading(String userId) {
+        return chunkDao.findByVideoNameUserIdLike(userId);
+    }
+
+    @Override
+    public void cancel(String videoName, Integer userId) {
+        chunkDao.deleteByVideoNameUserId(videoName + "--" + userId);
+    }
+
+
 }

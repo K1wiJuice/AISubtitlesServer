@@ -9,6 +9,7 @@ import com.AISubtitles.Server.service.ChunkService;
 import com.AISubtitles.common.CodeConsts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.List;
 
 @RestController
 @RequestMapping("/uploader")
@@ -52,7 +55,7 @@ public class UploadController {
             chunk.setChunkSize(chunkSize);
             chunk.setFile(file);
             String video = videoName + "--" + userId;
-            chunk.setVideoNameAndUserId(video);
+            chunk.setVideoNameUserId(video);
 
             Path path = Paths.get(generatePath(uploadFolder, chunk));
             Files.write(path, bytes);
@@ -120,10 +123,33 @@ public class UploadController {
     }
 
 
+    //result中的data是用户正在上传的文件的列表
+    //目前有两种方案，一种是通过数据库查询，一种是通过文件搜索
+    //通过文件搜索的待实现...
+    @GetMapping("/uploadingVideos")
+    public Result getVideoUploading(Integer userId) {
+        Result result = getVideoUploadingViaDatabase(userId);
+        return result;
+    }
+
+
+    @Transactional
+    @GetMapping("/cancel")
+    public Result cancel(String videoName,
+                         Integer userId) {
+        Result result = new Result();
+        //删除数据库中的记录
+        chunkService.cancel(videoName, userId);
+        //删除文件夹
+        deleteFolder(uploadFolder+"/"+videoName+"--"+userId);
+        return result;
+    }
+
+
     //为文件块生成存放路径
     public static String generatePath(String uploadFolder, Chunk chunk) {
         StringBuilder sb = new StringBuilder();
-        sb.append(uploadFolder).append("/").append(chunk.getVideoNameAndUserId());
+        sb.append(uploadFolder).append("/").append(chunk.getVideoNameUserId());
 
         //判断uploadFolder/identifier 路径是否存在，不存在则创建
         if (!Files.isWritable(Paths.get(sb.toString()))) {
@@ -135,7 +161,7 @@ public class UploadController {
         }
 
         return sb.append("/")
-                .append(chunk.getVideoNameAndUserId())
+                .append(chunk.getVideoNameUserId())
                 .append("-")
                 .append(chunk.getChunkNumber()).toString();
     }
@@ -168,4 +194,51 @@ public class UploadController {
             e.printStackTrace();
         }
     }
+
+
+    //通过数据库查找正在上传的视频
+    //正在上传的视频是在chunk表中有记录但是在video_info中没有的
+    public Result getVideoUploadingViaDatabase(Integer userId) {
+        Result result = new Result();
+        List<String> allVideosUploading = chunkService.getAllVideosUploading("%" + userId);
+
+        if (allVideosUploading.size() == 0) {
+            result.setCode(CodeConsts.CODE_SUCCESS);
+            result.setData("没有正在传的视频");
+
+        } else {
+            result.setCode(CodeConsts.CODE_SUCCESS);
+            for (int i = 0; i < allVideosUploading.size(); i++) {
+                result.setData(result.getData() + "," + allVideosUploading.get(i).substring(0, allVideosUploading.get(i).length()-3));
+            }
+        }
+
+        System.out.println(result);
+        return result;
+    }
+
+
+    //通过文件夹查找正在上传的视频
+    //还有分块文件的视频就是正在上传的视频
+    //暂未实现
+    public Result getVideoUploadingViaFile(Integer userId) {
+        Result result = new Result();
+
+
+        return result;
+    }
+
+
+    //取消上传时需要将已经传输的块都删除
+    public void deleteFolder(String folderPath) {
+        File file = new File(folderPath);
+        if (file.exists()) {
+            File[] files = file.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                files[i].delete();
+            }
+            file.delete();
+        }
+    }
+
 }
