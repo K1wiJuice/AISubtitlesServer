@@ -1,30 +1,45 @@
 package com.AISubtitles.Server.controller;
 
+import com.AISubtitles.Server.dao.AudioDao;
 import com.AISubtitles.Server.dao.VideoDao;
+import com.AISubtitles.Server.dao.VideoWithSubtitleDao;
+import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.Video;
+import com.AISubtitles.Server.service.ExecuteCommandService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ResourceUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 @RestController
 public class VideoController {
 
+    private String pythonExe;
+
+    VideoController() {
+        this.pythonExe = "python";
+    }
+
+    public void setPythonExe(final String path) {
+        this.pythonExe = path;
+    }
     @Autowired
     VideoDao videoDao;
+    AudioDao audioDao;
+    VideoWithSubtitleDao videoWithSubtitleDao;
 
 
     @RequestMapping("/upload")
@@ -94,5 +109,55 @@ public class VideoController {
         IOUtils.closeQuietly(outputStream);
 
     }
+        @GetMapping("/compress")
+        public Result compressVideo(final String pyFilePath, final String videoPath, final String compressedVideoPath,
+                                    final int b) throws IOException, InterruptedException {
+            Result result = new Result();
+            try {
+                final List<String> commList = new ArrayList<>(
+                        Arrays.asList(this.pythonExe, pyFilePath, videoPath, compressedVideoPath, "" + b));
+                ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+                videoDao.update(videoPath,compressedVideoPath, b);
+                result.setCode(200);
 
+            }catch (Exception e){
+                e.printStackTrace();
+                result.setCode(500);
+            }
+            return result;
+        }
+
+@GetMapping("/inputSubtitle")
+    public Result importSubtitle(final String pyFilePath, final String videoPath, final String subtitlePath,
+                               final String videoWithSubtitlePath) throws IOException, InterruptedException {
+    Result result = new Result();
+    try {
+        final List<String> commList = new ArrayList<>(
+                Arrays.asList(this.pythonExe, pyFilePath, videoPath, subtitlePath, videoWithSubtitlePath));
+        ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+        videoWithSubtitleDao.add(videoPath, subtitlePath, videoWithSubtitlePath);
+        result.setCode(200);
+
+    }catch (Exception e){
+        e.printStackTrace();
+        result.setCode(500);
+    }
+    return result;
+}
+
+@GetMapping("/exportAudio")
+public Result exportAudio(final String pyFilePath, final String videoPath, final String audioPath)
+        throws IOException, InterruptedException {
+        Result result = new Result();
+        try{
+                 final List<String> commList = new ArrayList<>(Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
+                 ExecuteCommandService.exec((com.sun.tools.javac.util.List<String>) commList);
+                 audioDao.add(videoPath,audioPath);
+                 result.setCode(200);
+        }catch (Exception e){
+                e.printStackTrace();
+                result.setCode(500);
+        }
+         return  result;
+}
 }
