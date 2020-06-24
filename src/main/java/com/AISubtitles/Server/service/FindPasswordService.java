@@ -1,7 +1,6 @@
 package com.AISubtitles.Server.service;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
@@ -24,18 +23,25 @@ public interface FindPasswordService {
      * @param newpassword
      * @return
      */
-    public Result<User> update(String newpassword);
+    public Result<User> update(String password, String newpassword);
 
     /**
-     * 验证码
+     * 验证邮箱验证码
      * 
      * @param emailCode
      * @param session
      * @return
      */
-    Result<User> validateCode(String emailCode, HttpServletResponse response, HttpSession session);
+    Result<User> validateEmailCode(String emailCode, HttpSession session);
 
-   
+    /**
+     * 验证短信验证码
+     * 
+     * @param SMSCode
+     * @param session
+     * @return
+     */
+    Result<User> validateSMSCode(String SMSCode, HttpSession session);
 
     /**
      * 查询用户信息
@@ -43,6 +49,6 @@ public interface FindPasswordService {
      * @param request
      * @return
      */
-    public Result<User> select(String accountnum);
+    public Result<User> select(HttpServletRequest request);
 
 }
