@@ -1,7 +1,5 @@
 package com.AISubtitles.Server.service;
 
-import com.AISubtitles.filter.FrameProcess;
-import com.AISubtitles.filter.ImageProcess;
 import org.opencv.core.Core;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +12,10 @@ public class VideoFilterService {
 
     private static int threadsNums;
 
-    private static ImageProcess imp;
+    private static ImageProcessService imp;
 
     private static String exePath = "C:\\Users\\24113\\Downloads\\ffmpeg-20200615-9d80f3e-win64-static\\bin\\ffmpeg.exe";
-    private static String imageFormat = FrameProcess.imageFormat;
+    private static String imageFormat = FrameProcessService.imageFormat;
 
     private static String imageFolderPath = "C:\\Users\\24113\\Desktop\\lj\\shot";
     private static String newImageFolderPath = "C:\\Users\\24113\\Desktop\\lj\\shot_new";
@@ -30,6 +28,7 @@ public class VideoFilterService {
     private static String jd = "C:\\Users\\24113\\Desktop\\lj\\tables\\jd.jpg";
     private static String movie = "C:\\Users\\24113\\Desktop\\lj\\tables\\movie.jpg";
 
+    private static String audioPath = "C:\\Users\\24113\\Desktop\\lj\\audio.mp3";
 
     private static String[] tables;
 
@@ -49,15 +48,15 @@ public class VideoFilterService {
         String table = tables[tableIndex];
 
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        FrameProcess fp = new FrameProcess();
-        fp.split(exePath, video, imageFolderPath);
+        FrameProcessService fp = new FrameProcessService();
+        fp.split(exePath, video, imageFolderPath, audioPath);
         System.out.println("分帧成功");
 
         File file = new File(imageFolderPath);
         File[] files = file.listFiles();
         int nums = files.length;
 
-        imp = new ImageProcess(table);
+        imp = new ImageProcessService(table);
         for (int i = 0; i < threadsNums; i++) {
             FilterThread testThread = new FilterThread(latch, nums*i/threadsNums+1, nums*(i+1)/threadsNums);
             testThread.start();
@@ -68,12 +67,12 @@ public class VideoFilterService {
         System.out.println("帧处理成功");
 
         String videoPath = video.substring(0, video.length()-4) + "_" + table.substring(table.lastIndexOf("\\") + 1, table.length()-4) + video.substring(video.length()-4);
-        fp.integrate(exePath, videoPath, newImageFolderPath, video);
+        fp.integrate(exePath, videoPath, newImageFolderPath, video, audioPath);
         deleteFolder(newImageFolderPath);
         System.out.println("合帧成功");
     }
 
-    static class FilterThread extends Thread{
+    class FilterThread extends Thread{
 
         private int start, end;
         private CountDownLatch latch;
@@ -95,7 +94,7 @@ public class VideoFilterService {
         }
     }
 
-    public static void deleteFolder(String folderPath) {
+    public void deleteFolder(String folderPath) {
         File file = new File(folderPath);
         if (file.exists()) {
             File[] files = file.listFiles();

@@ -13,7 +13,7 @@ public class FrameProcessService {
     /*这个方法的输入ffmpegApp是ffmpeg.exe这个程序的位置,例如"D:/ffmpeg/bin/ffmpeg.exe"
      * videoFilename是需要视频的位置，例如"C:/Users/Lenovo/Desktop/测试文件夹/重生.mp4"
      * path是一个文件夹，用于存储图片*/
-    public void split(String ffmpegApp, String videoFilename,String path)throws IOException,InterruptedException {
+    public void split(String ffmpegApp, String videoFilename,String path, String audioPath)throws IOException,InterruptedException {
         info(ffmpegApp,videoFilename);
         String COMMAND = "%s -i %s -r %s -f image2 %s";
         String newPath = path + "/%d" + imageFormat;
@@ -25,17 +25,18 @@ public class FrameProcessService {
         StringBuilder buf = new StringBuilder(); // 保存perl的输出结果流
         String line = null;
         while((line = br.readLine()) != null) buf.append(line); // 循环等待进程结束
+        voice(ffmpegApp, videoFilename, audioPath);
     }
 
     /*这个方法的输入ffmpegApp是ffmpeg.exe这个程序的位置,例如"D:/ffmpeg/bin/ffmpeg.exe"
      * videoFilename是需要视频的位置，例如"C:/Users/Lenovo/Desktop/测试文件夹/重生.mp4"
      * path是一个文件夹，用于存储图片
      * prevideo是初始视频的地址*/
-    public void integrate(String ffmpegApp, String videoFilename,String path,String prevideo)throws IOException,InterruptedException {
+    public void integrate(String ffmpegApp, String videoFilename,String path,String prevideo, String audioPath)throws IOException,InterruptedException {
         info(ffmpegApp,prevideo);
-        String COMMAND = "%s -i %s -r %s %s";
+        String COMMAND = "%s -r %s -i %s -i %s -vf fps=%s %s";
         String newPath = path + "/%d" + imageFormat;
-        String cmd = String.format(COMMAND, ffmpegApp, newPath, fps, videoFilename);
+        String cmd = String.format(COMMAND, ffmpegApp, fps, newPath, audioPath, fps, videoFilename);
 
         Process process = Runtime.getRuntime().exec(cmd); // 执行调用perl命令
         InputStream is = process.getErrorStream(); // 获取perl进程的输出流
@@ -70,5 +71,17 @@ public class FrameProcessService {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void voice(String ffmpegApp, String videoFilename, String audioPath)throws IOException,InterruptedException {
+        String COMMAND = "%s -i %s -f mp3 -vn %s";
+        String cmd = String.format(COMMAND, ffmpegApp, videoFilename ,audioPath);
+
+        Process process = Runtime.getRuntime().exec(cmd); // 执行调用perl命令
+        java.io.InputStream is = process.getErrorStream(); // 获取perl进程的输出流
+        BufferedReader br = new BufferedReader(new InputStreamReader(is)); // 缓冲读入
+        StringBuilder buf = new StringBuilder(); // 保存perl的输出结果流
+        String line = null;
+        while((line = br.readLine()) != null) buf.append(line); // 循环等待进程结束
     }
 }
