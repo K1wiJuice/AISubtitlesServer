@@ -26,15 +26,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="视频滤镜接口">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/BeautyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyPicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/Imagebase64Service.java" afterDir="false" />
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="美颜接口">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/FrameProcessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/FrameProcessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/FilterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
     </list>
@@ -231,12 +227,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.FilterTest.testFilter" />
-      <item itemvalue="JUnit.FilterTest" />
-      <item itemvalue="Spring Boot.ServerApplication" />
       <item itemvalue="Application.Imagebase64" />
       <item itemvalue="Application.Beautify" />
+      <item itemvalue="JUnit.FilterTest.testFilter" />
+      <item itemvalue="JUnit.FilterTest" />
       <item itemvalue="JUnit.FilterTest.testBeauty" />
+      <item itemvalue="Spring Boot.ServerApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -274,7 +270,8 @@
       <workItem from="1592657578231" duration="3095000" />
       <workItem from="1592661296248" duration="990000" />
       <workItem from="1592898237180" duration="3492000" />
-      <workItem from="1592963371047" duration="8314000" />
+      <workItem from="1592963371047" duration="8401000" />
+      <workItem from="1593051084841" duration="2913000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -318,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592900618125</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="美颜接口">
+      <created>1592971970384</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592971970384</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +359,8 @@
     <MESSAGE value="修正注册验证邮箱问题" />
     <MESSAGE value="初步合并了压缩视频，导入字幕，导出音频的功能" />
     <MESSAGE value="视频滤镜接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="视频滤镜接口" />
+    <MESSAGE value="美颜接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="美颜接口" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Assign_Data_Sources" timestamp="1592484988378">
@@ -410,26 +415,26 @@
     </state>
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592468933106" />
     <state x="514" y="119" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592898314835" />
-    <state width="1493" height="164" key="GridCell.Tab.0.bottom" timestamp="1592970723029">
+    <state width="1493" height="74" key="GridCell.Tab.0.bottom" timestamp="1593073328702">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="164" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592970723029" />
-    <state width="1493" height="164" key="GridCell.Tab.0.center" timestamp="1592970723029">
+    <state width="1493" height="74" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593073328702" />
+    <state width="1493" height="74" key="GridCell.Tab.0.center" timestamp="1593073328702">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="164" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592970723029" />
-    <state width="1493" height="164" key="GridCell.Tab.0.left" timestamp="1592970723028">
+    <state width="1493" height="74" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593073328702" />
+    <state width="1493" height="74" key="GridCell.Tab.0.left" timestamp="1593073328702">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="164" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592970723028" />
-    <state width="1493" height="164" key="GridCell.Tab.0.right" timestamp="1592970723029">
+    <state width="1493" height="74" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593073328702" />
+    <state width="1493" height="74" key="GridCell.Tab.0.right" timestamp="1593073328702">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="164" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592970723029" />
+    <state width="1493" height="74" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593073328702" />
     <state width="1493" height="87" key="GridCell.Tab.1.bottom" timestamp="1592917856834">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -464,11 +469,11 @@
     </state>
     <state x="240" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592471087856" />
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592964516339" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1592900626685">
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1592971982197">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592617821871" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592900626685" />
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592971982197" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -36,6 +36,7 @@ public class BeautifyService {
 	public void beautify(String videoPath, int white, int smooth, int facelift, int eye) throws IOException, InterruptedException {
 		CountDownLatch latch = new CountDownLatch(threadsNums);
 
+		System.out.println("分帧开始");
 		FrameProcessService frameProcessService = new FrameProcessService();
 		frameProcessService.split(exePath, videoPath, imageFolderPath, audioPath);
 		System.out.println("分帧成功");

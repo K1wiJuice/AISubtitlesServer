@@ -1,9 +1,6 @@
 package com.AISubtitles.Server.service;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class FrameProcessService {
 
@@ -25,6 +22,7 @@ public class FrameProcessService {
         StringBuilder buf = new StringBuilder(); // 保存perl的输出结果流
         String line = null;
         while((line = br.readLine()) != null) buf.append(line); // 循环等待进程结束
+        System.out.println("提取声音");
         voice(ffmpegApp, videoFilename, audioPath);
     }
 
@@ -44,6 +42,9 @@ public class FrameProcessService {
         StringBuilder buf = new StringBuilder(); // 保存perl的输出结果流
         String line = null;
         while((line = br.readLine()) != null) buf.append(line); // 循环等待进程结束
+
+        File audio = new File(audioPath);
+        audio.delete();
     }
 
     private void info(String ffmpegApp, String videoFilename) throws IOException {
@@ -73,7 +74,7 @@ public class FrameProcessService {
         }
     }
 
-    public void voice(String ffmpegApp, String videoFilename, String audioPath)throws IOException,InterruptedException {
+    public void voice(String ffmpegApp, String videoFilename, String audioPath)throws IOException {
         String COMMAND = "%s -i %s -f mp3 -vn %s";
         String cmd = String.format(COMMAND, ffmpegApp, videoFilename ,audioPath);
 
@@ -81,7 +82,7 @@ public class FrameProcessService {
         java.io.InputStream is = process.getErrorStream(); // 获取perl进程的输出流
         BufferedReader br = new BufferedReader(new InputStreamReader(is)); // 缓冲读入
         StringBuilder buf = new StringBuilder(); // 保存perl的输出结果流
-        String line = null;
+        String line;
         while((line = br.readLine()) != null) buf.append(line); // 循环等待进程结束
     }
 }

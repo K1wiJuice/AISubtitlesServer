@@ -32,7 +32,7 @@ public class FilterTest {
     @Test
     public void testBeauty() {
         try {
-            beautifyService.beautify(videoPath, 10, 10, 10, 10);
+            beautifyService.beautify(videoPath, 100, 100, 100, 100);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
