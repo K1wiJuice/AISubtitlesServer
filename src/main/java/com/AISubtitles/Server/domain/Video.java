@@ -33,6 +33,14 @@ public class Video {
     private int videoBrowses;
     @Column(name = "video_shares")
     private int videoShares;
+    @Column(name = "video_zhsubtitle")
+    private int videoZHSubtitle;
+    @Column(name = "video_ensubtitle")
+    private int videoENSubtitle;
+    @Column(name = "video_enzhsubtitle")
+    private int videoENZHSubtitle;
+    @Column(name = "video_enzhsubtitlejson")
+    private int videoENZHSubtitleJSON;
 //    @Column(name = "video_p")
 //    private int videoP;
 
