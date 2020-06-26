@@ -14,35 +14,35 @@ public class VideoFilterService {
 
     private static ImageProcessService imp;
 
-    private static String exePath = "C:\\Users\\24113\\Downloads\\ffmpeg-20200615-9d80f3e-win64-static\\bin\\ffmpeg.exe";
+    private static String exePath = "src/main/resources/lib/ffmpeg.exe";
     private static String imageFormat = FrameProcessService.imageFormat;
 
-    private static String imageFolderPath = "C:\\Users\\24113\\Desktop\\lj\\shot";
-    private static String newImageFolderPath = "C:\\Users\\24113\\Desktop\\lj\\shot_new";
+    private static String imageFolderPath = "src/main/resources/tables/shot";
+    private static String newImageFolderPath = "src/main/resources/tables/shot_new";
     private static String imagePath = imageFolderPath + "/%d" + imageFormat;
     private static String newImagePath = newImageFolderPath + "/%d" + imageFormat;
 
-    private static String black = "C:\\Users\\24113\\Desktop\\lj\\tables\\hb.jpg";
-    private static String ghost = "C:\\Users\\24113\\Desktop\\lj\\tables\\ghost.jpg";
-    private static String stars = "C:\\Users\\24113\\Desktop\\lj\\tables\\stars.jpg";
-    private static String jd = "C:\\Users\\24113\\Desktop\\lj\\tables\\jd.jpg";
-    private static String movie = "C:\\Users\\24113\\Desktop\\lj\\tables\\movie.jpg";
+    private static String black = "src/main/resources/tables/hb.jpg";
+    private static String hf = "src/main/resources/tables/hf.jpg";
+    private static String mk = "src/main/resources/tables/mk.jpg";
+    private static String jd = "src/main/resources/tables/jd.jpg";
+    private static String movie = "src/main/resources/tables/movie.jpg";
+    private static String natural = "src/main/resources/tables/natural.jpg";
 
-    private static String audioPath = "C:\\Users\\24113\\Desktop\\lj\\audio.mp3";
+
+    private static String audioPath = "src/main/resources/tables/audio.mp3";
 
     private static String[] tables;
 
     public VideoFilterService() {
-        tables = new String[]{black, ghost, stars, jd, movie};
+        tables = new String[]{black, hf, mk, jd, movie, natural};
     }
-
 
     public void setThreadsNums(int threadsNums) {
         this.threadsNums = threadsNums;
     }
 
-
-    public void filter(String video, int tableIndex) throws Exception {
+    public void filter(String video, String videoPath, int tableIndex) throws Exception {
 
         CountDownLatch latch = new CountDownLatch(threadsNums);
         String table = tables[tableIndex];
@@ -66,7 +66,7 @@ public class VideoFilterService {
         deleteFolder(imageFolderPath);
         System.out.println("帧处理成功");
 
-        String videoPath = video.substring(0, video.length()-4) + "_" + table.substring(table.lastIndexOf("\\") + 1, table.length()-4) + video.substring(video.length()-4);
+//        String videoPath = video.substring(0, video.length()-4) + "_" + table.substring(table.lastIndexOf("\\") + 1, table.length()-4) + video.substring(video.length()-4);
         fp.integrate(exePath, videoPath, newImageFolderPath, video, audioPath);
         deleteFolder(newImageFolderPath);
         System.out.println("合帧成功");

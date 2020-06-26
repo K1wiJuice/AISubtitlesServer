@@ -15,15 +15,17 @@ public class FilterController {
     VideoFilterService videoFilterService;
 
     @GetMapping("/filter")
-    public Result addFilter(String video, Integer table) {
+    public Result addFilter(String video,
+                            String newVideo,
+                            Integer table) {
         Result result = new Result();
         videoFilterService.setThreadsNums(3);
         try {
-            videoFilterService.filter(video, table);
+            videoFilterService.filter(video, newVideo, table);
             result.setCode(CodeConsts.CODE_SUCCESS);
             result.setData("滤镜添加成功");
         } catch (Exception e) {
-            result.setCode(CodeConsts.CODE_SUCCESS);
+            result.setCode(CodeConsts.CODE_SERVER_ERROR);
             result.setData("滤镜添加失败");
         }
 

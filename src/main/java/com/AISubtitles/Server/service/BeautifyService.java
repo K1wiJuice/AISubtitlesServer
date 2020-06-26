@@ -1,5 +1,6 @@
 package com.AISubtitles.Server.service;
 
+import org.opencv.core.Core;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -9,17 +10,16 @@ import java.util.concurrent.CountDownLatch;
 @Service
 public class BeautifyService {
 
-	private static String exePath = "C:\\Users\\24113\\Downloads\\ffmpeg-20200615-9d80f3e-win64-static\\bin\\ffmpeg.exe";
-	private String newVideoPath = "C:\\Users\\24113\\Desktop\\lj\\zgq_new.mp4";
-	private static String imageFolderPath = "C:\\Users\\24113\\Desktop\\lj\\shot";
-	private static String newImageFolderPath = "C:\\Users\\24113\\Desktop\\lj\\shot_new";
+	private static String exePath = "src/main/resources/lib/ffmpeg.exe";
+	private static String imageFolderPath = "src/main/resources/tables/shot";
+	private static String newImageFolderPath = "src/main/resources/tables/shot_new";
 	private static String imagePath = imageFolderPath + "/%d" + ".jpg";
 	private static String newImagePath = newImageFolderPath + "/%d" + ".jpg";
 
 	private static Imagebase64Service imagebase64Service;
 	private static BeautifyPicService beautifyPicService;
 
-	private static String audioPath = "C:\\Users\\24113\\Desktop\\lj\\audio.mp3";
+	private static String audioPath = "src/main/resources/tables/audio.mp3";
 
 	private static int threadsNums;
 
@@ -33,7 +33,7 @@ public class BeautifyService {
 		BeautifyService.threadsNums = threadsNums;
 	}
 
-	public void beautify(String videoPath, int white, int smooth, int facelift, int eye) throws IOException, InterruptedException {
+	public void beautify(String videoPath, String newVideo, int white, int smooth, int facelift, int eye) throws IOException, InterruptedException {
 		CountDownLatch latch = new CountDownLatch(threadsNums);
 
 		System.out.println("分帧开始");
@@ -45,7 +45,7 @@ public class BeautifyService {
     	File[] files = file.listFiles();
     	int nums = files.length;
 		for (int i = 0; i < threadsNums; i++) {
-			FilterThread testThread = new FilterThread(latch, nums*i/threadsNums+1, nums*(i+1)/threadsNums);
+			FilterThread testThread = new FilterThread(latch, nums*i/threadsNums+1, nums*(i+1)/threadsNums, white, smooth, facelift, eye);
 			testThread.start();
 		}
 		latch.await();
@@ -53,7 +53,7 @@ public class BeautifyService {
 
 		deleteFolder(imageFolderPath);
 		System.out.println("处理成功");
-		frameProcessService.integrate(exePath, newVideoPath, newImageFolderPath, videoPath, audioPath);
+		frameProcessService.integrate(exePath, newVideo, newImageFolderPath, videoPath, audioPath);
 
 		deleteFolder(newImageFolderPath);
 		System.out.println("和帧成功");
@@ -63,11 +63,20 @@ public class BeautifyService {
 
 		private int start, end;
 		private CountDownLatch latch;
+		private int white;
+		private int smooth;
+		private int facelift;
+		private int eye;
 
-		public FilterThread(CountDownLatch latch, int start, int end) {
+		public FilterThread(CountDownLatch latch, int start, int end,
+							int white, int smooth, int facelift, int eye) {
 			this.latch = latch;
 			this.start = start;
 			this.end = end;
+			this.white = white;
+			this.smooth = smooth;
+			this.facelift = facelift;
+			this.eye = eye;
 		}
 
 
@@ -77,7 +86,7 @@ public class BeautifyService {
 				String tempImagePath = String.format(imagePath, i);
 				String tempNewImagePath = String.format(newImagePath, i);
 				String base = imagebase64Service.getImageBinary(tempImagePath);
-				String temp = beautifyPicService.beautify_api("AKIDJGwlLenBRIvN246Y3JwOZJQIthYkKDTH", "gBSUNZOxJRL1QpxoNgj5C2dyC9p2B4tp", base, 100, 100, 100, 100);
+				String temp = beautifyPicService.beautify_api("AKIDJGwlLenBRIvN246Y3JwOZJQIthYkKDTH", "gBSUNZOxJRL1QpxoNgj5C2dyC9p2B4tp", base, white, smooth, facelift, eye);
 				imagebase64Service.base64StringToImage(temp,tempNewImagePath);
 			}
 			latch.countDown();

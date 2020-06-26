@@ -32,8 +32,8 @@ public class RegisterController {
         return registService.findByUserEmail(userEmail);
     }
 
-    @Autowired
-    FindPasswordService findPasswordService;
+//    @Autowired
+//    FindPasswordService findPasswordService;
 
     @PostMapping(value = "user/regist")
     public Result handleRegist(HttpSession session, HttpServletResponse response,
