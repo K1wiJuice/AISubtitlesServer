@@ -1,6 +1,9 @@
 package com.AISubtitles.Server.service;
 
+import com.AISubtitles.Server.dao.VideoDao;
+import com.AISubtitles.Server.domain.Video;
 import org.opencv.core.Core;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -9,6 +12,9 @@ import java.util.concurrent.CountDownLatch;
 
 @Service
 public class VideoFilterService {
+
+    @Autowired
+    VideoDao videoDao;
 
     private static int threadsNums;
 
@@ -32,6 +38,8 @@ public class VideoFilterService {
 
     private static String audioPath = "src/main/resources/tables/audio.mp3";
 
+    private String videosPath = "src/main/resources/videos";
+
     private static String[] tables;
 
     public VideoFilterService() {
@@ -42,10 +50,15 @@ public class VideoFilterService {
         this.threadsNums = threadsNums;
     }
 
-    public void filter(String video, String videoPath, int tableIndex) throws Exception {
+    public void filter(Integer videoId, String newVideoName, int tableIndex) throws Exception {
 
         CountDownLatch latch = new CountDownLatch(threadsNums);
         String table = tables[tableIndex];
+
+        Video oldVideo = videoDao.findById(videoId).get();
+
+        String video = oldVideo.getVideoPath();
+        String videoPath = videosPath + "/" + newVideoName;
 
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         FrameProcessService fp = new FrameProcessService();
@@ -70,6 +83,22 @@ public class VideoFilterService {
         fp.integrate(exePath, videoPath, newImageFolderPath, video, audioPath);
         deleteFolder(newImageFolderPath);
         System.out.println("合帧成功");
+
+        Video newVideo = new Video();
+        newVideo.setVideoPath(oldVideo.getVideoPath());
+        newVideo.setVideoBrowses(0);
+        newVideo.setVideoDuration(oldVideo.getVideoDuration());
+        newVideo.setVideoFavors(0);
+        newVideo.setVideoFormat(oldVideo.getVideoFormat());
+        newVideo.setVideoName(newVideoName);
+        newVideo.setVideoShares(0);
+        newVideo.setVideoSize(oldVideo.getVideoSize());
+        newVideo.setVideoCover(oldVideo.getVideoCover());
+        newVideo.setVideoENSubtitle(oldVideo.getVideoENSubtitle());
+        newVideo.setVideoENZHSubtitle(oldVideo.getVideoENZHSubtitle());
+        newVideo.setVideoENZHSubtitleJSON(oldVideo.getVideoENZHSubtitleJSON());
+        newVideo.setVideoZHSubtitle(oldVideo.getVideoZHSubtitle());
+        videoDao.save(newVideo);
     }
 
     class FilterThread extends Thread{

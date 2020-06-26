@@ -16,11 +16,11 @@ public class BeautyController {
     BeautifyService beautifyService;
 
     @GetMapping("/beautify")
-    public Result beautify(String video, String newVideo, int white, int smooth, int facelift, int eye) {
+    public Result beautify(Integer videoId, String newVideo, int white, int smooth, int facelift, int eye) {
         Result result = new Result();
         beautifyService.setThreadsNums(3);
         try {
-            beautifyService.beautify(video, newVideo, white, smooth, facelift, eye);
+            beautifyService.beautify(videoId, newVideo, white, smooth, facelift, eye);
             result.setCode(CodeConsts.CODE_SUCCESS);
             result.setData("美颜添加成功");
         } catch (Exception e) {

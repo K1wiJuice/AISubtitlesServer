@@ -1,6 +1,9 @@
 package com.AISubtitles.Server.service;
 
+import com.AISubtitles.Server.dao.VideoDao;
+import com.AISubtitles.Server.domain.Video;
 import org.opencv.core.Core;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -9,6 +12,9 @@ import java.util.concurrent.CountDownLatch;
 
 @Service
 public class BeautifyService {
+
+	@Autowired
+	VideoDao videoDao;
 
 	private static String exePath = "src/main/resources/lib/ffmpeg.exe";
 	private static String imageFolderPath = "src/main/resources/tables/shot";
@@ -20,6 +26,8 @@ public class BeautifyService {
 	private static BeautifyPicService beautifyPicService;
 
 	private static String audioPath = "src/main/resources/tables/audio.mp3";
+
+	private String videosPath = "src/main/resources/videos";
 
 	private static int threadsNums;
 
@@ -33,8 +41,13 @@ public class BeautifyService {
 		BeautifyService.threadsNums = threadsNums;
 	}
 
-	public void beautify(String videoPath, String newVideo, int white, int smooth, int facelift, int eye) throws IOException, InterruptedException {
+	public void beautify(Integer videoId, String newVideoName, int white, int smooth, int facelift, int eye) throws IOException, InterruptedException {
 		CountDownLatch latch = new CountDownLatch(threadsNums);
+
+		Video oldVideo = videoDao.findById(videoId).get();
+
+		String videoPath = oldVideo.getVideoPath();
+		String newVideoPath = videosPath + "/" + newVideoName;
 
 		System.out.println("分帧开始");
 		FrameProcessService frameProcessService = new FrameProcessService();
@@ -53,10 +66,25 @@ public class BeautifyService {
 
 		deleteFolder(imageFolderPath);
 		System.out.println("处理成功");
-		frameProcessService.integrate(exePath, newVideo, newImageFolderPath, videoPath, audioPath);
+		frameProcessService.integrate(exePath, newVideoPath, newImageFolderPath, videoPath, audioPath);
 
 		deleteFolder(newImageFolderPath);
 		System.out.println("和帧成功");
+		Video newVideo = new Video();
+		newVideo.setVideoPath(oldVideo.getVideoPath());
+		newVideo.setVideoBrowses(0);
+		newVideo.setVideoDuration(oldVideo.getVideoDuration());
+		newVideo.setVideoFavors(0);
+		newVideo.setVideoFormat(oldVideo.getVideoFormat());
+		newVideo.setVideoName(newVideoName);
+		newVideo.setVideoShares(0);
+		newVideo.setVideoSize(oldVideo.getVideoSize());
+		newVideo.setVideoCover(oldVideo.getVideoCover());
+		newVideo.setVideoENSubtitle(oldVideo.getVideoENSubtitle());
+		newVideo.setVideoENZHSubtitle(oldVideo.getVideoENZHSubtitle());
+		newVideo.setVideoENZHSubtitleJSON(oldVideo.getVideoENZHSubtitleJSON());
+		newVideo.setVideoZHSubtitle(oldVideo.getVideoZHSubtitle());
+		videoDao.save(newVideo);
 	}
 
 	class FilterThread extends Thread{

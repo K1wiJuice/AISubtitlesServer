@@ -18,7 +18,7 @@ public class FilterTest {
 
     private static String videoPath = "C:\\Users\\10636\\Desktop\\lj\\test.mp4";
 
-    private String newVideoPath = "C:\\Users\\10636\\Desktop\\lj\\test_new.mp4";
+    private String newVideoPath = "test_new.mp4";
 
     @Autowired
     VideoFilterService videoFilterService;
@@ -32,13 +32,13 @@ public class FilterTest {
     @Test
     public void testFilter() throws Exception {
         videoFilterService.setThreadsNums(3);
-        videoFilterService.filter(videoPath, newVideoPath, 5);
+        videoFilterService.filter(1, newVideoPath, 5);
     }
 
     @Test
     public void testBeauty() {
         try {
-            beautifyService.beautify(videoPath, newVideoPath, 100, 100, 100, 100);
+            beautifyService.beautify(1, newVideoPath, 100, 100, 100, 100);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

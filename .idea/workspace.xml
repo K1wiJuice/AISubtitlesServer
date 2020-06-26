@@ -26,44 +26,18 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="美颜接口">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FaceFusionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/FaceFusionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/FaceFusionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/ExecuteCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/FFmpegJ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/MediaProcess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/TencentAI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/tencentai/FaceFusion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/tencentai/TencentaiInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/voicechanger/AudioOutputToByteArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/voicechanger/SoundEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/voicechanger/WaveHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/Aragaki.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/baby.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/woman.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/lib/ffmpeg.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tables/hb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tables/hf.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tables/jd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tables/mk.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tables/movie.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tables/natural.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="修改滤镜和美颜输入参数，增加换脸接口">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/videos/test_new.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/BeautyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/BeautyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FaceFusionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FaceFusionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FilterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FindPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FindPasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/FaceFusionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/FaceFusionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/FindPasswordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/FindPasswordServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/FaceFusionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/FaceFusionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/FilterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +172,7 @@
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.FilterTest" />
       <option name="METHOD_NAME" value="testFilter" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-Djava.library.path=$PROJECT_DIR$\opencv\x64" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=$PROJECT_DIR$/../AISubtitlesServer\opencv\x64" />
       <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -269,8 +243,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.FilterTest.testBeauty" />
-        <item itemvalue="JUnit.FilterTest.faceFusion" />
         <item itemvalue="JUnit.FilterTest.testFilter" />
+        <item itemvalue="JUnit.FilterTest.faceFusion" />
         <item itemvalue="Application.Beautify" />
         <item itemvalue="Application.Imagebase64" />
       </list>
@@ -306,7 +280,11 @@
       <workItem from="1593051084841" duration="2913000" />
       <workItem from="1593155526699" duration="1284000" />
       <workItem from="1593156968737" duration="2714000" />
-      <workItem from="1593160211390" duration="6975000" />
+      <workItem from="1593160211390" duration="7450000" />
+      <workItem from="1593168276957" duration="324000" />
+      <workItem from="1593168650395" duration="146000" />
+      <workItem from="1593171643784" duration="1572000" />
+      <workItem from="1593173769844" duration="1583000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -357,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592971970384</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="修改滤镜和美颜输入参数，增加换脸接口">
+      <created>1593168016766</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1593168016766</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +380,8 @@
     <MESSAGE value="初步合并了压缩视频，导入字幕，导出音频的功能" />
     <MESSAGE value="视频滤镜接口" />
     <MESSAGE value="美颜接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="美颜接口" />
+    <MESSAGE value="修改滤镜和美颜输入参数，增加换脸接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改滤镜和美颜输入参数，增加换脸接口" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Assign_Data_Sources" timestamp="1592484988378">
@@ -419,11 +405,11 @@
     </state>
     <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1592472134512" />
     <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1592034285948" />
-    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1593160986465">
+    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1593168510511">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="510" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592616338117" />
-    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593160986465" />
+    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593168510511" />
     <state x="529" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1592468948523">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -454,26 +440,26 @@
     </state>
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592468933106" />
     <state x="514" y="119" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593167352148" />
-    <state width="1493" height="125" key="GridCell.Tab.0.bottom" timestamp="1593167633704">
+    <state width="1493" height="187" key="GridCell.Tab.0.bottom" timestamp="1593175043263">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="125" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593167633704" />
-    <state width="1493" height="125" key="GridCell.Tab.0.center" timestamp="1593167633704">
+    <state width="1493" height="187" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593175043263" />
+    <state width="1493" height="187" key="GridCell.Tab.0.center" timestamp="1593175043263">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="125" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593167633704" />
-    <state width="1493" height="125" key="GridCell.Tab.0.left" timestamp="1593167633704">
+    <state width="1493" height="187" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593175043263" />
+    <state width="1493" height="187" key="GridCell.Tab.0.left" timestamp="1593175043263">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="125" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593167633704" />
-    <state width="1493" height="125" key="GridCell.Tab.0.right" timestamp="1593167633704">
+    <state width="1493" height="187" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593175043263" />
+    <state width="1493" height="187" key="GridCell.Tab.0.right" timestamp="1593175043263">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
-    <state width="1493" height="125" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593167633704" />
+    <state width="1493" height="187" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593175043263" />
     <state width="1493" height="208" key="GridCell.Tab.1.bottom" timestamp="1593157952703">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -508,11 +494,11 @@
     </state>
     <state x="240" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592471087856" />
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593167356326" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1592971982197">
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1593168021584">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592617821871" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592971982197" />
+    <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593168021584" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -521,11 +507,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592610667673" />
-    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592971933157">
+    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593167820266">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591839101683" />
-    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592971933157" />
+    <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1593167820266" />
     <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1592617923778">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

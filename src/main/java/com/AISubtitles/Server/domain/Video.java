@@ -1,52 +1,54 @@
 package com.AISubtitles.Server.domain;
 
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "video_info")
 @Data
+@Proxy(lazy = false)
 public class Video {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "video_id")
-    private int videoId;
+    private Integer videoId;
     @Column(name = "user_id")
-    private int userId;
+    private Integer userId;
     @Column(name = "video_name")
     private String videoName;
     @Column(name = "video_path")
     private String videoPath;
     @Column(name = "video_size")
-    private double videoSize;
+    private Double videoSize;
     @Column(name = "video_format")
     private String videoFormat;
     @Column(name = "video_cover")
     private String videoCover;
     @Column(name = "video_duration")
-    private double videoDuration;
+    private Double videoDuration;
     @Column(name = "video_favors")
-    private int videoFavors;
+    private Integer videoFavors;
     @Column(name = "video_browses")
-    private int videoBrowses;
+    private Integer videoBrowses;
     @Column(name = "video_shares")
-    private int videoShares;
+    private Integer videoShares;
     @Column(name = "video_zhsubtitle")
-    private int videoZHSubtitle;
+    private Integer videoZHSubtitle;
     @Column(name = "video_ensubtitle")
-    private int videoENSubtitle;
+    private Integer videoENSubtitle;
     @Column(name = "video_enzhsubtitle")
-    private int videoENZHSubtitle;
+    private Integer videoENZHSubtitle;
     @Column(name = "video_enzhsubtitlejson")
-    private int videoENZHSubtitleJSON;
+    private Integer videoENZHSubtitleJSON;
 //    @Column(name = "video_p")
 //    private int videoP;
 
 
 
-    public int getVideoId() {
+    public Integer getVideoId() {
         return videoId;
     }
 
@@ -54,7 +56,7 @@ public class Video {
         this.videoId = videoId;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
@@ -70,7 +72,7 @@ public class Video {
         this.videoName = videoName;
     }
 
-    public double getVideoSize() {
+    public Double getVideoSize() {
         return videoSize;
     }
 
@@ -102,7 +104,7 @@ public class Video {
         this.videoCover = videoCover;
     }
 
-    public double getVideoDuration() {
+    public Double getVideoDuration() {
         return videoDuration;
     }
 
@@ -110,7 +112,7 @@ public class Video {
         this.videoDuration = videoDuration;
     }
 
-    public int getVideoFavors() {
+    public Integer getVideoFavors() {
         return videoFavors;
     }
 
@@ -118,7 +120,7 @@ public class Video {
         this.videoFavors = videoFavors;
     }
 
-    public int getVideoBrowses() {
+    public Integer getVideoBrowses() {
         return videoBrowses;
     }
 
@@ -126,7 +128,7 @@ public class Video {
         this.videoBrowses = videoBrowses;
     }
 
-    public int getVideoShares() {
+    public Integer getVideoShares() {
         return videoShares;
     }
 
