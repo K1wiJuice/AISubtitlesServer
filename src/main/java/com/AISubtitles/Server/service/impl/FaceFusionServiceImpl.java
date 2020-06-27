@@ -24,17 +24,22 @@ public class FaceFusionServiceImpl implements FaceFusionService {
     @Override
     public Result faceFusion(MultipartFile img, Integer videoId, String MaterialId) {
         Result result = new Result();
+        String imgPath = "";
         try {
             img.transferTo(new File("src/main/resources/imgs", "src/main/resources/imgs/" + img.getOriginalFilename()));
-            String imgPath = "src/main/resources/imgs/" + img.getOriginalFilename();
-            String newImagePath = imgPath + "--" + videoId;
+            imgPath = "src/main/resources/imgs/" + img.getOriginalFilename();
+//            imgPath = "src/main/resources/imgs/baby.jpg";
+
+            String newImagePath = imgPath.substring(0, imgPath.length()-4) + "--" + videoId + "--coverPage.jpg";
             TencentAI.facefusion(imgPath, newImagePath, MaterialId);
             videoDao.modifyCover(videoId, newImagePath);
             result.setCode(CodeConsts.CODE_SUCCESS);
             result.setData("换脸成功");
-        } catch (IOException e) {
+        } catch (Exception e) {
             result.setCode(CodeConsts.CODE_SERVER_ERROR);
             result.setData("换脸失败");
+        } finally {
+            new File(imgPath).delete();
         }
 
         return result;
