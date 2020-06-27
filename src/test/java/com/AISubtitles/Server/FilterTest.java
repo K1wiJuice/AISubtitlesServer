@@ -16,7 +16,7 @@ import java.io.IOException;
 @SpringBootTest
 public class FilterTest {
 
-    private static String videoPath = "C:\\Users\\10636\\Desktop\\lj\\test.mp4";
+    private static String videoPath = "C:/Users/10636/Desktop/lj/test.mp4";
 
     private String newVideoPath = "test_new.mp4";
 
@@ -32,18 +32,13 @@ public class FilterTest {
     @Test
     public void testFilter() throws Exception {
         videoFilterService.setThreadsNums(3);
-        videoFilterService.filter(1, newVideoPath, 5);
+        System.out.println(videoFilterService.filter(3, newVideoPath, 5));
     }
 
     @Test
     public void testBeauty() {
-        try {
-            beautifyService.beautify(1, newVideoPath, 100, 100, 100, 100);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        beautifyService.setThreadsNums(3);
+        beautifyService.beautify(3, newVideoPath, 100, 100, 100, 100);
     }
 
     @Test
@@ -51,6 +46,6 @@ public class FilterTest {
         String imagePath = "src/main/resources/imgs/Aragaki.jpg";
         String outputPath = "src/main/resources/imgs/fusion.jpg";
         String m = "qc_303269_803589_6";
-        faceFusionService.faceFusion(imagePath, outputPath, m);
+//        faceFusionService.faceFusion(imagePath, outputPath, m);
     }
 }

@@ -51,7 +51,8 @@ public interface VideoDao extends JpaRepository<Video, Integer> {
     @Query(value = "update video_info  set video_enzhsubtitlejson = :out_filename where video_enzhsubtitle = :srt_filename" ,nativeQuery = true)
     public Integer srt2json(@Param("srt_filename")String srt_filename, @Param("out_filename")String out_filename);
 
-    
-    
+
+    @Query(value = "update video_info set video_path = :video_path where video_id = :video_id", nativeQuery = true)
+    Integer modifyCover(@Param("video_id") Integer video_id, @Param("video_path") String video_path);
 
 }

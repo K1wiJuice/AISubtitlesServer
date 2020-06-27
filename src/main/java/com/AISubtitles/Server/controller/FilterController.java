@@ -18,18 +18,8 @@ public class FilterController {
     public Result addFilter(Integer videoId,
                             String newVideo,
                             Integer table) {
-        Result result = new Result();
         videoFilterService.setThreadsNums(3);
-        try {
-            videoFilterService.filter(videoId, newVideo, table);
-            result.setCode(CodeConsts.CODE_SUCCESS);
-            result.setData("滤镜添加成功");
-        } catch (Exception e) {
-            result.setCode(CodeConsts.CODE_SERVER_ERROR);
-            result.setData("滤镜添加失败");
-        }
-
-        return result;
+        return videoFilterService.filter(videoId, newVideo, table);
     }
 
 }

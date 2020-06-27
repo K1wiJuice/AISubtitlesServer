@@ -2,13 +2,23 @@ package com.AISubtitles.Server.controller;
 
 
 import com.AISubtitles.Server.domain.Result;
+import com.AISubtitles.Server.domain.Video;
 import com.AISubtitles.Server.service.FaceFusionService;
 import com.AISubtitles.common.CodeConsts;
 import com.alibaba.fastjson.JSONArray;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class FaceFusionController {
@@ -17,19 +27,10 @@ public class FaceFusionController {
     FaceFusionService faceFusionService;
 
     @PostMapping("/faceFusion")
-    public Result faceFusion(String imgPath,
-                             String newImagePath,
+    public Result faceFusion(MultipartFile img,
+                             Integer videoId,
                              String MaterialId) {
-        Result result = new Result();
-        try {
-            faceFusionService.faceFusion(imgPath, newImagePath, MaterialId);
-            result.setCode(CodeConsts.CODE_SUCCESS);
-            result.setData("换脸成功");
-        } catch (Exception e) {
-            result.setCode(CodeConsts.CODE_SERVER_ERROR);
-            result.setData("换脸失败");
-        }
-        return result;
+        return faceFusionService.faceFusion(img, videoId, MaterialId);
     }
 
 
@@ -41,4 +42,5 @@ public class FaceFusionController {
         result.setData(jsonArray);
         return result;
     }
+
 }

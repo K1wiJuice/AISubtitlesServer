@@ -1,12 +1,15 @@
 package com.AISubtitles.Server.service;
 
 import com.AISubtitles.Server.dao.VideoDao;
+import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.Video;
+import com.AISubtitles.common.CodeConsts;
 import org.opencv.core.Core;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 
@@ -50,7 +53,9 @@ public class VideoFilterService {
         this.threadsNums = threadsNums;
     }
 
-    public void filter(Integer videoId, String newVideoName, int tableIndex) throws Exception {
+    public Result filter(Integer videoId, String newVideoName, int tableIndex) {
+
+        Result result = new Result();
 
         CountDownLatch latch = new CountDownLatch(threadsNums);
         String table = tables[tableIndex];
@@ -62,7 +67,13 @@ public class VideoFilterService {
 
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         FrameProcessService fp = new FrameProcessService();
-        fp.split(exePath, video, imageFolderPath, audioPath);
+        try {
+            fp.split(exePath, video, imageFolderPath, audioPath);
+        } catch (Exception e) {
+            result.setCode(CodeConsts.CODE_SERVER_ERROR);
+            result.setData("视频分帧失败");
+            return result;
+        }
         System.out.println("分帧成功");
 
         File file = new File(imageFolderPath);
@@ -75,30 +86,43 @@ public class VideoFilterService {
             testThread.start();
         }
 
-        latch.await();
+        try {
+            latch.await();
+        } catch (InterruptedException e){}
+
         deleteFolder(imageFolderPath);
         System.out.println("帧处理成功");
 
 //        String videoPath = video.substring(0, video.length()-4) + "_" + table.substring(table.lastIndexOf("\\") + 1, table.length()-4) + video.substring(video.length()-4);
-        fp.integrate(exePath, videoPath, newImageFolderPath, video, audioPath);
+        try {
+            fp.integrate(exePath, videoPath, newImageFolderPath, video, audioPath);
+            result.setCode(CodeConsts.CODE_SUCCESS);
+            result.setData("滤镜添加成功");
+        } catch (Exception e) {
+            result.setCode(CodeConsts.CODE_SERVER_ERROR);
+            result.setData("视频合帧失败");
+            return result;
+        }
         deleteFolder(newImageFolderPath);
         System.out.println("合帧成功");
 
         Video newVideo = new Video();
-        newVideo.setVideoPath(oldVideo.getVideoPath());
+        newVideo.setVideoPath(videoPath);
         newVideo.setVideoBrowses(0);
-        newVideo.setVideoDuration(oldVideo.getVideoDuration());
+//        newVideo.setVideoDuration(oldVideo.getVideoDuration());
         newVideo.setVideoFavors(0);
-        newVideo.setVideoFormat(oldVideo.getVideoFormat());
+//        newVideo.setVideoFormat(oldVideo.getVideoFormat());
         newVideo.setVideoName(newVideoName);
         newVideo.setVideoShares(0);
-        newVideo.setVideoSize(oldVideo.getVideoSize());
-        newVideo.setVideoCover(oldVideo.getVideoCover());
-        newVideo.setVideoENSubtitle(oldVideo.getVideoENSubtitle());
-        newVideo.setVideoENZHSubtitle(oldVideo.getVideoENZHSubtitle());
-        newVideo.setVideoENZHSubtitleJSON(oldVideo.getVideoENZHSubtitleJSON());
-        newVideo.setVideoZHSubtitle(oldVideo.getVideoZHSubtitle());
+//        newVideo.setVideoSize(oldVideo.getVideoSize());
+//        newVideo.setVideoCover(oldVideo.getVideoCover());
+//        newVideo.setVideoENSubtitle(oldVideo.getVideoENSubtitle());
+//        newVideo.setVideoENZHSubtitle(oldVideo.getVideoENZHSubtitle());
+//        newVideo.setVideoENZHSubtitleJSON(oldVideo.getVideoENZHSubtitleJSON());
+//        newVideo.setVideoZHSubtitle(oldVideo.getVideoZHSubtitle());
         videoDao.save(newVideo);
+
+        return result;
     }
 
     class FilterThread extends Thread{
