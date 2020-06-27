@@ -26,18 +26,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="修改滤镜和美颜输入参数,将处理完的视频保存到数据库中">
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="修改controller，将controller业务整合到service">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/GenerateCoverPageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/generateCoverPageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/videos/test_new.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/BeautyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/BeautyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FaceFusionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FaceFusionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/FilterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/FaceFusionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/FaceFusionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/FaceFusionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/FaceFusionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/MediaProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/MediaProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/AISubtitles/Server/FilterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +98,7 @@
       <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\my" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FilterTest.testBeauty">
+  <component name="RunManager" selected="Spring Boot.ServerApplication">
     <configuration name="Beautify" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.my.Beautify" />
       <module name="subtitles" />
@@ -114,15 +112,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Imagebase64" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.AISubtitles.my.Imagebase64" />
+    <configuration name="FilterTest.coverPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="subtitles" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.AISubtitles.my.*" />
+          <option name="PATTERN" value="com.AISubtitles.Server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.AISubtitles.Server" />
+      <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.FilterTest" />
+      <option name="METHOD_NAME" value="coverPage" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -233,20 +234,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Imagebase64" />
       <item itemvalue="Application.Beautify" />
       <item itemvalue="JUnit.FilterTest.testFilter" />
       <item itemvalue="JUnit.FilterTest.testBeauty" />
       <item itemvalue="JUnit.FilterTest.faceFusion" />
       <item itemvalue="Spring Boot.ServerApplication" />
+      <item itemvalue="JUnit.FilterTest.coverPage" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FilterTest.faceFusion" />
+        <item itemvalue="JUnit.FilterTest.coverPage" />
         <item itemvalue="JUnit.FilterTest.testBeauty" />
         <item itemvalue="JUnit.FilterTest.testFilter" />
-        <item itemvalue="JUnit.FilterTest.faceFusion" />
         <item itemvalue="Application.Beautify" />
-        <item itemvalue="Application.Imagebase64" />
       </list>
     </recent_temporary>
   </component>
@@ -285,7 +286,7 @@
       <workItem from="1593168650395" duration="146000" />
       <workItem from="1593171643784" duration="1572000" />
       <workItem from="1593173769844" duration="2710000" />
-      <workItem from="1593219469332" duration="8835000" />
+      <workItem from="1593219469332" duration="17473000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -350,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593175648661</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="修改controller，将controller业务整合到service">
+      <created>1593232975993</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1593232975993</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +398,8 @@
     <MESSAGE value="美颜接口" />
     <MESSAGE value="修改滤镜和美颜输入参数，增加换脸接口" />
     <MESSAGE value="修改滤镜和美颜输入参数,将处理完的视频保存到数据库中" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改滤镜和美颜输入参数,将处理完的视频保存到数据库中" />
+    <MESSAGE value="修改controller，将controller业务整合到service" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改controller，将controller业务整合到service" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Assign_Data_Sources" timestamp="1592484988378">
@@ -414,11 +423,12 @@
     </state>
     <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1592472134512" />
     <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1592034285948" />
-    <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser" timestamp="1593168510511">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="619" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1593239472153">
+      <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state x="510" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592616338117" />
     <state x="574" y="118" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1593168510511" />
+    <state x="619" y="124" key="#com.intellij.ide.util.MemberChooser/72.0.1464.864@72.0.1464.864" timestamp="1593239472153" />
     <state x="529" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1592468948523">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -449,50 +459,50 @@
     </state>
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592468933106" />
     <state x="514" y="119" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593167352148" />
-    <state width="1421" height="178" key="GridCell.Tab.0.bottom" timestamp="1593231716684">
+    <state width="1421" height="467" key="GridCell.Tab.0.bottom" timestamp="1593243765109">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
-    <state width="1421" height="178" key="GridCell.Tab.0.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593231716684" />
-    <state width="1421" height="178" key="GridCell.Tab.0.center" timestamp="1593231716684">
+    <state width="1421" height="467" key="GridCell.Tab.0.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
+    <state width="1421" height="467" key="GridCell.Tab.0.center" timestamp="1593243765109">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
-    <state width="1421" height="178" key="GridCell.Tab.0.center/72.0.1464.864@72.0.1464.864" timestamp="1593231716684" />
-    <state width="1421" height="178" key="GridCell.Tab.0.left" timestamp="1593231716684">
+    <state width="1421" height="467" key="GridCell.Tab.0.center/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
+    <state width="1421" height="467" key="GridCell.Tab.0.left" timestamp="1593243765109">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
-    <state width="1421" height="178" key="GridCell.Tab.0.left/72.0.1464.864@72.0.1464.864" timestamp="1593231716684" />
-    <state width="1421" height="178" key="GridCell.Tab.0.right" timestamp="1593231716684">
+    <state width="1421" height="467" key="GridCell.Tab.0.left/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
+    <state width="1421" height="467" key="GridCell.Tab.0.right" timestamp="1593243765109">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
-    <state width="1421" height="178" key="GridCell.Tab.0.right/72.0.1464.864@72.0.1464.864" timestamp="1593231716684" />
-    <state width="1421" height="156" key="GridCell.Tab.1.bottom" timestamp="1593231282247">
+    <state width="1421" height="467" key="GridCell.Tab.0.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
+    <state width="1421" height="467" key="GridCell.Tab.1.bottom" timestamp="1593243765110">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593157952703" />
-    <state width="1421" height="156" key="GridCell.Tab.1.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593231282247" />
-    <state width="1421" height="156" key="GridCell.Tab.1.center" timestamp="1593231282247">
+    <state width="1421" height="467" key="GridCell.Tab.1.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
+    <state width="1421" height="467" key="GridCell.Tab.1.center" timestamp="1593243765110">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
-    <state width="1421" height="156" key="GridCell.Tab.1.center/72.0.1464.864@72.0.1464.864" timestamp="1593231282247" />
-    <state width="1421" height="156" key="GridCell.Tab.1.left" timestamp="1593231282247">
+    <state width="1421" height="467" key="GridCell.Tab.1.center/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
+    <state width="1421" height="467" key="GridCell.Tab.1.left" timestamp="1593243765110">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
-    <state width="1421" height="156" key="GridCell.Tab.1.left/72.0.1464.864@72.0.1464.864" timestamp="1593231282247" />
-    <state width="1421" height="156" key="GridCell.Tab.1.right" timestamp="1593231282247">
+    <state width="1421" height="467" key="GridCell.Tab.1.left/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
+    <state width="1421" height="467" key="GridCell.Tab.1.right" timestamp="1593243765110">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
-    <state width="1421" height="156" key="GridCell.Tab.1.right/72.0.1464.864@72.0.1464.864" timestamp="1593231282247" />
+    <state width="1421" height="467" key="GridCell.Tab.1.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
     <state x="54" y="135" key="Maven.ArtifactSearchDialog" timestamp="1593161910495">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -511,11 +521,12 @@
     </state>
     <state x="240" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592471087856" />
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593167356326" />
-    <state x="309" y="110" key="Vcs.Push.Dialog.v2" timestamp="1593175660174">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="367" y="115" key="Vcs.Push.Dialog.v2" timestamp="1593232983043">
+      <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592617821871" />
     <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593175660174" />
+    <state x="367" y="115" key="Vcs.Push.Dialog.v2/72.0.1464.864@72.0.1464.864" timestamp="1593232983043" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -524,12 +535,12 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592610667673" />
-    <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593232814469">
+    <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593244682631">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591839101683" />
     <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1593167820266" />
-    <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1464.864@72.0.1464.864" timestamp="1593232814469" />
+    <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1464.864@72.0.1464.864" timestamp="1593244682631" />
     <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1592617923778">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
