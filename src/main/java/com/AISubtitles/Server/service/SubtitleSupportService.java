@@ -23,7 +23,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import javassist.expr.NewArray;
-import org.springframework.stereotype.Service;
 
 /**
  * @ Author     ：lzl
@@ -32,7 +31,6 @@ import org.springframework.stereotype.Service;
  * @ Modified By：
  * @Version: 1.0$
  */
-@Service
 public class SubtitleSupportService {
 	private String pythonExe;
 
@@ -79,10 +77,32 @@ public class SubtitleSupportService {
      * @throws IOException
      * @throws InterruptedException
      */
-    public void exportAudio(final String pyFilePath, final String videoPath, final String audioPath)
+    public Result exportAudio(final String videoId)
             throws IOException, InterruptedException {
-        final List<String> commList = new ArrayList<>(Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
-        ExecuteCommandService.exec(commList);
+    	sub = subtitleDao.findByVideoId(videoId);
+    	String pyFilePath = "python/export_audio.py";
+    	String videoPath = sub.getVideoPath();
+    	String audioPath;
+    	if (sub.getAudioPath() == null) {
+    		audioPath = "files/"+videoId+"/"+videoId+"_audio.mp3"; 		
+    	}
+    	else audioPath = sub.getZhSubtitlePath();
+    	Result result = new Result();
+        try {
+        	final List<String> commList = new ArrayList<>(
+        			Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
+            ExecuteCommandService.exec(commList);
+            subtitleDao.export_audio(videoId, audioPath);
+            result.setCode(200);
+            result.setData("导出音频成功！");
+
+        }catch (Exception e){
+            e.printStackTrace();
+            result.setCode(500);
+            result.setData("导出音频失败！");
+        }
+        return result;
+        
     }
 
     /**
@@ -127,7 +147,7 @@ public class SubtitleSupportService {
             final List<String> commList = new ArrayList<>(
                     Arrays.asList(this.pythonExe, pyFilePath, audioPath, subtitlePath));
             ExecuteCommandService.exec(commList);
-            videoDao.audio2zhSubtitle(audioPath,subtitlePath);
+            subtitleDao.audio2zhSubtitle(audioPath,subtitlePath);
             result.setCode(200);
             result.setData("语音识别成功！");
 
@@ -172,7 +192,7 @@ public class SubtitleSupportService {
             final List<String> commList = new ArrayList<>(
                     Arrays.asList(this.pythonExe, pyFilePath, subtitlePath, transSubtitlePath, source, target));
             ExecuteCommandService.exec(commList);
-            videoDao.translateSubtitle(subtitlePath,transSubtitlePath);
+            subtitleDao.translateSubtitle(subtitlePath,transSubtitlePath);
             result.setCode(200);
             result.setData("字幕翻译成功！");
 
@@ -210,7 +230,7 @@ public class SubtitleSupportService {
             final List<String> commList = new ArrayList<>(
                     Arrays.asList(this.pythonExe, pyFilePath, zhSubtitlePath, enSubtitlePath, mergedSubtitlePath));
             ExecuteCommandService.exec(commList);
-            videoDao.mergeSubtitle(zhSubtitlePath,mergedSubtitlePath);
+            subtitleDao.mergeSubtitle(zhSubtitlePath,mergedSubtitlePath);
             result.setCode(200);
             result.setData("字幕合并成功！");
 
