@@ -19,8 +19,8 @@ public class BeautifyService {
 	VideoDao videoDao;
 
 	private static String exePath = "src/main/resources/lib/ffmpeg.exe";
-	private static String imageFolderPath = "src/main/resources/tables/shot";
-	private static String newImageFolderPath = "src/main/resources/tables/shot_new";
+	private static String imageFolderPath = "src/main/resources/imgs/shot";
+	private static String newImageFolderPath = "src/main/resources/imgs/shot_new";
 	private static String imagePath = imageFolderPath + "/%d" + ".jpg";
 	private static String newImagePath = newImageFolderPath + "/%d" + ".jpg";
 

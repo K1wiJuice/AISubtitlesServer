@@ -9,15 +9,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface VideoDao extends JpaRepository<Video, Integer> {
 
-    @Transactional
-    @Modifying
-
-    @Query(value = "update video_info  set video_path = :compressedVideoPath and video_p = :videoP where video_path = :videoPath" ,nativeQuery = true)
-    public Integer compressVideo(@Param("video_path")String videoPath, @Param("video_compressedPath")String compressedVideoPath,@Param("video_p") int videoP);
+//    @Transactional
+//    @Modifying
+//
+//    @Query(value = "update video_info  set video_path = :compressedVideoPath and video_p = :videoP where video_path = :videoPath" ,nativeQuery = true)
+//    public Integer compressVideo(@Param("video_path")String videoPath, @Param("video_compressedPath")String compressedVideoPath,@Param("video_p") int videoP);
 
     @Query(value = "insert into video_info(video_path) values(videoWithSubtitlePath)",nativeQuery = true)
     public Integer importSubtitle(@Param("videoPath") String videoWithSubtitlePath);
-    
     /*
      * Gavin
      * 添加对应音频的字幕路径

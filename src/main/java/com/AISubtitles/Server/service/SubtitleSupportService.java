@@ -23,6 +23,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import javassist.expr.NewArray;
+import org.springframework.stereotype.Service;
 
 /**
  * @ Author     ：lzl
@@ -31,6 +32,7 @@ import javassist.expr.NewArray;
  * @ Modified By：
  * @Version: 1.0$
  */
+@Service
 public class SubtitleSupportService {
 	private String pythonExe;
 

@@ -155,7 +155,7 @@ public class VideoSupportService {
             outputs.put(compressedVideoPath, outputOpts);
             FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
             System.out.println(ff.cmd());
-            videodao.compressVideo(videoPath,compressedVideoPath,b);
+//            videodao.compressVideo(videoPath,compressedVideoPath,b);
             if (ff.run() == true) {
                 result.setCode(200);
             }

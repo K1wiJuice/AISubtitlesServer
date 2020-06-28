@@ -26,11 +26,503 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="修改controller，将controller业务整合到service">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/GenerateCoverPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/100.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/101.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/102.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/103.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/104.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/105.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/106.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/107.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/108.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/109.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/110.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/111.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/112.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/113.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/114.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/115.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/116.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/117.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/118.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/119.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/120.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/121.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/122.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/123.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/124.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/125.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/126.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/127.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/129.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/130.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/131.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/132.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/133.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/134.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/135.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/136.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/137.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/138.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/139.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/140.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/142.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/143.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/144.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/145.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/146.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/147.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/148.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/149.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/150.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/151.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/152.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/153.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/154.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/155.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/156.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/157.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/158.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/159.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/160.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/161.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/162.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/163.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/164.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/165.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/166.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/167.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/168.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/169.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/170.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/171.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/172.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/173.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/174.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/175.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/176.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/177.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/178.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/179.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/180.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/181.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/182.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/183.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/184.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/185.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/186.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/187.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/188.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/189.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/190.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/191.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/192.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/193.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/194.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/195.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/196.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/197.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/198.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/199.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/20.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/200.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/201.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/202.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/203.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/204.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/205.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/206.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/207.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/208.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/209.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/210.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/211.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/212.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/213.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/214.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/215.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/216.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/217.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/218.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/219.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/22.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/220.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/221.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/222.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/223.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/224.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/225.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/226.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/227.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/228.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/229.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/23.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/230.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/231.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/232.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/233.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/234.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/235.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/236.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/237.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/238.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/239.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/240.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/241.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/242.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/243.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/244.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/245.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/246.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/247.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/248.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/249.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/250.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/251.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/252.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/253.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/254.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/255.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/256.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/257.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/258.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/259.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/26.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/260.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/261.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/262.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/263.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/264.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/265.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/266.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/267.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/268.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/269.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/27.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/270.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/271.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/272.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/273.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/274.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/275.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/276.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/277.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/278.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/279.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/28.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/280.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/281.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/282.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/283.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/284.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/285.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/286.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/287.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/288.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/289.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/29.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/290.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/291.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/292.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/293.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/294.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/295.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/296.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/297.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/298.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/299.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/30.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/301.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/302.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/303.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/304.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/305.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/306.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/307.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/308.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/309.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/31.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/310.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/311.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/312.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/313.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/314.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/315.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/316.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/317.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/318.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/319.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/32.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/320.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/321.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/322.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/323.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/324.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/325.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/326.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/327.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/328.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/329.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/33.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/330.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/331.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/332.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/333.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/334.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/335.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/336.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/337.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/338.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/339.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/34.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/340.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/341.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/342.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/343.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/344.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/345.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/346.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/347.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/348.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/35.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/36.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/37.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/38.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/39.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/40.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/41.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/42.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/43.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/44.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/46.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/47.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/48.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/49.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/50.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/51.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/52.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/53.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/56.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/57.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/58.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/59.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/60.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/61.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/62.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/63.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/64.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/65.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/66.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/67.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/68.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/69.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/70.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/71.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/72.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/73.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/74.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/75.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/76.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/77.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/78.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/79.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/80.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/81.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/82.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/83.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/84.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/85.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/86.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/87.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/88.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/89.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/90.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/91.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/92.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/93.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/94.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/95.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/96.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/97.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/98.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/99.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/117.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/118.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/119.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/120.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/121.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/122.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/123.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/124.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/125.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/126.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/127.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/128.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/129.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/130.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/131.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/132.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/133.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/134.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/135.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/136.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/137.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/138.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/139.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/140.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/142.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/143.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/144.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/145.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/146.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/147.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/148.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/149.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/150.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/151.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/152.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/153.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/154.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/155.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/156.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/20.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/22.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/23.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/233.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/234.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/235.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/236.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/237.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/238.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/239.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/240.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/241.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/242.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/243.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/244.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/245.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/246.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/247.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/248.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/249.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/250.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/251.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/252.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/253.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/254.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/255.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/256.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/257.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/258.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/259.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/26.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/260.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/261.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/262.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/263.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/264.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/265.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/266.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/267.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/268.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/269.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/27.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/270.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/271.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/272.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/273.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/274.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/275.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/276.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/277.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/278.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/28.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/29.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/30.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/31.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/32.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/33.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/34.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/35.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/36.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/37.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/38.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/39.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/40.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/41.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/42.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/43.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/44.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/46.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tables/audio.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/videos/testNewVideo0.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/GenerateCoverPageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/GenerateCoverPageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/generateCoverPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/generateCoverPageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/com - 快捷方式.lnk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/videos/test_new.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +566,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../aisubtitleSupport" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/opencv/opencv-400.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -97,7 +589,7 @@
       <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\my" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Beautify">
+  <component name="RunManager" selected="Spring Boot.ServerApplication">
     <configuration name="Beautify" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.my.Beautify" />
       <module name="subtitles" />
@@ -287,7 +779,7 @@
       <workItem from="1593219469332" duration="17473000" />
       <workItem from="1593247926572" duration="1182000" />
       <workItem from="1593249146911" duration="10998000" />
-      <workItem from="1593341246228" duration="218000" />
+      <workItem from="1593341246228" duration="4170000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -359,7 +851,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593232975993</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update">
+      <created>1593341550791</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1593341550791</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +899,8 @@
     <MESSAGE value="修改滤镜和美颜输入参数，增加换脸接口" />
     <MESSAGE value="修改滤镜和美颜输入参数,将处理完的视频保存到数据库中" />
     <MESSAGE value="修改controller，将controller业务整合到service" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改controller，将controller业务整合到service" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Assign_Data_Sources" timestamp="1592484988378">
@@ -438,6 +938,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="263" y="19" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1366.728@0.0.1366.728" timestamp="1592468944052" />
+    <state x="231" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593356047767">
+      <screen x="72" y="0" width="1296" height="912" />
+    </state>
+    <state x="231" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/72.0.1296.912@72.0.1296.912" timestamp="1593356047767" />
     <state x="444" y="140" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592474902314">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -455,54 +959,63 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1591865772899" />
-    <state x="457" y="105" key="FileChooserDialogImpl" timestamp="1593250303092">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="562" y="125" key="FileChooserDialogImpl" timestamp="1593341687791">
+      <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593250303092" />
     <state x="514" y="119" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593167352148" />
-    <state width="1421" height="467" key="GridCell.Tab.0.bottom" timestamp="1593243765109">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state x="562" y="125" key="FileChooserDialogImpl/72.0.1464.864@72.0.1464.864" timestamp="1593341687791" />
+    <state width="1254" height="256" key="GridCell.Tab.0.bottom" timestamp="1593356636140">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
+    <state width="1254" height="256" key="GridCell.Tab.0.bottom/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
     <state width="1421" height="467" key="GridCell.Tab.0.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1421" height="467" key="GridCell.Tab.0.center" timestamp="1593243765109">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state width="1254" height="256" key="GridCell.Tab.0.center" timestamp="1593356636140">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
+    <state width="1254" height="256" key="GridCell.Tab.0.center/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
     <state width="1421" height="467" key="GridCell.Tab.0.center/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1421" height="467" key="GridCell.Tab.0.left" timestamp="1593243765109">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state width="1254" height="256" key="GridCell.Tab.0.left" timestamp="1593356636140">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
+    <state width="1254" height="256" key="GridCell.Tab.0.left/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
     <state width="1421" height="467" key="GridCell.Tab.0.left/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1421" height="467" key="GridCell.Tab.0.right" timestamp="1593243765109">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state width="1254" height="256" key="GridCell.Tab.0.right" timestamp="1593356636140">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
+    <state width="1254" height="256" key="GridCell.Tab.0.right/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
     <state width="1421" height="467" key="GridCell.Tab.0.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1421" height="467" key="GridCell.Tab.1.bottom" timestamp="1593243765110">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state width="1254" height="256" key="GridCell.Tab.1.bottom" timestamp="1593356636140">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593157952703" />
+    <state width="1254" height="256" key="GridCell.Tab.1.bottom/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
     <state width="1421" height="467" key="GridCell.Tab.1.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
-    <state width="1421" height="467" key="GridCell.Tab.1.center" timestamp="1593243765110">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state width="1254" height="256" key="GridCell.Tab.1.center" timestamp="1593356636140">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
+    <state width="1254" height="256" key="GridCell.Tab.1.center/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
     <state width="1421" height="467" key="GridCell.Tab.1.center/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
-    <state width="1421" height="467" key="GridCell.Tab.1.left" timestamp="1593243765110">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state width="1254" height="256" key="GridCell.Tab.1.left" timestamp="1593356636140">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
+    <state width="1254" height="256" key="GridCell.Tab.1.left/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
     <state width="1421" height="467" key="GridCell.Tab.1.left/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
-    <state width="1421" height="467" key="GridCell.Tab.1.right" timestamp="1593243765110">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state width="1254" height="256" key="GridCell.Tab.1.right" timestamp="1593356636140">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
+    <state width="1254" height="256" key="GridCell.Tab.1.right/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
     <state width="1421" height="467" key="GridCell.Tab.1.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
     <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1593329649081">
       <screen x="0" y="0" width="1366" height="728" />
@@ -517,17 +1030,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="392" y="79" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1591865073036" />
-    <state x="240" y="0" key="SettingsEditor" timestamp="1593248918163">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="329" y="0" key="SettingsEditor" timestamp="1593341695416">
+      <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state x="240" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593248918163" />
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593167356326" />
-    <state x="367" y="115" key="Vcs.Push.Dialog.v2" timestamp="1593232983043">
+    <state x="329" y="0" key="SettingsEditor/72.0.1464.864@72.0.1464.864" timestamp="1593341695416" />
+    <state x="367" y="115" key="Vcs.Push.Dialog.v2" timestamp="1593341599572">
       <screen x="72" y="0" width="1464" height="864" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592617821871" />
     <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593175660174" />
-    <state x="367" y="115" key="Vcs.Push.Dialog.v2/72.0.1464.864@72.0.1464.864" timestamp="1593232983043" />
+    <state x="367" y="115" key="Vcs.Push.Dialog.v2/72.0.1464.864@72.0.1464.864" timestamp="1593341599572" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -540,11 +1054,12 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="458" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1593248646819" />
-    <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593244682631">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state x="523" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593354463598">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591839101683" />
     <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1593167820266" />
+    <state x="523" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1296.912@72.0.1296.912" timestamp="1593354463598" />
     <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1464.864@72.0.1464.864" timestamp="1593244682631" />
     <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1592617923778">
       <screen x="0" y="0" width="1366" height="728" />
