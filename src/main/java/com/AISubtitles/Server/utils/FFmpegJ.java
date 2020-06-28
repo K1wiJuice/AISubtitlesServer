@@ -14,8 +14,8 @@ public class FFmpegJ {
      * @param outputs 输出变量
      * @author PY
      */
-    FFmpegJ(final List<String> globals, final Map<String, List<String>> inputs,
-            final Map<String, List<String>> outputs) {
+    public FFmpegJ(final List<String> globals, final Map<String, List<String>> inputs,
+                   final Map<String, List<String>> outputs) {
         this.commList = new ArrayList<>();
         this.commList.add("ffmpeg");
 

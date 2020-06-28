@@ -4,6 +4,7 @@ package com.AISubtitles.Server.controller;
 import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.service.BeautifyService;
 import com.AISubtitles.Server.service.VideoFilterService;
+import com.AISubtitles.Server.service.VideoSupportService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class VideoProcessController {
 
     @Autowired
     VideoFilterService videoFilterService;
+    VideoSupportService videoSupportService;
 
     @Autowired
     BeautifyService beautifyService;
@@ -41,6 +43,24 @@ public class VideoProcessController {
                 Integer facelift = jsonObject.getInteger("facelift");
                 Integer eye = jsonObject.getInteger("eye");
                 beautifyService.beautify(videoId, newVideo, white, smooth, facelift, eye);
+            }else if("compressVideo".equals(operationType)){
+                Integer videoId = jsonObject.getInteger("videoId");
+                String videoPath = jsonObject.getString("videoPath");
+                String compressedVideoPath = jsonObject.getString("compressedVideoPath");
+                Integer videoP = jsonObject.getInteger("videoP");
+                videoSupportService.compressVideo(videoPath,compressedVideoPath,videoP);
+            }else if("importSubtitle".equals(operationType)){
+                Integer videoId = jsonObject.getInteger("videoId");
+                String videoPath = jsonObject.getString("videoPath");
+                String subtitlePath = jsonObject.getString("subtitlePath");
+                String videoWithSubtitlePath = jsonObject.getString("videoWithSubtitlePath");
+                videoSupportService.importSubtitle(videoPath,subtitlePath,videoWithSubtitlePath);
+            }else if("voiceChanger".equals(operationType)){
+                Integer videoId = jsonObject.getInteger("videoId");
+                String voicePath = jsonObject.getString("audioPath");
+                String outputPath = jsonObject.getString("outputPath");
+                Integer type = jsonObject.getInteger("type");
+                videoSupportService.voiceChanger(voicePath,outputPath,type);
             }
         }
 

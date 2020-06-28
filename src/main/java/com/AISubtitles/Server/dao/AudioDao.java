@@ -15,9 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
  * @Version: $
  */
 public interface AudioDao extends JpaRepository<Audio,Integer> {
+
     @Transactional
     @Modifying
 
-    @Query(value = "insert into audio_info(video_path,audio_path) values(videoPath,audioPath)",nativeQuery = true)
-    public Integer add(@Param("videoPath") String videoPath,@Param("audioPath") String audioPath);
+    @Query(value = "insert into audio_info(audio_path) values(outputPath)",nativeQuery = true)
+    public Integer voiceChanger(@Param("audio_Path") String outputPath);
+
 }
