@@ -88,16 +88,19 @@ public class VideoProcessController {
 
 
             Double progress = (1.0+i) / jsonArray.size();
-            processedVideo.setProcessProgress(progress);
+            System.out.println(progress);
             if (i == 0) {
                 processedVideo = (Video) videoProcessResult.getData();
+                processedVideo.setProcessProgress(progress);
                 videoDao.save(processedVideo);
             } else {
                 Video temp = (Video)videoProcessResult.getData();
                 processedVideo.setVideoPath(temp.getVideoPath());
                 processedVideo.setVideoName(temp.getVideoName());
+                processedVideo.setProcessProgress(progress);
                 videoDao.modifyPath(processedVideo.getVideoId(), processedVideo.getVideoPath());
                 videoDao.modifyName(processedVideo.getVideoId(), processedVideo.getVideoName());
+                videoDao.modifyProgress(videoId, progress);
             }
 
             if (i != jsonArray.size()-1) {

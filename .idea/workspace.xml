@@ -27,7 +27,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/GenerateCoverPageController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/1.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/10.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot/100.jpg" afterDir="false" />
@@ -399,30 +398,8 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/132.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/133.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/134.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/135.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/136.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/137.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/138.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/139.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/140.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/141.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/142.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/143.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/144.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/145.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/146.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/147.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/148.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/149.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/150.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/151.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/152.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/153.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/154.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/155.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/156.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/16.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/17.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/18.jpg" afterDir="false" />
@@ -431,7 +408,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/20.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/21.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/23.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/233.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/234.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/235.jpg" afterDir="false" />
@@ -439,7 +415,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/237.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/238.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/239.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/24.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/240.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/241.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/242.jpg" afterDir="false" />
@@ -450,79 +425,22 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/247.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/248.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/249.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/25.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/250.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/251.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/252.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/253.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/254.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/255.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/256.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/257.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/258.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/259.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/26.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/260.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/261.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/262.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/263.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/264.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/265.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/266.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/267.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/268.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/269.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/27.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/270.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/271.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/272.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/273.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/274.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/275.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/276.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/277.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/278.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/28.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/29.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/30.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/31.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/32.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/33.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/34.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/35.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/36.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/37.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/38.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/39.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/40.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/41.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/42.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/43.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/44.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/45.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/46.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/5.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/6.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/7.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/8.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/imgs/shot_new/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tables/audio.mp3" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/videos/testNewVideo0.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/BeautifyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/GenerateCoverPageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/GenerateCoverPageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoFilterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/generateCoverPageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/impl/generateCoverPageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/com - 快捷方式.lnk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/videos/test_new.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -779,7 +697,7 @@
       <workItem from="1593219469332" duration="17473000" />
       <workItem from="1593247926572" duration="1182000" />
       <workItem from="1593249146911" duration="10998000" />
-      <workItem from="1593341246228" duration="4170000" />
+      <workItem from="1593341246228" duration="5025000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -858,7 +776,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593341550791</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update">
+      <created>1593357048576</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593357048576</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -965,57 +890,57 @@
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593250303092" />
     <state x="514" y="119" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593167352148" />
     <state x="562" y="125" key="FileChooserDialogImpl/72.0.1464.864@72.0.1464.864" timestamp="1593341687791" />
-    <state width="1254" height="256" key="GridCell.Tab.0.bottom" timestamp="1593356636140">
+    <state width="1254" height="284" key="GridCell.Tab.0.bottom" timestamp="1593357394626">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
-    <state width="1254" height="256" key="GridCell.Tab.0.bottom/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
+    <state width="1254" height="284" key="GridCell.Tab.0.bottom/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1254" height="256" key="GridCell.Tab.0.center" timestamp="1593356636140">
+    <state width="1254" height="284" key="GridCell.Tab.0.center" timestamp="1593357394626">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
-    <state width="1254" height="256" key="GridCell.Tab.0.center/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
+    <state width="1254" height="284" key="GridCell.Tab.0.center/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.center/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1254" height="256" key="GridCell.Tab.0.left" timestamp="1593356636140">
+    <state width="1254" height="284" key="GridCell.Tab.0.left" timestamp="1593357394626">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
-    <state width="1254" height="256" key="GridCell.Tab.0.left/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
+    <state width="1254" height="284" key="GridCell.Tab.0.left/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.left/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1254" height="256" key="GridCell.Tab.0.right" timestamp="1593356636140">
+    <state width="1254" height="284" key="GridCell.Tab.0.right" timestamp="1593357394626">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
     <state width="1493" height="238" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
-    <state width="1254" height="256" key="GridCell.Tab.0.right/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
+    <state width="1254" height="284" key="GridCell.Tab.0.right/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1254" height="256" key="GridCell.Tab.1.bottom" timestamp="1593356636140">
+    <state width="1254" height="284" key="GridCell.Tab.1.bottom" timestamp="1593357394626">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593157952703" />
-    <state width="1254" height="256" key="GridCell.Tab.1.bottom/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
+    <state width="1254" height="284" key="GridCell.Tab.1.bottom/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.1.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
-    <state width="1254" height="256" key="GridCell.Tab.1.center" timestamp="1593356636140">
+    <state width="1254" height="284" key="GridCell.Tab.1.center" timestamp="1593357394626">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
-    <state width="1254" height="256" key="GridCell.Tab.1.center/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
+    <state width="1254" height="284" key="GridCell.Tab.1.center/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.1.center/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
-    <state width="1254" height="256" key="GridCell.Tab.1.left" timestamp="1593356636140">
+    <state width="1254" height="284" key="GridCell.Tab.1.left" timestamp="1593357394626">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
-    <state width="1254" height="256" key="GridCell.Tab.1.left/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
+    <state width="1254" height="284" key="GridCell.Tab.1.left/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.1.left/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
-    <state width="1254" height="256" key="GridCell.Tab.1.right" timestamp="1593356636140">
+    <state width="1254" height="284" key="GridCell.Tab.1.right" timestamp="1593357394626">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state width="1493" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
-    <state width="1254" height="256" key="GridCell.Tab.1.right/72.0.1296.912@72.0.1296.912" timestamp="1593356636140" />
+    <state width="1254" height="284" key="GridCell.Tab.1.right/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.1.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
     <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1593329649081">
       <screen x="0" y="0" width="1366" height="728" />
@@ -1036,11 +961,12 @@
     <state x="240" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593248918163" />
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593167356326" />
     <state x="329" y="0" key="SettingsEditor/72.0.1464.864@72.0.1464.864" timestamp="1593341695416" />
-    <state x="367" y="115" key="Vcs.Push.Dialog.v2" timestamp="1593341599572">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state x="333" y="121" key="Vcs.Push.Dialog.v2" timestamp="1593357055114">
+      <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592617821871" />
     <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593175660174" />
+    <state x="333" y="121" key="Vcs.Push.Dialog.v2/72.0.1296.912@72.0.1296.912" timestamp="1593357055114" />
     <state x="367" y="115" key="Vcs.Push.Dialog.v2/72.0.1464.864@72.0.1464.864" timestamp="1593341599572" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
@@ -1054,12 +980,12 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="458" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1593248646819" />
-    <state x="523" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593354463598">
+    <state x="523" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593357030863">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591839101683" />
     <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1593167820266" />
-    <state x="523" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1296.912@72.0.1296.912" timestamp="1593354463598" />
+    <state x="523" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1296.912@72.0.1296.912" timestamp="1593357030863" />
     <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1464.864@72.0.1464.864" timestamp="1593244682631" />
     <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1592617923778">
       <screen x="0" y="0" width="1366" height="728" />
