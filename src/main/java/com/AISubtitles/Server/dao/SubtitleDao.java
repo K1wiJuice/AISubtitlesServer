@@ -99,7 +99,17 @@ public interface SubtitleDao extends JpaRepository<Video, Integer> {
      */
     @Query(value = "update subtitle_info  set subtitle_mjson_path = :out_filename where subtitle_merge_path = :srt_filename" ,nativeQuery = true)
     public Integer srt2json(@Param("srt_filename")String srt_filename, @Param("out_filename")String out_filename);
-
+    
+    /**
+     * Gavin
+     * 根据返回来的json数据生成新的字幕文件
+     * @param videoId    字幕Id
+     * @param outputPath 新的字幕文件路径
+     * @return
+     */
+    @Query(value = "update subtitle_info  set subtitle_merge_path = :outputPath where subtitle_id = :videoId" ,nativeQuery = true)
+    public Integer json2srt(@Param("videoId")String videoId, @Param("outputPath")String outputPath);
+    
 
     @Transactional
     @Modifying

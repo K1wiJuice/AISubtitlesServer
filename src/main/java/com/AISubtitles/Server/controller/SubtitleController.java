@@ -52,7 +52,13 @@ public class SubtitleController {
 	 	      throws IOException, InterruptedException {    	
     	  return subtitleSupportService.exportAudio(videoId);     
       }
-	  
+      
+     @PostMapping("/SubtitleSupport/json2srt")
+	  public Result json2srt(final JSONArray subtitle, final String videoId) 
+			  throws IOException {
+    	  return subtitleSupportService.subtitleJson2srt(subtitle, videoId);
+      }
+  
       @PostMapping("/SubtitleSupport/audio2zhSubtitle")
       public Result audio2zhSubtitle(final String videoId) 
 	 	      throws IOException, InterruptedException {    	

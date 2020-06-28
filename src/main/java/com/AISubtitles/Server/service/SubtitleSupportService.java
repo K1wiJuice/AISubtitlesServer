@@ -300,8 +300,50 @@ public Result subtitleSrt2json(final String videoId) {
 	
 	return result;
     }    
-}
 
+
+/**
+ * json格式的字幕转srt格式并保存
+ *
+ * @param subtitle   表示字幕的json数组
+ * @param outputPath 输出路径
+ */
+public Result subtitleJson2srt(final JSONArray subtitle, final String videoId) {
+	sub = subtitleDao.findByVideoId(videoId);
+	String outputPath = "files/"+videoId+"/"+videoId+"_mljsonsub.srt";
+	Result result = new Result();
+	
+	StringBuffer content = new StringBuffer();
+    for (int i = 0; i < subtitle.size(); i++) {
+        JSONObject temp = subtitle.getJSONObject(i);
+        content.append("" + (i + 1) + "\n");
+        String begin = temp.getString("begin"), end = temp.getString("end");
+        content.append(begin + " --> " + end + "\n");
+        JSONArray texts = temp.getJSONArray("texts");
+        for (int j = 0; j < texts.size(); j++) {
+            content.append(texts.getString(j) + "\n");
+        }
+        content.append("\n");
+    }
+    File file = new File(outputPath);
+    try {
+        FileOutputStream fos = new FileOutputStream(file);
+        OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
+        osw.write(content.toString());
+        osw.flush();
+        subtitleDao.json2srt(videoId, outputPath);
+        result.setCode(200);
+        result.setData("修改字幕成功！");
+    } 
+    catch (IOException e) {
+        e.printStackTrace();
+        result.setCode(500);
+        result.setData("修改字幕失败！");
+    }
+    
+    return result;
+	}
+}
 
 
 
