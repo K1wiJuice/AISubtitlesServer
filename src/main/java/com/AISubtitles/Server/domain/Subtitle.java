@@ -25,51 +25,140 @@ public class Subtitle {
     private int userId;
     @Column(name = "video_path")
     private  String videoPath;
-    @Column(name = "subtitle_path")
-    private String subtitlePath;
+    @Column(name = "audio_path")
+    private  String audioPath;
+    @Column(name = "subtitle_zh_path")
+    private String zhSubtitlePath;
+    @Column(name = "subtitle_en_path")
+    private String enSubtitlePath;
+    @Column(name = "subtitle_merge_path")
+    private String mergeSubtitlePath;
+    @Column(name = "subtitle_mjson_path")
+    private String mjsonSubtitlePath;
    // @Column(name = "subtitle_size")
     //private double subtitleSize;
     @Column(name = "subtitle_type")
     private String subtitleType;
 
+
+
     public int getVideoId() {
-        return videoId;
-    }
+		return videoId;
+	}
 
-    public void setVideoId(int videoId) {
-        this.videoId = videoId;
-    }
 
-    public int getUserId() {
-        return userId;
-    }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+	public void setVideoId(int videoId) {
+		this.videoId = videoId;
+	}
 
-    public String getSubtitlePath() {
-        return subtitlePath;
-    }
 
-    public void setSubtitlePath(String subtitlePath) {
-        this.subtitlePath = subtitlePath;
-    }
 
-    public String getSubtitleType() {
-        return subtitleType;
-    }
+	public int getUserId() {
+		return userId;
+	}
 
-    public void setSubtitleType(String subtitleType) {
-        this.subtitleType = subtitleType;
-    }
 
-    @Override
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+
+
+	public String getVideoPath() {
+		return videoPath;
+	}
+
+
+
+	public void setVideoPath(String videoPath) {
+		this.videoPath = videoPath;
+	}
+
+
+
+	public String getAudioPath() {
+		return audioPath;
+	}
+
+
+
+	public void setAudioPath(String audioPath) {
+		this.audioPath = audioPath;
+	}
+
+
+
+	public String getZhSubtitlePath() {
+		return zhSubtitlePath;
+	}
+
+
+
+	public void setZhSubtitlePath(String zhSubtitlePath) {
+		this.zhSubtitlePath = zhSubtitlePath;
+	}
+
+
+
+	public String getEnSubtitlePath() {
+		return enSubtitlePath;
+	}
+
+
+
+	public void setEnSubtitlePath(String enSubtitlePath) {
+		this.enSubtitlePath = enSubtitlePath;
+	}
+
+
+
+	public String getMergeSubtitlePath() {
+		return mergeSubtitlePath;
+	}
+
+
+
+	public void setMergeSubtitlePath(String mergeSubtitlePath) {
+		this.mergeSubtitlePath = mergeSubtitlePath;
+	}
+
+
+
+	public String getMjsonSubtitlePath() {
+		return mjsonSubtitlePath;
+	}
+
+
+
+	public void setMjsonSubtitlePath(String mjsonSubtitlePath) {
+		this.mjsonSubtitlePath = mjsonSubtitlePath;
+	}
+
+
+
+	public String getSubtitleType() {
+		return subtitleType;
+	}
+
+
+
+	public void setSubtitleType(String subtitleType) {
+		this.subtitleType = subtitleType;
+	}
+
+
+
+	@Override
     public String toString() {
         return "Subtitle{" +
                 "videoId=" + videoId +
                 ", userId=" + userId +
-                ", subtitlePath='" + subtitlePath + '\'' +
+                ", zhSubtitlePath='" + zhSubtitlePath + '\'' +
+                ", enSubtitlePath='" + enSubtitlePath + '\'' +
+                ", mergeSubtitlePath='" + mergeSubtitlePath + '\'' +
+                ", mjsonSubtitlePath='" + mjsonSubtitlePath + '\'' +
                 ", subtitleType='" + subtitleType + '\'' +
                 '}';
     }
