@@ -60,6 +60,17 @@ public interface VideoDao extends JpaRepository<Video, Integer> {
     @Transactional
     @Modifying
     @Query(value = "update video_info set video_cover = :video_cover where video_id = :video_id", nativeQuery = true)
-    Integer modifyCover(@Param("video_id") Integer video_id, @Param("video_cover") String video_path);
+    Integer modifyCover(@Param("video_id") Integer video_id, @Param("video_cover") String video_cover);
+
+
+    @Transactional
+    @Modifying
+    @Query(value = "update video_info set video_path = :video_path where video_id = :video_id", nativeQuery = true)
+    Integer modifyPath(@Param("video_id") Integer video_id, @Param("video_path") String video_path);
+
+    @Transactional
+    @Modifying
+    @Query(value = "update video_info set video_name = :video_name where video_id = :video_id", nativeQuery = true)
+    Integer modifyName(@Param("video_id") Integer video_id, @Param("video_name") String video_name);
 
 }

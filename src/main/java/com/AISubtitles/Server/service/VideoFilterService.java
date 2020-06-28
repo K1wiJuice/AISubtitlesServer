@@ -120,7 +120,7 @@ public class VideoFilterService {
 //        newVideo.setVideoENZHSubtitle(oldVideo.getVideoENZHSubtitle());
 //        newVideo.setVideoENZHSubtitleJSON(oldVideo.getVideoENZHSubtitleJSON());
 //        newVideo.setVideoZHSubtitle(oldVideo.getVideoZHSubtitle());
-        videoDao.save(newVideo);
+        result.setData(newVideo);
 
         return result;
     }

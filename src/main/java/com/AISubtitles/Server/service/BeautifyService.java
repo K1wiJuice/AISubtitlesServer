@@ -66,8 +66,8 @@ public class BeautifyService {
 		System.out.println("分帧成功");
 
 		File file = new File(imageFolderPath);
-    	File[] files = file.listFiles();
-    	int nums = files.length;
+		File[] files = file.listFiles();
+		int nums = files.length;
 		for (int i = 0; i < threadsNums; i++) {
 			FilterThread testThread = new FilterThread(latch, nums*i/threadsNums+1, nums*(i+1)/threadsNums, white, smooth, facelift, eye);
 			testThread.start();
@@ -82,7 +82,6 @@ public class BeautifyService {
 		try {
 			frameProcessService.integrate(exePath, newVideoPath, newImageFolderPath, videoPath, audioPath);
 			result.setCode(CodeConsts.CODE_SUCCESS);
-			result.setData("美颜添加成功");
 		} catch (Exception e) {
 			result.setCode(CodeConsts.CODE_SERVER_ERROR);
 			result.setData("视频合帧失败");
@@ -105,7 +104,8 @@ public class BeautifyService {
 //		newVideo.setVideoENZHSubtitle(oldVideo.getVideoENZHSubtitle());
 //		newVideo.setVideoENZHSubtitleJSON(oldVideo.getVideoENZHSubtitleJSON());
 //		newVideo.setVideoZHSubtitle(oldVideo.getVideoZHSubtitle());
-		videoDao.save(newVideo);
+//		videoDao.save(newVideo);
+		result.setData(newVideo);
 
 		return result;
 	}
