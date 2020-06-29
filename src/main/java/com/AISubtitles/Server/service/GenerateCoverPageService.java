@@ -1,7 +1,9 @@
 package com.AISubtitles.Server.service;
 
+import com.AISubtitles.Server.domain.Result;
+
 public interface GenerateCoverPageService {
 
-    void generateCoverPage(Integer videoId, String time);
+    Result generateCoverPage(Integer videoId, String time);
 
 }

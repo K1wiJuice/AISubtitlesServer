@@ -9,15 +9,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface VideoDao extends JpaRepository<Video, Integer> {
 
-    @Transactional
-    @Modifying
-
-    @Query(value = "update video_info  set video_path = :compressedVideoPath and video_p = :videoP where video_path = :videoPath" ,nativeQuery = true)
-    public Integer compressVideo(@Param("video_path")String videoPath, @Param("video_compressedPath")String compressedVideoPath,@Param("video_p") int videoP);
+//    @Transactional
+//    @Modifying
+//
+//    @Query(value = "update video_info  set video_path = :compressedVideoPath and video_p = :videoP where video_path = :videoPath" ,nativeQuery = true)
+//    public Integer compressVideo(@Param("video_path")String videoPath, @Param("video_compressedPath")String compressedVideoPath,@Param("video_p") int videoP);
 
     @Query(value = "insert into video_info(video_path) values(videoWithSubtitlePath)",nativeQuery = true)
     public Integer importSubtitle(@Param("videoPath") String videoWithSubtitlePath);
-    
     /*
      * Gavin
      * 添加对应音频的字幕路径
@@ -60,6 +59,22 @@ public interface VideoDao extends JpaRepository<Video, Integer> {
     @Transactional
     @Modifying
     @Query(value = "update video_info set video_cover = :video_cover where video_id = :video_id", nativeQuery = true)
-    Integer modifyCover(@Param("video_id") Integer video_id, @Param("video_cover") String video_path);
+    Integer modifyCover(@Param("video_id") Integer video_id, @Param("video_cover") String video_cover);
+
+
+    @Transactional
+    @Modifying
+    @Query(value = "update video_info set video_path = :video_path where video_id = :video_id", nativeQuery = true)
+    Integer modifyPath(@Param("video_id") Integer video_id, @Param("video_path") String video_path);
+
+    @Transactional
+    @Modifying
+    @Query(value = "update video_info set video_name = :video_name where video_id = :video_id", nativeQuery = true)
+    Integer modifyName(@Param("video_id") Integer video_id, @Param("video_name") String video_name);
+
+    @Transactional
+    @Modifying
+    @Query(value = "update video_info set process_progress = :process_progress where video_id = :video_id", nativeQuery = true)
+    Integer modifyProgress(@Param("video_id") Integer video_id, @Param("process_progress") Double process_progress);
 
 }

@@ -43,8 +43,10 @@ public class Video {
     private Integer videoENZHSubtitle;
     @Column(name = "video_enzhsubtitlejson")
     private Integer videoENZHSubtitleJSON;
-    @Column(name = "video_p")
-    private int videoP;
+//    @Column(name = "video_p")
+//    private int videoP;
+    @Column(name = "process_progress")
+    private Double processProgress;
 
 
 

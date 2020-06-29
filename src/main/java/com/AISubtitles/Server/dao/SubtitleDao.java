@@ -53,7 +53,19 @@ public interface SubtitleDao extends JpaRepository<Video, Integer> {
 //	    //private double subtitleSize;
 //	    @Column(name = "subtitle_type")
 //	    private String subtitleType;
-    /*
+	 
+     /**
+      * Gavin
+      * 导出音频路径
+      * @param videoId   字幕Id
+      * @param audioPath 音频路径
+      * @return
+      */
+    @Query(value = "update subtitle_info  set audio_path = :audioPath where subtitle_id = :videoId" ,nativeQuery = true)
+    public Integer export_audio(@Param("videoId")String videoId, @Param("audioPath")String audioPath);
+	
+	
+    /**
      * Gavin
      * 添加对应音频的字幕路径
      * Param audioPath    音频路径
@@ -62,7 +74,7 @@ public interface SubtitleDao extends JpaRepository<Video, Integer> {
     @Query(value = "update subtitle_info  set subtitle_zh_path = :subtitlePath where audio_path = :audioPath" ,nativeQuery = true)
     public Integer audio2zhSubtitle(@Param("audioPath")String audioPath, @Param("subtitlePath")String subtitlePath);
     
-    /*
+    /**
      * 翻译成目标语言的字幕路径
      * Param subtitlePath    视频语言字幕路径
      * Param transSubtitlePath 语音识别生成字幕路径
@@ -70,7 +82,7 @@ public interface SubtitleDao extends JpaRepository<Video, Integer> {
     @Query(value = "update subtitle_info  set subtitle_en_path = :transSubtitlePath where subtitle_zh_path = :subtitlePath" ,nativeQuery = true)
     public Integer translateSubtitle(@Param("subtitlePath")String subtitlePath, @Param("transSubtitlePath")String transSubtitlePath);
 
-    /*
+    /**
      * Gavin
      * 视频语言字幕与目标语言字幕合并字幕路径
      * Param zhSubtitlePath    视频语言字幕路径
@@ -79,7 +91,7 @@ public interface SubtitleDao extends JpaRepository<Video, Integer> {
     @Query(value = "update subtitle_info  set subtitle_merge_path = :mergedSubtitlePath where subtitle_zh_path = :zhSubtitlePath" ,nativeQuery = true)
     public Integer mergeSubtitle(@Param("zhSubtitlePath")String zhSubtitlePath, @Param("mergedSubtitlePath")String mergedSubtitlePath);
 
-    /*
+    /**
      * Gavin
      * 将字幕转为JSON格式
      * Param srt_filename    srt字幕路径
@@ -87,7 +99,17 @@ public interface SubtitleDao extends JpaRepository<Video, Integer> {
      */
     @Query(value = "update subtitle_info  set subtitle_mjson_path = :out_filename where subtitle_merge_path = :srt_filename" ,nativeQuery = true)
     public Integer srt2json(@Param("srt_filename")String srt_filename, @Param("out_filename")String out_filename);
-
+    
+    /**
+     * Gavin
+     * 根据返回来的json数据生成新的字幕文件
+     * @param videoId    字幕Id
+     * @param outputPath 新的字幕文件路径
+     * @return
+     */
+    @Query(value = "update subtitle_info  set subtitle_merge_path = :outputPath where subtitle_id = :videoId" ,nativeQuery = true)
+    public Integer json2srt(@Param("videoId")String videoId, @Param("outputPath")String outputPath);
+    
 
     @Transactional
     @Modifying

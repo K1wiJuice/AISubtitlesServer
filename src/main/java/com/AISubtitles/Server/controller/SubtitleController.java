@@ -30,6 +30,13 @@ import com.AISubtitles.Server.service.UserOpVideoService;
 public class SubtitleController {
 	  @Autowired
       SubtitleSupportService subtitleSupportService;
+	  
+	  @PostMapping("/SubtitleSupport/audio&sub")
+	  public Result AudioSub(final String videoId) 
+	 	      throws IOException, InterruptedException {    	
+    	  subtitleSupportService.exportAudio(videoId);
+    	  return subtitleSupportService.audio2zhSubtitle(videoId);
+      }
       
 	  @PostMapping("/SubtitleSupport/getSubjson")
 	  public Result getSubjson(final String videoId, String source, String target) 
@@ -39,6 +46,19 @@ public class SubtitleController {
 		  subtitleSupportService.mergeSubtitle(videoId);
 		  return subtitleSupportService.subtitleSrt2json(videoId);
 	  }
+	  
+	  @PostMapping("/SubtitleSupport/exportaudio")
+      public Result export_audio(final String videoId) 
+	 	      throws IOException, InterruptedException {    	
+    	  return subtitleSupportService.exportAudio(videoId);     
+      }
+      
+     @PostMapping("/SubtitleSupport/json2srt")
+	  public Result json2srt(final JSONArray subtitle, final String videoId) 
+			  throws IOException {
+    	  return subtitleSupportService.subtitleJson2srt(subtitle, videoId);
+      }
+  
       @PostMapping("/SubtitleSupport/audio2zhSubtitle")
       public Result audio2zhSubtitle(final String videoId) 
 	 	      throws IOException, InterruptedException {    	

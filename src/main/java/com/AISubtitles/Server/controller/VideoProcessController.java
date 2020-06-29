@@ -1,7 +1,9 @@
 package com.AISubtitles.Server.controller;
 
 
+import com.AISubtitles.Server.dao.VideoDao;
 import com.AISubtitles.Server.domain.Result;
+import com.AISubtitles.Server.domain.Video;
 import com.AISubtitles.Server.service.BeautifyService;
 import com.AISubtitles.Server.service.VideoFilterService;
 import com.AISubtitles.Server.service.VideoSupportService;
@@ -10,60 +12,107 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
 public class VideoProcessController {
 
     @Autowired
     VideoFilterService videoFilterService;
-    VideoSupportService videoSupportService;
+//    VideoSupportService videoSupportService;
 
     @Autowired
     BeautifyService beautifyService;
 
-    @PostMapping("/videoProcess")
-    public Result videoProcess(JSONArray jsonArray) {
-        Result result = new Result();
+    @Autowired
+    VideoDao videoDao;
+
+    @PostMapping("/process")
+    public Result videoProcess(@RequestBody JSONArray jsonArray) {
+        videoFilterService.setThreadsNums(3);
+        beautifyService.setThreadsNums(3);
+
+        Result videoProcessResult = new Result();
+        Video processedVideo = new Video();
+        Integer videoId;
+        List<String> tempVideosPath = new ArrayList();
 
         for (int i = 0; i < jsonArray.size(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
+            System.out.println(jsonObject);
             String operationType = jsonObject.getString("operationType");
+            if (i == 0) {
+                videoId = jsonObject.getInteger("videoId");
+            } else {
+                videoId = processedVideo.getVideoId();
+            }
+
             if ("filter".equals(operationType)) {
-                videoFilterService.setThreadsNums(3);
-                Integer videoId = jsonObject.getInteger("videoId");
-                String newVideo = jsonObject.getString("newVideo");
+                String newVideoPath = jsonObject.getString("newVideo");
                 Integer table = jsonObject.getInteger("table");
-                videoFilterService.filter(videoId, newVideo, table);
+                String newVideo = newVideoPath.substring(0, newVideoPath.length()-4) + i + ".mp4";
+                videoProcessResult = videoFilterService.filter(videoId, newVideo, table);
             } else if ("beautify".equals(operationType)) {
-                beautifyService.setThreadsNums(3);
-                Integer videoId = jsonObject.getInteger("videoId");
-                String newVideo = jsonObject.getString("newVideo");
+                String newVideoPath = jsonObject.getString("newVideo");
+                String newVideo = newVideoPath.substring(0, newVideoPath.length()-4) + i + ".mp4";
                 Integer white = jsonObject.getInteger("white");
                 Integer smooth = jsonObject.getInteger("smooth");
                 Integer facelift = jsonObject.getInteger("facelift");
                 Integer eye = jsonObject.getInteger("eye");
-                beautifyService.beautify(videoId, newVideo, white, smooth, facelift, eye);
-            }else if("compressVideo".equals(operationType)){
-                Integer videoId = jsonObject.getInteger("videoId");
-                String videoPath = jsonObject.getString("videoPath");
-                String compressedVideoPath = jsonObject.getString("compressedVideoPath");
-                Integer videoP = jsonObject.getInteger("videoP");
-                videoSupportService.compressVideo(videoPath,compressedVideoPath,videoP);
-            }else if("importSubtitle".equals(operationType)){
-                Integer videoId = jsonObject.getInteger("videoId");
-                String videoPath = jsonObject.getString("videoPath");
-                String subtitlePath = jsonObject.getString("subtitlePath");
-                String videoWithSubtitlePath = jsonObject.getString("videoWithSubtitlePath");
-                videoSupportService.importSubtitle(videoPath,subtitlePath,videoWithSubtitlePath);
-            }else if("voiceChanger".equals(operationType)){
-                Integer videoId = jsonObject.getInteger("videoId");
-                String voicePath = jsonObject.getString("audioPath");
-                String outputPath = jsonObject.getString("outputPath");
-                Integer type = jsonObject.getInteger("type");
-                videoSupportService.voiceChanger(voicePath,outputPath,type);
+                videoProcessResult = beautifyService.beautify(videoId, newVideo, white, smooth, facelift, eye);
             }
+//            else if("compressVideo".equals(operationType)){
+//                videoId = jsonObject.getInteger("videoId");
+//                String videoPath = jsonObject.getString("videoPath");
+//                String compressedVideoPath = jsonObject.getString("compressedVideoPath");
+//                Integer videoP = jsonObject.getInteger("videoP");
+//                videoSupportService.compressVideo(videoPath,compressedVideoPath,videoP);
+//            }else if("importSubtitle".equals(operationType)){
+//                videoId = jsonObject.getInteger("videoId");
+//                String videoPath = jsonObject.getString("videoPath");
+//                String subtitlePath = jsonObject.getString("subtitlePath");
+//                String videoWithSubtitlePath = jsonObject.getString("videoWithSubtitlePath");
+//                videoSupportService.importSubtitle(videoPath,subtitlePath,videoWithSubtitlePath);
+//            }else if("voiceChanger".equals(operationType)){
+//                videoId = jsonObject.getInteger("videoId");
+//                String voicePath = jsonObject.getString("audioPath");
+//                String outputPath = jsonObject.getString("outputPath");
+//                Integer type = jsonObject.getInteger("type");
+//                videoSupportService.voiceChanger(voicePath,outputPath,type);
+//            }
+
+
+            Double progress = (1.0+i) / jsonArray.size();
+            System.out.println(progress);
+            if (i == 0) {
+                processedVideo = (Video) videoProcessResult.getData();
+                processedVideo.setProcessProgress(progress);
+                videoDao.save(processedVideo);
+            } else {
+                Video temp = (Video)videoProcessResult.getData();
+                processedVideo.setVideoPath(temp.getVideoPath());
+                processedVideo.setVideoName(temp.getVideoName());
+                processedVideo.setProcessProgress(progress);
+                videoDao.modifyPath(processedVideo.getVideoId(), processedVideo.getVideoPath());
+                videoDao.modifyName(processedVideo.getVideoId(), processedVideo.getVideoName());
+                videoDao.modifyProgress(videoId, progress);
+            }
+
+            if (i != jsonArray.size()-1) {
+                tempVideosPath.add(processedVideo.getVideoPath());
+            } else {
+                for (String tempVideoPath: tempVideosPath) {
+                    new File(tempVideoPath).delete();
+                }
+            }
+
         }
 
-        return result;
+        return videoProcessResult;
     }
 }
