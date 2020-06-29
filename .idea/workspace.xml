@@ -26,17 +26,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="修改controller，将controller业务整合到service">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" afterDir="false" />
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/AudioDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/AudioDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/FFmpegJ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/utils/FFmpegJ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/AISubtitles/Server/dao/UserDao.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +294,8 @@
       <workItem from="1593173769844" duration="2710000" />
       <workItem from="1593219469332" duration="17473000" />
       <workItem from="1593247926572" duration="1182000" />
-      <workItem from="1593249146911" duration="10998000" />
+      <workItem from="1593249146911" duration="12844000" />
+      <workItem from="1593395042916" duration="185000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -375,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593232975993</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="对第四部分的变声，压缩视频，导入字幕整合">
+      <created>1593339909454</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1593339909454</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +415,8 @@
     <MESSAGE value="修改滤镜和美颜输入参数，增加换脸接口" />
     <MESSAGE value="修改滤镜和美颜输入参数,将处理完的视频保存到数据库中" />
     <MESSAGE value="修改controller，将controller业务整合到service" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改controller，将controller业务整合到service" />
+    <MESSAGE value="对第四部分的变声，压缩视频，导入字幕整合" />
+    <option name="LAST_COMMIT_MESSAGE" value="对第四部分的变声，压缩视频，导入字幕整合" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Assign_Data_Sources" timestamp="1592484988378">
@@ -463,10 +463,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1366.728@0.0.1366.728" timestamp="1592473555870" />
-    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1592617470130">
+    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1593339899287">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592617470130" />
+    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593339899287" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1591865772899">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -529,29 +529,29 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592302735940" />
-    <state x="392" y="79" key="MultipleFileMergeDialog" timestamp="1591865073036">
+    <state x="392" y="79" key="MultipleFileMergeDialog" timestamp="1593340001189">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="392" y="79" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1591865073036" />
+    <state x="392" y="79" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1593340001189" />
     <state x="240" y="0" key="SettingsEditor" timestamp="1593248918163">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="240" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593248918163" />
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593167356326" />
-    <state x="367" y="115" key="Vcs.Push.Dialog.v2" timestamp="1593232983043">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1593340043138">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592617821871" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1593340043138" />
     <state x="309" y="110" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593175660174" />
     <state x="367" y="115" key="Vcs.Push.Dialog.v2/72.0.1464.864@72.0.1464.864" timestamp="1593232983043" />
     <state x="482" y="141" key="chooseDestDirectoryDialog" timestamp="1591948360070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="482" y="141" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1591948360070" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1593249147379">
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1593395174594">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593249147379" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593395174594" />
     <state x="458" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593248646819">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -562,10 +562,10 @@
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1591839101683" />
     <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1593167820266" />
     <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1464.864@72.0.1464.864" timestamp="1593244682631" />
-    <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1592617923778">
+    <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1593395190619">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="365" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1592617923778" />
+    <state x="365" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1593395190619" />
     <state x="455" y="258" key="git4idea.ui.GitResetDialog" timestamp="1591865662427">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
