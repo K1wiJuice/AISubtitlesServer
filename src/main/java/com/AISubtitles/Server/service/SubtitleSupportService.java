@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import com.AISubtitles.Server.dao.*;
 import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.Subtitle;
+import com.alibaba.druid.sql.ast.statement.SQLIfStatement.Else;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
@@ -33,6 +34,12 @@ import javassist.expr.NewArray;
  * @ Date       ：Created in 20:16 2020/6/18
  * @ Description：对视频和字幕的一些操作
  * @ Modified By：
+ * @ Debug: By Gavin at 20:26 2020/6/29 
+ * 		BUG-01:exportAudio.audioPath = sub.getZhSubtitlePath();该bug导致执行两次时音频文件变为videoId_zhsub.srt，且数据库也相应更改
+ * 		BUG-02:mergeSubtitle.mergedSubtitlePath = sub.getMergeSubtitlePath();该bug导致执行两次时合并字幕路径变为videoId_ensub.srt，且数据库也相应更改
+ * @ Update:By Gavin at 18:30 2020/6/29
+ * 		UPDATE-01:更新返回单语字幕json，且此方法亦能返回双语json
+ * 
  * @Version: 1.0$
  */
 
@@ -41,7 +48,7 @@ public class SubtitleSupportService {
 	private String pythonExe;
 
     public SubtitleSupportService() {
-        this.pythonExe = "python3";
+        this.pythonExe = "python";
     }
 
     public void setPythonExe(final String path) {
@@ -79,7 +86,7 @@ public class SubtitleSupportService {
         ExecuteCommandService.exec(commList);
     }
 
-    /*
+    /**
      * 导出音频：在指定的路径上生成一个视频的音频文件
      *
      * @author PY
@@ -102,12 +109,13 @@ public class SubtitleSupportService {
     	if (sub.getAudioPath() == null) {
     		audioPath = "E:\\历史项目\\AISubtitlesServer-dev629\\files"+"\\"+videoId+"_audio.mp3"; 		
     	}
-    	else audioPath = sub.getZhSubtitlePath();
+    	else audioPath = sub.getAudioPath();
     	Result result = new Result();
         try {
         	final List<String> commList = new ArrayList<>(
         			Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
             ExecuteCommandService.exec(commList);
+            System.out.println(ExecuteCommandService.exec(commList));
             sub.setAudioPath(audioPath);
             subtitleDao.save(sub);
             //subtitleDao.export_audio(videoId, audioPath);
@@ -141,7 +149,7 @@ public class SubtitleSupportService {
         ExecuteCommandService.exec(commList);
     }
 
-    /*
+    /**
      * 音频转字幕：给音频文件在指定路径上生成其字幕文件
      *
      * @author PY
@@ -180,7 +188,7 @@ public class SubtitleSupportService {
         return result;
     }
 
-    /*
+    /**
      * 翻译字幕：给出源语言和目标语言，将字幕文件翻译，并生成翻译好的字幕文件
      *
      * @author
@@ -227,7 +235,7 @@ public class SubtitleSupportService {
         return result;
     }
 
-    /*
+    /**
      * 合并字幕：将中英文字幕文件合并
      *
      * @author
@@ -247,7 +255,7 @@ public class SubtitleSupportService {
     	if (sub.getMergeSubtitlePath() == null) {
     		mergedSubtitlePath = "E:\\历史项目\\AISubtitlesServer-dev629\\files"+"\\"+videoId+"_mergesub.srt"; 		
     	}
-    	else mergedSubtitlePath = sub.getEnSubtitlePath();
+    	else mergedSubtitlePath = sub.getMergeSubtitlePath();
     	Result result = new Result();
         try {
             final List<String> commList = new ArrayList<>(
@@ -328,50 +336,197 @@ public class SubtitleSupportService {
 //    	return result;
 //        }
 
-/*
- * 双语srt格式字幕转json格式并返回数据
+    /**
+     * 双语srt格式字幕转json格式并返回数据
+     * 
+     * @param  inputPath   srt字幕路径
+     * @throws IOException 
+     * 
+     */
+    public Result dsubtitleSrt2json(Integer videoId) {
+    	sub = subtitleDao.findByVideoId(videoId);
+    	String inputPath = sub.getMergeSubtitlePath();
+    	Result result = new Result();
+    	try{	
+    	BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputPath), "UTF-8"));
+    	String indexline,timeline,textline_zh,textline_en,kongline;
+    	JSONArray subtitle = new JSONArray();
+        while ((indexline = reader.readLine()) != null && (timeline = reader.readLine()) != null && 
+    			(textline_zh = reader.readLine()) != null && (textline_en = reader.readLine()) != null &&(kongline = reader.readLine()) != null)
+    	{
+    		String rebegin = "(.*?) -->";
+    		String reend = "(.*?)(--> )(.*)";
+    		List<String> list = new ArrayList<String>();
+    		List<String> extvounoLists = new ArrayList<String>();
+    		Pattern pabegin = Pattern.compile(rebegin);
+    		Pattern paend = Pattern.compile(reend);
+    		Matcher mbegin = pabegin.matcher(timeline);
+    		Matcher mend = paend.matcher(timeline);
+    		JSONObject subs = new JSONObject();
+    		while (mend.find()) {  
+                int i = 1;  
+                list.add(mend.group(i));
+                subs.put("end", mend.group(i+2));
+                i++;  
+            } 
+    		while (mbegin.find()) {  
+                int i = 1;  
+                list.add(mbegin.group(i));
+                subs.put("begin", mbegin.group(i));
+                i++;  
+            }
+    		JSONArray texts = new JSONArray();
+            texts.add(textline_zh);
+            texts.add(textline_en);
+            subs.put("texts", texts);
+    		subtitle.add(subs);
+    	}
+        reader.close();
+        result.setCode(200);
+        System.out.println(subtitle);
+        result.setData(subtitle);
+        //result.setData(JSONObject.toJSONString(subtitle));
+    	//return JSONObject.toJSONString(subtitle);
+        }
+    	catch (IOException e) {
+    		e.printStackTrace();
+            result.setCode(500);
+            result.setData("返回json数据失败！");
+    	}
+    	
+    	return result;
+        }        
+    
+/**
+ * 单双语srt格式字幕转json格式并返回数据
  * 
  * @param  inputPath   srt字幕路径
+ * @param  type        字幕类型
  * @throws IOException 
  * 
  */
-public Result dsubtitleSrt2json(Integer videoId) {
-	sub = subtitleDao.findByVideoId(videoId);
-	String inputPath = sub.getMergeSubtitlePath();
+public Result sdsubtitleSrt2json(Integer videoId, String type) {
+	System.out.println(type);
 	Result result = new Result();
+	sub = subtitleDao.findByVideoId(videoId);
+	String inputPath;
+	if(type.equals("merge")){
+		 inputPath = sub.getMergeSubtitlePath();
+	}else if(type.equals("en")){
+		 inputPath = sub.getEnSubtitlePath();	
+	}else if(type.equals("zh")){
+		 inputPath = sub.getZhSubtitlePath();
+	}else {
+		 result.setCode(400);
+		 result.setData("您输入的参数类型不正确！");
+		 return result;
+	}
+	System.out.println(inputPath);
 	try{	
 	BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputPath), "UTF-8"));
 	String indexline,timeline,textline_zh,textline_en,kongline;
 	JSONArray subtitle = new JSONArray();
     while ((indexline = reader.readLine()) != null && (timeline = reader.readLine()) != null && 
-			(textline_zh = reader.readLine()) != null && (textline_en = reader.readLine()) != null &&(kongline = reader.readLine()) != null)
-	{
-		String rebegin = "(.*?) -->";
-		String reend = "(.*?)(--> )(.*)";
-		List<String> list = new ArrayList<String>();
-		List<String> extvounoLists = new ArrayList<String>();
-		Pattern pabegin = Pattern.compile(rebegin);
-		Pattern paend = Pattern.compile(reend);
-		Matcher mbegin = pabegin.matcher(timeline);
-		Matcher mend = paend.matcher(timeline);
-		JSONObject subs = new JSONObject();
-		while (mend.find()) {  
-            int i = 1;  
-            list.add(mend.group(i));
-            subs.put("end", mend.group(i+2));
-            i++;  
-        } 
-		while (mbegin.find()) {  
-            int i = 1;  
-            list.add(mbegin.group(i));
-            subs.put("begin", mbegin.group(i));
-            i++;  
-        }
-		JSONArray texts = new JSONArray();
-        texts.add(textline_zh);
-        texts.add(textline_en);
-        subs.put("texts", texts);
-		subtitle.add(subs);
+			(textline_zh = reader.readLine()) != null )
+	{//((textline_en = reader.readLine()) != null) &&
+//        	System.out.println("索引："+indexline);
+//       	 	System.out.println("时间："+timeline);
+//       	 	System.out.println("中文："+textline_zh);
+//       	 	//System.out.println("英文："+textline_en); 
+//        	if( ((textline_en = reader.readLine()) == null) || (textline_en.length() == 0)){
+//        		 
+//        		 System.out.println("这是空行"+textline_en);
+//        	 }
+//        	else {
+//        		kongline = reader.readLine();
+//        		System.out.println("英文："+textline_en);
+//        		System.out.println("这是空行"+kongline);
+//        	}
+    	System.out.println("索引："+indexline);
+   	 	System.out.println("时间："+timeline);
+   	 	System.out.println("中文："+textline_zh);
+   	 	//System.out.println("英文："+textline_en); 
+    	if( ((textline_en = reader.readLine()) == null) || (textline_en.length() == 0)){        		 
+    		 System.out.println("这是空行"+textline_en);
+    		 
+     		String rebegin = "(.*?) -->";
+     		String reend = "(.*?)(--> )(.*)";
+     		List<String> list = new ArrayList<String>();
+     		List<String> extvounoLists = new ArrayList<String>();
+     		Pattern pabegin = Pattern.compile(rebegin);
+     		Pattern paend = Pattern.compile(reend);
+     		Matcher mbegin = pabegin.matcher(timeline);
+     		Matcher mend = paend.matcher(timeline);
+     		JSONObject subs = new JSONObject();
+     		while (mend.find()) {  
+                 int i = 1;  
+                 list.add(mend.group(i));
+                 //System.out.println(mend.group(i+2));
+                 subs.put("end", mend.group(i+2));
+                 //subtitle.add(subs);
+                 i++;  
+             } 
+     		while (mbegin.find()) {  
+                 int i = 1;  
+                 list.add(mbegin.group(i));
+                 //System.out.println(mbegin.group(i));
+                 subs.put("begin", mbegin.group(i));
+                 //subtitle.add(subs);
+                 i++;  
+             }
+     		subs.put("texts",textline_zh);
+     		subtitle.add(subs);
+    	 }
+    	else {
+    		kongline = reader.readLine();
+    		System.out.println("英文："+textline_en);
+    		System.out.println("这是空行"+kongline);
+    		
+    		String rebegin = "(.*?) -->";
+    		String reend = "(.*?)(--> )(.*)";
+    		List<String> list = new ArrayList<String>();
+    		List<String> extvounoLists = new ArrayList<String>();
+    		Pattern pabegin = Pattern.compile(rebegin);
+    		Pattern paend = Pattern.compile(reend);
+    		Matcher mbegin = pabegin.matcher(timeline);
+    		Matcher mend = paend.matcher(timeline);
+    		JSONObject subs = new JSONObject();
+    		while (mend.find()) {  
+                int i = 1;  
+                list.add(mend.group(i));
+                //System.out.println(mend.group(i+2));
+                subs.put("end", mend.group(i+2));
+                //subtitle.add(subs);
+                i++;  
+            } 
+    		while (mbegin.find()) {  
+                int i = 1;  
+                list.add(mbegin.group(i));
+                //System.out.println(mbegin.group(i));
+                subs.put("begin", mbegin.group(i));
+                //subtitle.add(subs);
+                i++;  
+            }
+//        		System.out.print(textline_zh);
+//        		System.out.print(textline_en);
+    		JSONArray texts = new JSONArray();
+            texts.add(textline_zh);
+            texts.add(textline_en);
+            subs.put("texts", texts);
+    		subtitle.add(subs);
+//        		for (int i=0;i<list.size();i++) {
+//        			JSONObject subs = new JSONObject();
+//        			String str = list.get(i);
+//        			System.out.println(str);
+//        			subs.put("begin", str);
+//        			subtitle.add(subs);
+//        		}
+//        	}
+//        	System.out.println(subtitle);
+    	
+    	
+    	}
+    
 	}
     reader.close();
     result.setCode(200);
@@ -390,7 +545,7 @@ public Result dsubtitleSrt2json(Integer videoId) {
     }    
 
 
-/*
+/**
  * json格式的字幕转srt格式并保存
  *
  * @param subtitle   表示字幕的json数组
