@@ -47,6 +47,8 @@ public class Video {
     private Integer videoP;
     @Column(name = "process_progress")
     private Double processProgress;
+    @Column(name = "audioType")
+    private Integer audio_type;
 
 
 

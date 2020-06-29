@@ -79,26 +79,31 @@ public class VideoProcessController {
 //                String videoWithSubtitlePath = jsonObject.getString("videoWithSubtitlePath");
                 videoProcessResult = videoSupportService.importSubtitle(videoId,type);
             }
-//            else if("voiceChanger".equals(operationType)){
-//                videoId = jsonObject.getInteger("videoId");
+            else if("voiceChanger".equals(operationType)){
+                  videoId = jsonObject.getInteger("videoId");
+                  Integer audioType = jsonObject.getInteger("audioType");
 //                String voicePath = jsonObject.getString("audioPath");
 //                String outputPath = jsonObject.getString("outputPath");
 //                Integer type = jsonObject.getInteger("type");
-//                videoSupportService.voiceChanger(voicePath,outputPath,type);
-//            }
+                videoProcessResult = videoSupportService.replaceAudio(videoId,audioType);
+            }
 
 
             Double progress = (1.0+i) / jsonArray.size();
             System.out.println(progress);
+            System.out.println(videoProcessResult.getCode());
+            processedVideo.setProcessProgress(progress);
+            videoDao.modifyProgress(videoId,progress);
 
-                Video temp = (Video)videoProcessResult.getData();
+            if("filter".equals(operationType) || "beautify".equals(operationType)) {
+                Video temp = (Video) videoProcessResult.getData();
                 processedVideo.setVideoPath(temp.getVideoPath());
                 processedVideo.setVideoName(temp.getVideoName());
                 processedVideo.setProcessProgress(progress);
                 videoDao.modifyPath(processedVideo.getVideoId(), processedVideo.getVideoPath());
                 videoDao.modifyName(processedVideo.getVideoId(), processedVideo.getVideoName());
                 videoDao.modifyProgress(videoId, progress);
-
+            }
 
             if (i != jsonArray.size()-1) {
                 tempVideosPath.add(processedVideo.getVideoPath());

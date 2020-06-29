@@ -18,9 +18,13 @@ public class Audio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "audio_id")
-    private int audioId;
+    private Integer audioId;
+    @Column(name = "video_id")
+    private  Integer videoId;
     @Column(name = "audio_path")
     private String audioPath;
+    @Column(name = "auduio_type")
+    private  Integer audioType;
     @Column(name = "video_path")
     private String videoPath;
 

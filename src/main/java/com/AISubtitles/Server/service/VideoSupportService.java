@@ -188,25 +188,33 @@ public class VideoSupportService {
     /**
      * 导出音频
      *
-     * @param videoPath 视频路径
-     * @param audioPath 音频路径
+     //* @param videoPath 视频路径
+     //* @param audioPath 音频路径
      * @return 是否成功
      * @throws IOException
      * @throws InterruptedException
      * @author PY
      */
-  /*  public static Boolean exportAudio(final String videoPath, final String audioPath) {
-        List<String> globals = new ArrayList<>();
-        List<String> input1Opts = new ArrayList<>();
-        Map<String, List<String>> inputs = new HashMap<>();
-        inputs.put(videoPath, input1Opts);
-        List<String> outputOpts = new ArrayList<>(Arrays.asList("-f", "mp3", "-y"));
-        Map<String, List<String>> outputs = new HashMap<>();
-        outputs.put(audioPath, outputOpts);
-        FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
-        System.out.println(ff.cmd());
-        return ff.run();
-    }*/
+    public  Boolean exportAudio(int videoId) {
+        Result result = new Result();
+        video = videoDao.findByVideoId(videoId);
+        String videoPath = video.getVideoPath();
+        String audioPath ="C:/Users/11392/Desktop/test/02/"+videoId+".mp3";
+
+            List<String> globals = new ArrayList<>();
+            List<String> input1Opts = new ArrayList<>();
+            Map<String, List<String>> inputs = new HashMap<>();
+            inputs.put(videoPath, input1Opts);
+            List<String> outputOpts = new ArrayList<>(Arrays.asList("-f", "mp3", "-y"));
+            Map<String, List<String>> outputs = new HashMap<>();
+            outputs.put(audioPath, outputOpts);
+            FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
+            System.out.println(ff.cmd());
+
+            return ff.run();
+
+
+    }
 
     /**
      * 导入字幕
@@ -244,6 +252,8 @@ public class VideoSupportService {
          if(ff.run() == true){
              result.setCode(200);
              result.setData(video);
+         }else{
+             result.setCode(500);
          }
         }catch(Exception e){
             e.printStackTrace();
@@ -279,14 +289,19 @@ public class VideoSupportService {
     /**
      * 变声器（输入和输出只支持MP3格式）
      *
-     * @param voicePath  原始音频路径
-     * @param outputPath 输出音频路径
-     * @param type       声音类别（1：萝莉；2：大叔；3：肥仔；4：熊孩子；5：困兽；6：重机械；7：感冒；8：空灵）
+    // * @param voicePath  原始音频路径
+    // * @param outputPath 输出音频路径
+     //* @param type       声音类别（1：萝莉；2：大叔；3：肥仔；4：熊孩子；5：困兽；6：重机械；7：感冒；8：空灵）
      */
-    public Result voiceChanger(final String voicePath, final String outputPath, final int type) {
-        Result result = new Result();
+    public void voiceChanger(int videoId, final int audioType) {
+        //exportAudio(videoId);
+        String voicePath = "";
+        String outputPath = "";
+        if(exportAudio(videoId)){
+         voicePath = "C:/Users/11392/Desktop/test/02/"+videoId+".mp3";
+         outputPath = "C:/Users/11392/Desktop/test/02/"+videoId+"output.mp3";}
         SoundEnum soundEnum;
-        switch (type) {
+        switch (audioType) {
             case 1:
                 soundEnum = SoundEnum.LUOLI;
                 break;
@@ -331,16 +346,16 @@ public class VideoSupportService {
                 wavHeader.clone();
             } catch (IOException e) {
                 e.printStackTrace();
-                result.setCode(501);
+
             }
             wav2mp3(wavPath);
-            audioDao.voiceChanger(outputPath);
-            result.setCode(200);
+            //audioDao.voiceChanger(outputPath);
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            result.setCode(502);
+
         }
-        return result;
+
 
     }
 
@@ -350,7 +365,7 @@ public class VideoSupportService {
      * @param audioPath wav音频文件的路径
      * @return
      */
-    public static Boolean wav2mp3(String audioPath) {
+    public  Boolean wav2mp3(String audioPath) {
         List<String> globals = new ArrayList<>();
         List<String> input1Opts = new ArrayList<>();
         Map<String, List<String>> inputs = new HashMap<>();
@@ -371,24 +386,44 @@ public class VideoSupportService {
     /**
      * 替换视频中声音（当然前题是保证时长一致，这里主要使用原视频变声之后的音频文件替换原始视频中的声音）
      *
-     * @param videoPath  视频路径
-     * @param audioPath  变声后的音频文件
-     * @param outputPath 输出路径
+     //* @param videoPath  视频路径
+     //* @param audioPath  变声后的音频文件
+     //* @param outputPath 输出路径
      * @return
      */
-    public static Boolean replaceAudio(final String videoPath, final String audioPath, final String outputPath) {
-        List<String> globals = new ArrayList<>();
-        List<String> input1Opts = new ArrayList<>();
-        List<String> input2Opts = new ArrayList<>();
-        Map<String, List<String>> inputs = new HashMap<>();
-        inputs.put(videoPath, input1Opts);
-        inputs.put(audioPath, input2Opts);
-        List<String> outputOpts = new ArrayList<>(Arrays.asList("-c:v", "copy", "-c:a", "aac", "-strict", "experimental", "-map", "0:v:0", "-map", "1:a:0", "-y"));
-        Map<String, List<String>> outputs = new HashMap<>();
-        outputs.put(outputPath, outputOpts);
-        FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
-        System.out.println(ff.cmd());
-        return ff.run();
+    public Result replaceAudio(int videoId,int audioType) {
+        voiceChanger(videoId,audioType);
+        Result result = new Result();
+        video = videoDao.findByVideoId(videoId);
+        String videoPath = video.getVideoPath();
+        String audioPath = "C:/Users/11392/Desktop/test/02/"+videoId+"output.mp3";
+        String outputPath = "C:/Users/11392/Desktop/test/03/"+videoId+"output.mp4";
+
+        try {
+            List<String> globals = new ArrayList<>();
+            List<String> input1Opts = new ArrayList<>();
+            List<String> input2Opts = new ArrayList<>();
+            Map<String, List<String>> inputs = new HashMap<>();
+            inputs.put(videoPath, input1Opts);
+            inputs.put(audioPath, input2Opts);
+            List<String> outputOpts = new ArrayList<>(Arrays.asList("-c:v", "copy", "-c:a", "aac", "-strict", "experimental", "-map", "0:v:0", "-map", "1:a:0", "-y"));
+            Map<String, List<String>> outputs = new HashMap<>();
+            outputs.put(outputPath, outputOpts);
+            FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
+            System.out.println(ff.cmd());
+            videoDao.voiceChanger(videoId,outputPath,audioType);
+            if(ff.run()){
+                result.setCode(200);
+            }
+            else {
+                result.setCode(500);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            result.setCode(500);
+        }
+
+        return result ;
     }
 }
 
