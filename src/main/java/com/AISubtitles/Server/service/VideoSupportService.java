@@ -160,7 +160,7 @@ public class VideoSupportService {
         Result result = new Result();
         video = videoDao.findByVideoId(videoId);
         String videoPath = video.getVideoPath();
-        String compressedVideoPath = "C:/Users/11392/Desktop/test/02/compressedVideo.mp4";
+        String compressedVideoPath = "C:/Users/10636/Desktop/test/02/compressedVideo.mp4";
         try {
             List<String> globals = new ArrayList<>();
             List<String> input1Opts = new ArrayList<>();
@@ -229,26 +229,29 @@ public class VideoSupportService {
         else if (type == 2){ subtitlePath = subtitle.getEnSubtitlePath();}
         else if (type == 3){ subtitlePath = subtitle.getMergeSubtitlePath();}
         //String subtitlePath = "C:/Users/11392/Desktop/test/01/subtitles.srt";
-        String videoWithSubtitlePath = "C:/Users/11392/Desktop/test/02/videoWithSubtitle.mp4";
+        String videoWithSubtitlePath = "C:/Users/10636/Desktop/test/02/videoWithSubtitle.mp4";
         try{
-        List<String> globals = new ArrayList<>();
-        List<String> input1Opts = new ArrayList<>();
-        Map<String, List<String>> inputs = new HashMap<>();
-        inputs.put(videoPath, input1Opts);
-        List<String> outputOpts = new ArrayList<>(Arrays.asList("-vf", "subtitles=" + subtitlePath, "-y"));
-        Map<String, List<String>> outputs = new HashMap<>();
-        outputs.put(videoWithSubtitlePath, outputOpts);
-        FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
-        System.out.println(ff.cmd());
-        videoDao.importSubtitle(videoId,videoWithSubtitlePath);
-         if(ff.run() == true){
-             result.setCode(200);
-             result.setData(video);
-         }
+            List<String> globals = new ArrayList<>();
+            List<String> input1Opts = new ArrayList<>();
+            Map<String, List<String>> inputs = new HashMap<>();
+            inputs.put(videoPath, input1Opts);
+            List<String> outputOpts = new ArrayList<>(Arrays.asList("-vf", "subtitles=" + subtitlePath, "-y"));
+            Map<String, List<String>> outputs = new HashMap<>();
+            outputs.put(videoWithSubtitlePath, outputOpts);
+            FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
+            System.out.println(ff.cmd());
+            videoDao.importSubtitle(videoId,videoWithSubtitlePath);
+            if(ff.run()){
+                result.setCode(200);
+                result.setData(video);
+            } else {
+                result.setCode(500);
+            }
         }catch(Exception e){
             e.printStackTrace();
             result.setCode(500);
         }
+        System.out.println("result" + result);
 
          return result;
     }

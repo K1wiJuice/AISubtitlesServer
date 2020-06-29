@@ -38,9 +38,9 @@ public class FilterTest {
     GenerateCoverPageService generateCoverPageService;
 
     @Test
-    public void testFilter() throws Exception {
+    public void testFilter() {
         videoFilterService.setThreadsNums(3);
-        System.out.println(videoFilterService.filter(3, newVideoPath, 5));
+        System.out.println(videoFilterService.filter(3, newVideoPath, 0));
     }
 
     @Test
