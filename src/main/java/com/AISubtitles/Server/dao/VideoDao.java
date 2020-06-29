@@ -12,7 +12,7 @@ public interface VideoDao extends JpaRepository<Video, Integer> {
 
    @Transactional
    @Modifying
-   @Query(value = "update  video_info set video_p = :video_p and video_path = :video_path where video_id = :video_id",nativeQuery = true)
+   @Query(value = "update  video_info set video_p = :video_p , video_path = :video_path where video_id = :video_id",nativeQuery = true)
    public Integer compressVideo(@Param("video_id")Integer video_id,@Param("video_path") String video_path,@Param("video_p") Integer video_p);
 
    @Transactional
@@ -22,7 +22,7 @@ public interface VideoDao extends JpaRepository<Video, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "update video_info set  video_path = :video_path and audio_type = :audio_type where  video_id = :video_id",nativeQuery = true)
+    @Query(value = "update video_info set  video_path = :video_path , audio_type = :audio_type where  video_id = :video_id",nativeQuery = true)
     public Integer voiceChanger(@Param("video_id") Integer video_id,@Param("video_path") String video_path,@Param("audio_type") Integer audio_type);
     /*
      * Gavin

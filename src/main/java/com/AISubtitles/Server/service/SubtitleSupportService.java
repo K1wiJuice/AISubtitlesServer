@@ -90,9 +90,9 @@ public class SubtitleSupportService {
      * 导出音频：在指定的路径上生成一个视频的音频文件
      *
      * @author PY
-     * @param pyFilePath 执行用的python脚本
-     * @param videoPath  需要导出音频的视频路径
-     * @param audioPath  音频生成路径
+     //* @param pyFilePath 执行用的python脚本
+     //* @param videoPath  需要导出音频的视频路径
+     //* @param audioPath  音频生成路径
      * @throws IOException
      * @throws InterruptedException
      */
@@ -115,7 +115,7 @@ public class SubtitleSupportService {
         	final List<String> commList = new ArrayList<>(
         			Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
             ExecuteCommandService.exec(commList);
-            System.out.println(ExecuteCommandService.exec(commList));
+            //System.out.println(ExecuteCommandService.exec(commList));
             sub.setAudioPath(audioPath);
             subtitleDao.save(sub);
             //subtitleDao.export_audio(videoId, audioPath);
@@ -153,9 +153,9 @@ public class SubtitleSupportService {
      * 音频转字幕：给音频文件在指定路径上生成其字幕文件
      *
      * @author PY
-     * @param pyFilePath   执行用的python脚本
-     * @param audioPath    需要生成字幕的音频路径
-     * @param subtitlePath 字幕的生成路径
+     //* @param pyFilePath   执行用的python脚本
+    //* @param audioPath    需要生成字幕的音频路径
+     //* @param subtitlePath 字幕的生成路径
      * @throws IOException
      * @throws InterruptedException
      */
@@ -192,9 +192,9 @@ public class SubtitleSupportService {
      * 翻译字幕：给出源语言和目标语言，将字幕文件翻译，并生成翻译好的字幕文件
      *
      * @author
-     * @param pyFilePath        执行用的python脚本
-     * @param subtitlePath      原始字幕文件的路径
-     * @param transSubtitlePath 翻译后的字幕文件路径
+     //* @param pyFilePath        执行用的python脚本
+     //* @param subtitlePath      原始字幕文件的路径
+     // @param transSubtitlePath 翻译后的字幕文件路径
      * @param source            源语言
      * @param target            目标语言
      * @throws IOException
@@ -239,10 +239,10 @@ public class SubtitleSupportService {
      * 合并字幕：将中英文字幕文件合并
      *
      * @author
-     * @param pyFilePath         执行用的python脚本
-     * @param zhSubtitlePath     中文字幕文件路径
-     * @param enSubtitlePath     英文字幕文件路径
-     * @param mergedSubtitlePath 合并之后的字幕文件路径
+     //* @param pyFilePath         执行用的python脚本
+     //* @param zhSubtitlePath     中文字幕文件路径
+     //* @param enSubtitlePath     英文字幕文件路径
+     //* @param mergedSubtitlePath 合并之后的字幕文件路径
      * @throws IOException
      * @throws InterruptedException
      */
@@ -339,7 +339,7 @@ public class SubtitleSupportService {
     /**
      * 双语srt格式字幕转json格式并返回数据
      * 
-     * @param  inputPath   srt字幕路径
+     //* @param  inputPath   srt字幕路径
      * @throws IOException 
      * 
      */
@@ -400,7 +400,7 @@ public class SubtitleSupportService {
 /**
  * 单双语srt格式字幕转json格式并返回数据
  * 
- * @param  inputPath   srt字幕路径
+ //* @param  inputPath   srt字幕路径
  * @param  type        字幕类型
  * @throws IOException 
  * 
@@ -549,7 +549,7 @@ public Result sdsubtitleSrt2json(Integer videoId, String type) {
  * json格式的字幕转srt格式并保存
  *
  * @param subtitle   表示字幕的json数组
- * @param outputPath 输出路径
+ //* @param outputPath 输出路径
  */
 public Result subtitleJson2srt(final JSONArray subtitle, Integer videoId) {
 	sub = subtitleDao.findByVideoId(videoId);

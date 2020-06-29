@@ -27,12 +27,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/videos/video.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Audio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,28 +85,28 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/opencv/opencv-400.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/videos" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\resources\lib" />
-      <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\resources\tables" />
-      <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\resources" />
-      <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\Server\utils" />
-      <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\my" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\11392\IdeaProjects\AISubtitlesServer\opencv" />
+      <recent name="C:\Users\24113\Desktop\AISubtitlesServer\src\main\resources\static" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.AISubtitles.Server.service" />
       <recent name="com.AISubtitles.Server.utils" />
       <recent name="com.AISubtitles.Server.domain" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\11392\IdeaProjects\AISubtitlesServer\opencv" />
-      <recent name="C:\Users\24113\Desktop\AISubtitlesServer\src\main\resources\static" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\11392\IdeaProjects\AISubtitlesServer\src\main\resources\videos" />
+      <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\resources\lib" />
+      <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\resources\tables" />
+      <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\resources" />
+      <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\Server\utils" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ServerApplication">
@@ -239,10 +240,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.Beautify" />
+      <item itemvalue="Application.ServerApplication" />
       <item itemvalue="JUnit.FilterTest.testBeauty" />
       <item itemvalue="JUnit.FilterTest.faceFusion" />
       <item itemvalue="JUnit.FilterTest.coverPage" />
-      <item itemvalue="Application.ServerApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -476,10 +477,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="324" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1593167246284" />
-    <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593402255606">
+    <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593442541501">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1593402255606" />
+    <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1593442541501" />
     <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1592034285948" />
     <state x="619" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1593239472153">
       <screen x="72" y="0" width="1464" height="864" />
@@ -522,31 +523,31 @@
     <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593402600164" />
     <state x="514" y="119" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593167352148" />
     <state x="562" y="125" key="FileChooserDialogImpl/72.0.1464.864@72.0.1464.864" timestamp="1593341687791" />
-    <state width="1323" height="227" key="GridCell.Tab.0.bottom" timestamp="1593438784877">
+    <state width="1323" height="227" key="GridCell.Tab.0.bottom" timestamp="1593440448767">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="227" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593438784877" />
+    <state width="1323" height="227" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593440448767" />
     <state width="1493" height="238" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
     <state width="1254" height="284" key="GridCell.Tab.0.bottom/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1323" height="227" key="GridCell.Tab.0.center" timestamp="1593438784877">
+    <state width="1323" height="227" key="GridCell.Tab.0.center" timestamp="1593440448767">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="227" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593438784877" />
+    <state width="1323" height="227" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593440448767" />
     <state width="1493" height="238" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
     <state width="1254" height="284" key="GridCell.Tab.0.center/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.center/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1323" height="227" key="GridCell.Tab.0.left" timestamp="1593438784877">
+    <state width="1323" height="227" key="GridCell.Tab.0.left" timestamp="1593440448766">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="227" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593438784877" />
+    <state width="1323" height="227" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593440448766" />
     <state width="1493" height="238" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
     <state width="1254" height="284" key="GridCell.Tab.0.left/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.left/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1323" height="227" key="GridCell.Tab.0.right" timestamp="1593438784877">
+    <state width="1323" height="227" key="GridCell.Tab.0.right" timestamp="1593440448767">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="227" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593438784877" />
+    <state width="1323" height="227" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593440448767" />
     <state width="1493" height="238" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
     <state width="1254" height="284" key="GridCell.Tab.0.right/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />

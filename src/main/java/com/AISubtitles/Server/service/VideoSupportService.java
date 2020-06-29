@@ -160,7 +160,7 @@ public class VideoSupportService {
         Result result = new Result();
         video = videoDao.findByVideoId(videoId);
         String videoPath = video.getVideoPath();
-        String compressedVideoPath = "C:/Users/11392/Desktop/test/02/compressedVideo.mp4";
+        String compressedVideoPath = "src/main/resources/videos/compressedVideo.mp4";
         try {
             List<String> globals = new ArrayList<>();
             List<String> input1Opts = new ArrayList<>();
@@ -199,7 +199,7 @@ public class VideoSupportService {
         Result result = new Result();
         video = videoDao.findByVideoId(videoId);
         String videoPath = video.getVideoPath();
-        String audioPath ="C:/Users/11392/Desktop/test/02/"+videoId+".mp3";
+        String audioPath ="src/main/resources/audios/"+videoId+".mp3";
 
             List<String> globals = new ArrayList<>();
             List<String> input1Opts = new ArrayList<>();
@@ -237,7 +237,7 @@ public class VideoSupportService {
         else if (type == 2){ subtitlePath = subtitle.getEnSubtitlePath();}
         else if (type == 3){ subtitlePath = subtitle.getMergeSubtitlePath();}
         //String subtitlePath = "C:/Users/11392/Desktop/test/01/subtitles.srt";
-        String videoWithSubtitlePath = "C:/Users/11392/Desktop/test/02/videoWithSubtitle.mp4";
+        String videoWithSubtitlePath = "src/main/resources/videos/videoWithSubtitle.mp4";
         try{
         List<String> globals = new ArrayList<>();
         List<String> input1Opts = new ArrayList<>();
@@ -298,8 +298,8 @@ public class VideoSupportService {
         String voicePath = "";
         String outputPath = "";
         if(exportAudio(videoId)){
-         voicePath = "C:/Users/11392/Desktop/test/02/"+videoId+".mp3";
-         outputPath = "C:/Users/11392/Desktop/test/02/"+videoId+"output.mp3";}
+         voicePath = "src/main/resources/audios/"+videoId+".mp3";
+         outputPath = "src/main/resources/audios/"+videoId+"output.mp3";}
         SoundEnum soundEnum;
         switch (audioType) {
             case 1:
@@ -396,8 +396,8 @@ public class VideoSupportService {
         Result result = new Result();
         video = videoDao.findByVideoId(videoId);
         String videoPath = video.getVideoPath();
-        String audioPath = "C:/Users/11392/Desktop/test/02/"+videoId+"output.mp3";
-        String outputPath = "C:/Users/11392/Desktop/test/03/"+videoId+"output.mp4";
+        String audioPath = "src/main/resources/audios/"+videoId+"output.mp3";
+        String outputPath = "src/main/resources/videos/"+videoId+"output.mp4";
 
         try {
             List<String> globals = new ArrayList<>();
@@ -412,6 +412,11 @@ public class VideoSupportService {
             FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
             System.out.println(ff.cmd());
             videoDao.voiceChanger(videoId,outputPath,audioType);
+            File dir = new File("src/main/resources/audios");
+            File[] files = dir.listFiles();
+            for(int i = 0;i<files.length;i++){
+                files[i].delete();
+            }
             if(ff.run()){
                 result.setCode(200);
             }
