@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.AISubtitles.Server.dao.AudioDao;
@@ -30,7 +31,8 @@ import com.alibaba.fastjson.JSONArray;
  * @ Date       ：Created in 19:14 2020/6/19 
  * @ Description：对字幕的导入，转换，合并等操作
  * @ Modified By：Updated by Gavin at 19:29 2020/6/25 --Version1.1$
- * @Version: 1.1$
+ * 				  Updated by Gavin at 20:46 2020/6/29 --Version1.2$
+ * @Version: 1.2$
  */
 
 @RestController
@@ -88,16 +90,21 @@ public class SubtitleController {
       
       /**
        * Java版本返回json数据
-       //* @param pyFilePath
-       //* @param srt_filename
-       //* @param out_filename
+       * @param pyFilePath
+       * @param srt_filename
+       * @param out_filename
        * @return
        * @throws IOException
        * @throws InterruptedException
        */
       @GetMapping("/SubtitleSupport/srt2json/{videoId}")
-      public Result srt2json(@PathVariable(name = "videoId") Integer videoId) throws IOException {
+      public Result dsrt2json(@PathVariable(name = "videoId") Integer videoId) throws IOException {
     	  return subtitleSupportService.dsubtitleSrt2json(videoId);
+      }
+      @GetMapping("/SubtitleSupport/sdsrt2json/{videoId}")
+      public Result sdsrt2json(@PathVariable(name = "videoId") Integer videoId, @RequestParam(name = "type") String type) 
+    		  throws IOException {
+    	  return subtitleSupportService.sdsubtitleSrt2json(videoId,type);
       }
       
       /**
