@@ -15,8 +15,10 @@ public interface VideoDao extends JpaRepository<Video, Integer> {
    @Query(value = "update  video_info set video_p = :video_p and video_path = :video_path where video_id = :video_id",nativeQuery = true)
    public Integer compressVideo(@Param("video_id")Integer video_id,@Param("video_path") String video_path,@Param("video_p") Integer video_p);
 
-    @Query(value = "insert into video_info(video_path) values(videoWithSubtitlePath)",nativeQuery = true)
-    public Integer importSubtitle(@Param("videoPath") String videoWithSubtitlePath);
+   @Transactional
+   @Modifying
+   @Query(value = "update video_info set  video_path = :video_path where  video_id = :video_id",nativeQuery = true)
+    public Integer importSubtitle(@Param("video_id") Integer video_id,@Param("video_path") String video_path);
     /*
      * Gavin
      * 添加对应音频的字幕路径

@@ -71,13 +71,15 @@ public class VideoProcessController {
                 Integer videoP = jsonObject.getInteger("videoP");
                 videoProcessResult = videoSupportService.compressVideo(videoId,videoP);
             }
-//            else if("importSubtitle".equals(operationType)){
-//                videoId = jsonObject.getInteger("videoId");
+           else if("importSubtitle".equals(operationType)){
+                videoId = jsonObject.getInteger("videoId");
+                Integer type = jsonObject.getInteger("type");
 //                String videoPath = jsonObject.getString("videoPath");
 //                String subtitlePath = jsonObject.getString("subtitlePath");
 //                String videoWithSubtitlePath = jsonObject.getString("videoWithSubtitlePath");
-//                videoSupportService.importSubtitle(videoPath,subtitlePath,videoWithSubtitlePath);
-//            }else if("voiceChanger".equals(operationType)){
+                videoProcessResult = videoSupportService.importSubtitle(videoId,type);
+            }
+//            else if("voiceChanger".equals(operationType)){
 //                videoId = jsonObject.getInteger("videoId");
 //                String voicePath = jsonObject.getString("audioPath");
 //                String outputPath = jsonObject.getString("outputPath");

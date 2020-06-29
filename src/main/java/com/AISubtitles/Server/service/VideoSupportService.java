@@ -1,8 +1,10 @@
 package com.AISubtitles.Server.service;
 
 import com.AISubtitles.Server.dao.AudioDao;
+import com.AISubtitles.Server.dao.SubtitleDao;
 import com.AISubtitles.Server.dao.VideoDao;
 import com.AISubtitles.Server.domain.Result;
+import com.AISubtitles.Server.domain.Subtitle;
 import com.AISubtitles.Server.domain.Video;
 import com.AISubtitles.Server.utils.ExecuteCommand;
 import com.AISubtitles.Server.utils.FFmpegJ;
@@ -27,12 +29,16 @@ import java.util.regex.Pattern;
 public class VideoSupportService {
 
     @Autowired
-    VideoDao videodao;
+    VideoDao videoDao;
 
     @Autowired
     AudioDao audioDao;
 
+    @Autowired
+    SubtitleDao subtitleDao;
+
     Video video = new Video();
+    Subtitle subtitle = new Subtitle();
 
     private static String pythonExe = "python3";
 
@@ -152,7 +158,7 @@ public class VideoSupportService {
      */
     public  Result compressVideo( int videoId, int b) {
         Result result = new Result();
-        video = videodao.findByVideoId(videoId);
+        video = videoDao.findByVideoId(videoId);
         String videoPath = video.getVideoPath();
         String compressedVideoPath = "C:/Users/11392/Desktop/test/02/compressedVideo.mp4";
         try {
@@ -165,7 +171,7 @@ public class VideoSupportService {
             outputs.put(compressedVideoPath, outputOpts);
             FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
             System.out.println(ff.cmd());
-            videodao.compressVideo(videoId,compressedVideoPath,b);
+            videoDao.compressVideo(videoId,compressedVideoPath,b);
 
             if (ff.run() == true) {
                 result.setCode(200);
@@ -205,17 +211,25 @@ public class VideoSupportService {
     /**
      * 导入字幕
      *
-     * @param videoPath             视频路径
-     * @param subtitlePath          字幕路径
-     * @param videoWithSubtitlePath 导入字幕后的视频路径
+   //  * @param videoPath             视频路径
+     //* @param subtitlePath          字幕路径
+    // * @param videoWithSubtitlePath 导入字幕后的视频路径
      * @return 是否成功
      * @throws IOException
      * @throws InterruptedException
      * @author PY
      */
-    public  Result importSubtitle( String videoPath,  String subtitlePath,  String videoWithSubtitlePath) {
-
+    public  Result importSubtitle(int videoId ,int type) {
         Result result = new Result();
+        video = videoDao.findByVideoId(videoId);
+        subtitle = subtitleDao.findByVideoId(videoId);
+        String videoPath = video.getVideoPath();
+        String subtitlePath = "";
+        if(type == 1){ subtitlePath = subtitle.getZhSubtitlePath();}
+        else if (type == 2){ subtitlePath = subtitle.getEnSubtitlePath();}
+        else if (type == 3){ subtitlePath = subtitle.getMergeSubtitlePath();}
+        //String subtitlePath = "C:/Users/11392/Desktop/test/01/subtitles.srt";
+        String videoWithSubtitlePath = "C:/Users/11392/Desktop/test/02/videoWithSubtitle.mp4";
         try{
         List<String> globals = new ArrayList<>();
         List<String> input1Opts = new ArrayList<>();
@@ -226,9 +240,10 @@ public class VideoSupportService {
         outputs.put(videoWithSubtitlePath, outputOpts);
         FFmpegJ ff = new FFmpegJ(globals, inputs, outputs);
         System.out.println(ff.cmd());
-        videodao.importSubtitle(videoWithSubtitlePath);
+        videoDao.importSubtitle(videoId,videoWithSubtitlePath);
          if(ff.run() == true){
              result.setCode(200);
+             result.setData(video);
          }
         }catch(Exception e){
             e.printStackTrace();
