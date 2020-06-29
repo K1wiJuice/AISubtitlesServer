@@ -79,7 +79,7 @@ public class SubtitleSupportService {
         ExecuteCommandService.exec(commList);
     }
 
-    /**
+    /*
      * 导出音频：在指定的路径上生成一个视频的音频文件
      *
      * @author PY
@@ -141,7 +141,7 @@ public class SubtitleSupportService {
         ExecuteCommandService.exec(commList);
     }
 
-    /**
+    /*
      * 音频转字幕：给音频文件在指定路径上生成其字幕文件
      *
      * @author PY
@@ -180,7 +180,7 @@ public class SubtitleSupportService {
         return result;
     }
 
-    /**
+    /*
      * 翻译字幕：给出源语言和目标语言，将字幕文件翻译，并生成翻译好的字幕文件
      *
      * @author
@@ -227,7 +227,7 @@ public class SubtitleSupportService {
         return result;
     }
 
-    /**
+    /*
      * 合并字幕：将中英文字幕文件合并
      *
      * @author
@@ -328,7 +328,7 @@ public class SubtitleSupportService {
 //    	return result;
 //        }
 
-/**
+/*
  * 双语srt格式字幕转json格式并返回数据
  * 
  * @param  inputPath   srt字幕路径
@@ -390,7 +390,7 @@ public Result dsubtitleSrt2json(Integer videoId) {
     }    
 
 
-/**
+/*
  * json格式的字幕转srt格式并保存
  *
  * @param subtitle   表示字幕的json数组

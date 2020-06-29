@@ -11,9 +11,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,7 +22,9 @@ public class VideoProcessController {
 
     @Autowired
     VideoFilterService videoFilterService;
-//    VideoSupportService videoSupportService;
+
+    @Autowired
+    VideoSupportService videoSupportService;
 
     @Autowired
     BeautifyService beautifyService;
@@ -46,11 +46,9 @@ public class VideoProcessController {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             System.out.println(jsonObject);
             String operationType = jsonObject.getString("operationType");
-            if (i == 0) {
-                videoId = jsonObject.getInteger("videoId");
-            } else {
-                videoId = processedVideo.getVideoId();
-            }
+
+            videoId = processedVideo.getVideoId();
+
 
             if ("filter".equals(operationType)) {
                 String newVideoPath = jsonObject.getString("newVideo");
@@ -66,13 +64,14 @@ public class VideoProcessController {
                 Integer eye = jsonObject.getInteger("eye");
                 videoProcessResult = beautifyService.beautify(videoId, newVideo, white, smooth, facelift, eye);
             }
-//            else if("compressVideo".equals(operationType)){
-//                videoId = jsonObject.getInteger("videoId");
+           else if("compressVideo".equals(operationType)){
+               videoId = jsonObject.getInteger("videoId");
 //                String videoPath = jsonObject.getString("videoPath");
-//                String compressedVideoPath = jsonObject.getString("compressedVideoPath");
-//                Integer videoP = jsonObject.getInteger("videoP");
-//                videoSupportService.compressVideo(videoPath,compressedVideoPath,videoP);
-//            }else if("importSubtitle".equals(operationType)){
+//               String compressedVideoPath = jsonObject.getString("compressedVideoPath");
+                Integer videoP = jsonObject.getInteger("videoP");
+                videoProcessResult = videoSupportService.compressVideo(videoId,videoP);
+            }
+//            else if("importSubtitle".equals(operationType)){
 //                videoId = jsonObject.getInteger("videoId");
 //                String videoPath = jsonObject.getString("videoPath");
 //                String subtitlePath = jsonObject.getString("subtitlePath");
@@ -89,11 +88,7 @@ public class VideoProcessController {
 
             Double progress = (1.0+i) / jsonArray.size();
             System.out.println(progress);
-            if (i == 0) {
-                processedVideo = (Video) videoProcessResult.getData();
-                processedVideo.setProcessProgress(progress);
-                videoDao.save(processedVideo);
-            } else {
+
                 Video temp = (Video)videoProcessResult.getData();
                 processedVideo.setVideoPath(temp.getVideoPath());
                 processedVideo.setVideoName(temp.getVideoName());
@@ -101,7 +96,7 @@ public class VideoProcessController {
                 videoDao.modifyPath(processedVideo.getVideoId(), processedVideo.getVideoPath());
                 videoDao.modifyName(processedVideo.getVideoId(), processedVideo.getVideoName());
                 videoDao.modifyProgress(videoId, progress);
-            }
+
 
             if (i != jsonArray.size()-1) {
                 tempVideosPath.add(processedVideo.getVideoPath());
@@ -115,4 +110,15 @@ public class VideoProcessController {
 
         return videoProcessResult;
     }
+
+   /* @GetMapping("compressVideo/{videoId,p}")
+    public Result compressVideo(@PathVariable Integer videoId,@PathVariable Integer p){
+        Result result = new Result();
+        videoSupportService.compressVideo(videoId,p);
+        result.setCode(200);
+        return result;
+
+    }*/
+
+
 }

@@ -26,12 +26,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="update">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e0d08e91-66a6-45f9-8066-f635895c2590" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/SubtitleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/SubtitleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/dao/VideoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/domain/Video.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/SubtitleSupportService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/service/VideoSupportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subtitles.iml" beforeDir="false" afterPath="$PROJECT_DIR$/subtitles.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +55,14 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1d8WeSnAHhuTAcgjdanef4nWukW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -79,17 +91,9 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\24113\Desktop\AISubtitlesServer\src\main\resources\static" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.AISubtitles.Server.service" />
-      <recent name="com.AISubtitles.Server.utils" />
-      <recent name="com.AISubtitles.Server.domain" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\resources\lib" />
       <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\resources\tables" />
@@ -97,14 +101,36 @@
       <recent name="E:\Users\10636\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\Server\utils" />
       <recent name="E:\Users\24113\IdeaProjects\AISubtitlesServer\src\main\java\com\AISubtitles\my" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.AISubtitles.Server.service" />
+      <recent name="com.AISubtitles.Server.utils" />
+      <recent name="com.AISubtitles.Server.domain" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\11392\IdeaProjects\AISubtitlesServer\opencv" />
+      <recent name="C:\Users\24113\Desktop\AISubtitlesServer\src\main\resources\static" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Beautify">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="Beautify" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.my.Beautify" />
       <module name="subtitles" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.AISubtitles.my.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.ServerApplication" />
+      <module name="subtitles" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AISubtitles.Server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,24 +182,6 @@
       <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.FilterTest" />
       <option name="METHOD_NAME" value="testBeauty" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterTest.testFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="subtitles" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.AISubtitles.Server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.AISubtitles.Server" />
-      <option name="MAIN_CLASS_NAME" value="com.AISubtitles.Server.FilterTest" />
-      <option name="METHOD_NAME" value="testFilter" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-Djava.library.path=$PROJECT_DIR$/../AISubtitlesServer\opencv\x64" />
-      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -234,18 +242,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Beautify" />
-      <item itemvalue="JUnit.FilterTest.testFilter" />
       <item itemvalue="JUnit.FilterTest.testBeauty" />
       <item itemvalue="JUnit.FilterTest.faceFusion" />
       <item itemvalue="JUnit.FilterTest.coverPage" />
+      <item itemvalue="Application.ServerApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ServerApplication" />
         <item itemvalue="Application.Beautify" />
         <item itemvalue="JUnit.FilterTest.faceFusion" />
         <item itemvalue="JUnit.FilterTest.coverPage" />
         <item itemvalue="JUnit.FilterTest.testBeauty" />
-        <item itemvalue="JUnit.FilterTest.testFilter" />
       </list>
     </recent_temporary>
   </component>
@@ -300,6 +308,7 @@
       <workItem from="1593247926572" duration="1182000" />
       <workItem from="1593249146911" duration="10998000" />
       <workItem from="1593341246228" duration="5025000" />
+      <workItem from="1593401313696" duration="20924000" />
     </task>
     <task id="LOCAL-00001" summary="添加了登录和注销的模块，但还未测试">
       <created>1591839324847</created>
@@ -385,11 +394,18 @@
       <option name="project" value="LOCAL" />
       <updated>1593357048576</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="准备">
+      <created>1593401410683</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1593401410683</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -427,7 +443,8 @@
     <MESSAGE value="修改滤镜和美颜输入参数,将处理完的视频保存到数据库中" />
     <MESSAGE value="修改controller，将controller业务整合到service" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="准备" />
+    <option name="LAST_COMMIT_MESSAGE" value="准备" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Assign_Data_Sources" timestamp="1592484988378">
@@ -446,10 +463,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="324" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1593167246284" />
-    <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592472134512">
+    <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593402255606">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1592472134512" />
+    <state x="434" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1593402255606" />
     <state x="488" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1592034285948" />
     <state x="619" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1593239472153">
       <screen x="72" y="0" width="1464" height="864" />
@@ -478,45 +495,45 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1366.728@0.0.1366.728" timestamp="1592473555870" />
-    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1592617470130">
+    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1593424002056">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592617470130" />
+    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593424002056" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1591865772899">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1591865772899" />
-    <state x="562" y="125" key="FileChooserDialogImpl" timestamp="1593341687791">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state x="457" y="105" key="FileChooserDialogImpl" timestamp="1593402600164">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593250303092" />
+    <state x="457" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593402600164" />
     <state x="514" y="119" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1593167352148" />
     <state x="562" y="125" key="FileChooserDialogImpl/72.0.1464.864@72.0.1464.864" timestamp="1593341687791" />
-    <state width="1254" height="284" key="GridCell.Tab.0.bottom" timestamp="1593357394626">
-      <screen x="72" y="0" width="1296" height="912" />
+    <state width="1323" height="231" key="GridCell.Tab.0.bottom" timestamp="1593424002235">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
+    <state width="1323" height="231" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593424002235" />
     <state width="1493" height="238" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
     <state width="1254" height="284" key="GridCell.Tab.0.bottom/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.bottom/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1254" height="284" key="GridCell.Tab.0.center" timestamp="1593357394626">
-      <screen x="72" y="0" width="1296" height="912" />
+    <state width="1323" height="231" key="GridCell.Tab.0.center" timestamp="1593424002235">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
+    <state width="1323" height="231" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593424002235" />
     <state width="1493" height="238" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
     <state width="1254" height="284" key="GridCell.Tab.0.center/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.center/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1254" height="284" key="GridCell.Tab.0.left" timestamp="1593357394626">
-      <screen x="72" y="0" width="1296" height="912" />
+    <state width="1323" height="231" key="GridCell.Tab.0.left" timestamp="1593424002235">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
+    <state width="1323" height="231" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593424002235" />
     <state width="1493" height="238" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
     <state width="1254" height="284" key="GridCell.Tab.0.left/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.left/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
-    <state width="1254" height="284" key="GridCell.Tab.0.right" timestamp="1593357394626">
-      <screen x="72" y="0" width="1296" height="912" />
+    <state width="1323" height="231" key="GridCell.Tab.0.right" timestamp="1593424002235">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591947225514" />
+    <state width="1323" height="231" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593424002235" />
     <state width="1493" height="238" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593221652246" />
     <state width="1254" height="284" key="GridCell.Tab.0.right/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.0.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765109" />
@@ -544,23 +561,23 @@
     <state width="1493" height="208" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1593157952702" />
     <state width="1254" height="284" key="GridCell.Tab.1.right/72.0.1296.912@72.0.1296.912" timestamp="1593357394626" />
     <state width="1421" height="467" key="GridCell.Tab.1.right/72.0.1464.864@72.0.1464.864" timestamp="1593243765110" />
-    <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1593329649081">
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1593401525444">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1593329649081" />
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1593401525444" />
     <state x="54" y="135" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1593161910495" />
     <state x="147" y="65" key="MergeDialog" timestamp="1592302735940">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592302735940" />
-    <state x="392" y="79" key="MultipleFileMergeDialog" timestamp="1591865073036">
+    <state x="392" y="79" key="MultipleFileMergeDialog" timestamp="1593401450902">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="392" y="79" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1591865073036" />
-    <state x="329" y="0" key="SettingsEditor" timestamp="1593341695416">
-      <screen x="72" y="0" width="1464" height="864" />
+    <state x="392" y="79" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1593401450902" />
+    <state x="240" y="0" key="SettingsEditor" timestamp="1593402614665">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="240" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593248918163" />
+    <state x="240" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593402614665" />
     <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593167356326" />
     <state x="329" y="0" key="SettingsEditor/72.0.1464.864@72.0.1464.864" timestamp="1593341695416" />
     <state x="333" y="121" key="Vcs.Push.Dialog.v2" timestamp="1593357055114">
@@ -578,10 +595,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593401321521" />
-    <state x="458" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593248646819">
+    <state x="458" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593402579348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="458" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1593248646819" />
+    <state x="458" y="257" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1593402579348" />
     <state x="523" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593357030863">
       <screen x="72" y="0" width="1296" height="912" />
     </state>
@@ -589,10 +606,10 @@
     <state x="534" y="318" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1593167820266" />
     <state x="523" y="352" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1296.912@72.0.1296.912" timestamp="1593357030863" />
     <state x="581" y="333" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.0.1464.864@72.0.1464.864" timestamp="1593244682631" />
-    <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1593401342779">
+    <state x="365" y="155" key="git4idea.merge.GitPullDialog" timestamp="1593401416392">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="365" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1593401342779" />
+    <state x="365" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1593401416392" />
     <state x="455" y="258" key="git4idea.ui.GitResetDialog" timestamp="1591865662427">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -609,10 +626,21 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="178" y="45" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1592357310298" />
-    <state x="389" y="55" width="756" height="768" key="search.everywhere.popup" timestamp="1592012116323">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593402212547">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1591835545424" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1593402212547" />
     <state x="389" y="55" width="756" height="768" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1592012116323" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/AISubtitles/Server/controller/VideoProcessController.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
