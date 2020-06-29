@@ -1,6 +1,6 @@
 package com.AISubtitles.Server.dao;
 
-import com.AISubtitles.Server.domain.*;
+import com.AISubtitles.Server.domain.Subtitle;
 
 import lombok.Data;
 
@@ -17,8 +17,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface SubtitleDao extends JpaRepository<Video, Integer> {
-	Subtitle findByVideoId(String videoId);
+public interface SubtitleDao extends JpaRepository<Subtitle,Integer> {
+	Subtitle findByVideoId(Integer videoId);
 
 //    @Transactional
 //    @Modifying
@@ -61,8 +61,8 @@ public interface SubtitleDao extends JpaRepository<Video, Integer> {
       * @param audioPath 音频路径
       * @return
       */
-    @Query(value = "update subtitle_info  set audio_path = :audioPath where subtitle_id = :videoId" ,nativeQuery = true)
-    public Integer export_audio(@Param("videoId")String videoId, @Param("audioPath")String audioPath);
+    @Query(value = "update subtitle_info  set audio_path = :audioPath where video_id = :videoId" ,nativeQuery = true)
+    public Integer export_audio(@Param("videoId")Integer videoId, @Param("audioPath")String audioPath);
 	
 	
     /**
@@ -108,12 +108,17 @@ public interface SubtitleDao extends JpaRepository<Video, Integer> {
      * @return
      */
     @Query(value = "update subtitle_info  set subtitle_merge_path = :outputPath where subtitle_id = :videoId" ,nativeQuery = true)
-    public Integer json2srt(@Param("videoId")String videoId, @Param("outputPath")String outputPath);
+    public Integer json2srt(@Param("videoId")Integer videoId, @Param("outputPath")String outputPath);
     
+    //@Query(value = "select s from Subtitle s where subtitle_id = :videoId")
+    //public Subtitle findbyvideoid(@Param("videoId")String videoId, @Param("outputPath")String outputPath);
 
     @Transactional
     @Modifying
     @Query(value = "update subtitle_info set video_cover = :video_cover where video_id = :video_id", nativeQuery = true)
     Integer modifyCover(@Param("video_id") Integer video_id, @Param("video_cover") String video_path);
+
+	
+
 
 }
