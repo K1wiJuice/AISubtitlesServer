@@ -5,9 +5,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.AISubtitles.Server.dao.AudioDao;
@@ -17,6 +23,7 @@ import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.service.ExecuteCommandService;
 import com.AISubtitles.Server.service.SubtitleSupportService;
 import com.AISubtitles.Server.service.UserOpVideoService;
+import com.alibaba.fastjson.JSONArray;
 
 /**
  * @ Author     ：lzl
@@ -29,50 +36,53 @@ import com.AISubtitles.Server.service.UserOpVideoService;
 @RestController
 public class SubtitleController {
 	  @Autowired
+	  @Resource
       SubtitleSupportService subtitleSupportService;
 	  
-	  @PostMapping("/SubtitleSupport/audio&sub")
-	  public Result AudioSub(final String videoId) 
-	 	      throws IOException, InterruptedException {    	
+	  @GetMapping("/SubtitleSupport/audiosub/{videoId}")
+	  public Result AudioSub(@PathVariable(name = "videoId") Integer videoId) 
+	 	      throws IOException, InterruptedException {   
+		  System.out.println(videoId);
     	  subtitleSupportService.exportAudio(videoId);
     	  return subtitleSupportService.audio2zhSubtitle(videoId);
       }
       
-	  @PostMapping("/SubtitleSupport/getSubjson")
-	  public Result getSubjson(final String videoId, String source, String target) 
+	  @GetMapping("/SubtitleSupport/getSubjson/{videoId}")
+	  public Result getSubjson(@PathVariable(name = "videoId") Integer videoId, String source, String target) 
 			  throws IOException, InterruptedException{
-		  subtitleSupportService.audio2zhSubtitle(videoId);
+		  
 		  subtitleSupportService.translateSubtitle(videoId, source, target);
 		  subtitleSupportService.mergeSubtitle(videoId);
-		  return subtitleSupportService.subtitleSrt2json(videoId);
+		  return subtitleSupportService.dsubtitleSrt2json(videoId);
 	  }
 	  
-	  @PostMapping("/SubtitleSupport/exportaudio")
-      public Result export_audio(final String videoId) 
+	  @GetMapping("/SubtitleSupport/exportaudio/{videoId}")
+      public Result export_audio(@PathVariable(name = "videoId") Integer videoId) 
 	 	      throws IOException, InterruptedException {    	
     	  return subtitleSupportService.exportAudio(videoId);     
       }
-      
-     @PostMapping("/SubtitleSupport/json2srt")
-	  public Result json2srt(final JSONArray subtitle, final String videoId) 
+	  
+	 @RequestMapping(value = "/SubtitleSupport/json2srt/{videoId}", method = {RequestMethod.POST}) 
+     //@PostMapping("/SubtitleSupport/json2srt/{videoId}")
+	  public Result json2srt(@RequestBody JSONArray subtitle, @PathVariable(name = "videoId") Integer videoId) 
 			  throws IOException {
     	  return subtitleSupportService.subtitleJson2srt(subtitle, videoId);
       }
   
-      @PostMapping("/SubtitleSupport/audio2zhSubtitle")
-      public Result audio2zhSubtitle(final String videoId) 
+      @GetMapping("/SubtitleSupport/audio2zhSubtitle/{videoId}")
+      public Result audio2zhSubtitle(@PathVariable(name = "videoId") Integer videoId) 
 	 	      throws IOException, InterruptedException {    	
     	  return subtitleSupportService.audio2zhSubtitle(videoId);     
       }
       
-      @PostMapping("/SubtitleSupport/translateSubtitle")
-      public Result translateSubtitle(final String videoId, String source, String target) 
+      @GetMapping("/SubtitleSupport/translateSubtitle/{videoId}")
+      public Result translateSubtitle(@PathVariable(name = "videoId") Integer videoId, String source, String target) 
     		  throws IOException, InterruptedException {
           return subtitleSupportService.translateSubtitle(videoId, source, target);
       }
       
-      @PostMapping("/SubtitleSupport/mergeSubtitle")
-      public Result mergeSubtitle(final String videoId) throws IOException, InterruptedException {
+      @GetMapping("/SubtitleSupport/mergeSubtitle/{videoId}")
+      public Result mergeSubtitle(@PathVariable(name = "videoId") Integer videoId) throws IOException, InterruptedException {
          return subtitleSupportService.mergeSubtitle(videoId); 
       }
       
@@ -85,9 +95,9 @@ public class SubtitleController {
        * @throws IOException
        * @throws InterruptedException
        */
-      @PostMapping("/SubtitleSupport/srt2json")
-      public Result srt2json(final String videoId) throws IOException {
-    	  return subtitleSupportService.subtitleSrt2json(videoId);
+      @GetMapping("/SubtitleSupport/srt2json/{videoId}")
+      public Result srt2json(@PathVariable(name = "videoId") Integer videoId) throws IOException {
+    	  return subtitleSupportService.dsubtitleSrt2json(videoId);
       }
       
       /**

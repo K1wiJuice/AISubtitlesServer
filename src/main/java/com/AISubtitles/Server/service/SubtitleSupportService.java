@@ -1,9 +1,12 @@
 package com.AISubtitles.Server.service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +18,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.AISubtitles.Server.dao.*;
 import com.AISubtitles.Server.domain.Result;
@@ -31,24 +35,31 @@ import javassist.expr.NewArray;
  * @ Modified By：
  * @Version: 1.0$
  */
+
+@Service
 public class SubtitleSupportService {
 	private String pythonExe;
 
     public SubtitleSupportService() {
-        this.pythonExe = "python";
+        this.pythonExe = "python3";
     }
 
     public void setPythonExe(final String path) {
         this.pythonExe = path;
     }
     
-    Subtitle sub = new Subtitle();
+    
     @Autowired
     VideoDao videoDao;
+    @Autowired
     AudioDao audioDao;
+    @Autowired
     SubtitleDao subtitleDao;
+    @Autowired
     VideoWithSubtitleDao videoWithSubtitleDao;
 
+    Subtitle sub = new Subtitle();
+    
     /**
      * 压缩视频：根据给定的码率，在指定路径生成一个视频文件
      *
@@ -60,6 +71,7 @@ public class SubtitleSupportService {
      * @throws IOException
      * @throws InterruptedException
      */
+    
     public void compressVideo(final String pyFilePath, final String videoPath, final String compressedVideoPath,
                                 final int b) throws IOException, InterruptedException {
         final List<String> commList = new ArrayList<>(
@@ -77,14 +89,18 @@ public class SubtitleSupportService {
      * @throws IOException
      * @throws InterruptedException
      */
-    public Result exportAudio(final String videoId)
+    
+    public Result exportAudio(Integer videoId)
             throws IOException, InterruptedException {
+    	System.out.println(videoId);
+    	//Integer videoId = 1111; 	
     	sub = subtitleDao.findByVideoId(videoId);
+    	System.out.println(sub.getVideoId());
     	String pyFilePath = "python/export_audio.py";
     	String videoPath = sub.getVideoPath();
     	String audioPath;
     	if (sub.getAudioPath() == null) {
-    		audioPath = "files/"+videoId+"/"+videoId+"_audio.mp3"; 		
+    		audioPath = "E:\\历史项目\\AISubtitlesServer-dev629\\files"+"\\"+videoId+"_audio.mp3"; 		
     	}
     	else audioPath = sub.getZhSubtitlePath();
     	Result result = new Result();
@@ -92,7 +108,9 @@ public class SubtitleSupportService {
         	final List<String> commList = new ArrayList<>(
         			Arrays.asList(this.pythonExe, pyFilePath, videoPath, audioPath));
             ExecuteCommandService.exec(commList);
-            subtitleDao.export_audio(videoId, audioPath);
+            sub.setAudioPath(audioPath);
+            subtitleDao.save(sub);
+            //subtitleDao.export_audio(videoId, audioPath);
             result.setCode(200);
             result.setData("导出音频成功！");
 
@@ -133,13 +151,14 @@ public class SubtitleSupportService {
      * @throws IOException
      * @throws InterruptedException
      */
-    public Result audio2zhSubtitle(String videoId)throws IOException, InterruptedException {
+    public Result audio2zhSubtitle(Integer videoId)throws IOException, InterruptedException {
+    
     	sub = subtitleDao.findByVideoId(videoId);
     	String pyFilePath = "python/audio2zhSubtitle.py";
     	String audioPath = sub.getAudioPath();
     	String subtitlePath;
     	if (sub.getZhSubtitlePath() == null) {
-    		subtitlePath = "files/"+videoId+"/"+videoId+"_zhsub.srt"; 		
+    		subtitlePath = "E:\\历史项目\\AISubtitlesServer-dev629\\files"+"\\"+videoId+"_zhsub.srt"; 		
     	}
     	else subtitlePath = sub.getZhSubtitlePath();   	
     	Result result = new Result();
@@ -147,7 +166,9 @@ public class SubtitleSupportService {
             final List<String> commList = new ArrayList<>(
                     Arrays.asList(this.pythonExe, pyFilePath, audioPath, subtitlePath));
             ExecuteCommandService.exec(commList);
-            subtitleDao.audio2zhSubtitle(audioPath,subtitlePath);
+            sub.setZhSubtitlePath(subtitlePath);
+            subtitleDao.save(sub);
+            //subtitleDao.audio2zhSubtitle(audioPath,subtitlePath);
             result.setCode(200);
             result.setData("语音识别成功！");
 
@@ -171,7 +192,7 @@ public class SubtitleSupportService {
      * @throws IOException
      * @throws InterruptedException
      */
-    public Result translateSubtitle(final String videoId, String source, String target) 
+    public Result translateSubtitle(Integer videoId, String source, String target) 
     		throws IOException, InterruptedException {
     	if (source == null || source == "") {
     		source="zh";
@@ -184,7 +205,7 @@ public class SubtitleSupportService {
     	String subtitlePath = sub.getZhSubtitlePath();
     	String transSubtitlePath;
     	if (sub.getEnSubtitlePath() == null) {
-    		transSubtitlePath = "files/"+videoId+"/"+videoId+"_ensub.srt"; 		
+    		transSubtitlePath = "E:\\历史项目\\AISubtitlesServer-dev629\\files"+"\\"+videoId+"_ensub.srt"; 		
     	}
     	else transSubtitlePath = sub.getEnSubtitlePath();
     	Result result = new Result();
@@ -192,7 +213,9 @@ public class SubtitleSupportService {
             final List<String> commList = new ArrayList<>(
                     Arrays.asList(this.pythonExe, pyFilePath, subtitlePath, transSubtitlePath, source, target));
             ExecuteCommandService.exec(commList);
-            subtitleDao.translateSubtitle(subtitlePath,transSubtitlePath);
+            sub.setEnSubtitlePath(transSubtitlePath);
+            subtitleDao.save(sub);
+            //subtitleDao.translateSubtitle(subtitlePath,transSubtitlePath);
             result.setCode(200);
             result.setData("字幕翻译成功！");
 
@@ -215,14 +238,14 @@ public class SubtitleSupportService {
      * @throws IOException
      * @throws InterruptedException
      */
-    public Result mergeSubtitle(final String videoId) throws IOException, InterruptedException {
+    public Result mergeSubtitle(Integer videoId) throws IOException, InterruptedException {
     	sub = subtitleDao.findByVideoId(videoId);
     	String pyFilePath = "python/demo_merge.py";
     	String zhSubtitlePath = sub.getZhSubtitlePath();
     	String enSubtitlePath = sub.getEnSubtitlePath();
     	String mergedSubtitlePath;
     	if (sub.getMergeSubtitlePath() == null) {
-    		mergedSubtitlePath = "files/"+videoId+"/"+videoId+"_mergesub.srt"; 		
+    		mergedSubtitlePath = "E:\\历史项目\\AISubtitlesServer-dev629\\files"+"\\"+videoId+"_mergesub.srt"; 		
     	}
     	else mergedSubtitlePath = sub.getEnSubtitlePath();
     	Result result = new Result();
@@ -230,7 +253,9 @@ public class SubtitleSupportService {
             final List<String> commList = new ArrayList<>(
                     Arrays.asList(this.pythonExe, pyFilePath, zhSubtitlePath, enSubtitlePath, mergedSubtitlePath));
             ExecuteCommandService.exec(commList);
-            subtitleDao.mergeSubtitle(zhSubtitlePath,mergedSubtitlePath);
+            sub.setMergeSubtitlePath(mergedSubtitlePath);
+            subtitleDao.save(sub);
+            //subtitleDao.mergeSubtitle(zhSubtitlePath,mergedSubtitlePath);
             result.setCode(200);
             result.setData("字幕合并成功！");
 
@@ -241,15 +266,76 @@ public class SubtitleSupportService {
         }
         return result;
     }
+    
+//    /**
+//     * 单语srt格式字幕转json格式并返回数据
+//     * 
+//     * @param  inputPath   srt字幕路径
+//     * @throws IOException 
+//     * 
+//     */
+//    public Result ssubtitleSrt2json(Integer videoId) {
+//    	sub = subtitleDao.findByVideoId(videoId);
+//    	String inputPath = sub.getEnSubtitlePath();
+//    	Result result = new Result();
+//    	try{	
+//    	BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputPath), "UTF-8"));
+//    	String indexline,timeline,textline_zh,kongline;
+//    	JSONArray subtitle = new JSONArray();
+//        while ((indexline = reader.readLine()) != null && (timeline = reader.readLine()) != null && 
+//    			(textline_zh = reader.readLine()) != null  &&(kongline = reader.readLine()) != null)
+//    	{
+//    		String rebegin = "(.*?) -->";
+//    		String reend = "(.*?)(--> )(.*)";
+//    		List<String> list = new ArrayList<String>();
+//    		List<String> extvounoLists = new ArrayList<String>();
+//    		Pattern pabegin = Pattern.compile(rebegin);
+//    		Pattern paend = Pattern.compile(reend);
+//    		Matcher mbegin = pabegin.matcher(timeline);
+//    		Matcher mend = paend.matcher(timeline);
+//    		JSONObject subs = new JSONObject();
+//    		while (mend.find()) {  
+//                int i = 1;  
+//                list.add(mend.group(i));
+//                subs.put("end", mend.group(i+2));
+//                i++;  
+//            } 
+//    		while (mbegin.find()) {  
+//                int i = 1;  
+//                list.add(mbegin.group(i));
+//                subs.put("begin", mbegin.group(i));
+//                i++;  
+//            }
+//    		JSONArray texts = new JSONArray();
+//            texts.add(textline_zh);
+//            
+//            subs.put("texts", texts);
+//    		subtitle.add(subs);
+//    	}
+//        reader.close();
+//        result.setCode(200);
+//        System.out.println(subtitle);
+//        result.setData(subtitle);
+//        //result.setData(JSONObject.toJSONString(subtitle));
+//    	//return JSONObject.toJSONString(subtitle);
+//        }
+//    	catch (IOException e) {
+//    		e.printStackTrace();
+//            result.setCode(500);
+//            result.setData("返回json数据失败！");
+//    	}
+//    	
+//    	return result;
+//        }
 
 /**
- * srt格式字幕转json格式并返回数据
+ * 双语srt格式字幕转json格式并返回数据
  * 
  * @param  inputPath   srt字幕路径
  * @throws IOException 
  * 
  */
-public Result subtitleSrt2json(final String videoId) {
+public Result dsubtitleSrt2json(Integer videoId) {
 	sub = subtitleDao.findByVideoId(videoId);
 	String inputPath = sub.getMergeSubtitlePath();
 	Result result = new Result();
@@ -289,7 +375,9 @@ public Result subtitleSrt2json(final String videoId) {
 	}
     reader.close();
     result.setCode(200);
-    result.setData(JSONObject.toJSONString(subtitle));
+    System.out.println(subtitle);
+    result.setData(subtitle);
+    //result.setData(JSONObject.toJSONString(subtitle));
 	//return JSONObject.toJSONString(subtitle);
     }
 	catch (IOException e) {
@@ -308,9 +396,9 @@ public Result subtitleSrt2json(final String videoId) {
  * @param subtitle   表示字幕的json数组
  * @param outputPath 输出路径
  */
-public Result subtitleJson2srt(final JSONArray subtitle, final String videoId) {
+public Result subtitleJson2srt(final JSONArray subtitle, Integer videoId) {
 	sub = subtitleDao.findByVideoId(videoId);
-	String outputPath = "files/"+videoId+"/"+videoId+"_mljsonsub.srt";
+	String outputPath = "E:\\历史项目\\AISubtitlesServer-dev629\\files"+"\\"+videoId+"_mljsonsub.srt";
 	Result result = new Result();
 	
 	StringBuffer content = new StringBuffer();
@@ -331,7 +419,9 @@ public Result subtitleJson2srt(final JSONArray subtitle, final String videoId) {
         OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
         osw.write(content.toString());
         osw.flush();
-        subtitleDao.json2srt(videoId, outputPath);
+        sub.setMjsonSubtitlePath(outputPath);
+        subtitleDao.save(sub);
+        //subtitleDao.json2srt(videoId, outputPath);
         result.setCode(200);
         result.setData("修改字幕成功！");
     } 

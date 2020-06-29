@@ -1,8 +1,12 @@
 package com.AISubtitles.Server.domain;
 
 import lombok.Data;
+import lombok.ToString;
+
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
+
 
 /**
  * @ Author     ：lzl
@@ -15,14 +19,16 @@ import javax.persistence.*;
 @Entity
 @Table(name = "subtitle_info")
 @Data
+@ToString
+@Proxy(lazy = false)
 public class Subtitle {
 
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "subtitle_id")
-    private int videoId;
-   @Column(name = "user_id")
-    private int userId;
+    @Column(name = "video_id")
+    private Integer videoId;
+    @Column(name = "user_id")
+    private Integer userId;
     @Column(name = "video_path")
     private  String videoPath;
     @Column(name = "audio_path")
@@ -39,30 +45,45 @@ public class Subtitle {
     //private double subtitleSize;
     @Column(name = "subtitle_type")
     private String subtitleType;
+    
+    
+    
+	
 
 
-
-    public int getVideoId() {
+	public Integer getVideoId() {
 		return videoId;
 	}
 
 
 
-	public void setVideoId(int videoId) {
+
+
+
+	public void setVideoId(Integer videoId) {
 		this.videoId = videoId;
 	}
 
 
 
-	public int getUserId() {
+
+
+
+	public Integer getUserId() {
 		return userId;
 	}
 
 
 
-	public void setUserId(int userId) {
+
+
+
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
+
+
+
 
 
 
@@ -72,9 +93,15 @@ public class Subtitle {
 
 
 
+
+
+
 	public void setVideoPath(String videoPath) {
 		this.videoPath = videoPath;
 	}
+
+
+
 
 
 
@@ -84,9 +111,15 @@ public class Subtitle {
 
 
 
+
+
+
 	public void setAudioPath(String audioPath) {
 		this.audioPath = audioPath;
 	}
+
+
+
 
 
 
@@ -96,9 +129,15 @@ public class Subtitle {
 
 
 
+
+
+
 	public void setZhSubtitlePath(String zhSubtitlePath) {
 		this.zhSubtitlePath = zhSubtitlePath;
 	}
+
+
+
 
 
 
@@ -108,9 +147,15 @@ public class Subtitle {
 
 
 
+
+
+
 	public void setEnSubtitlePath(String enSubtitlePath) {
 		this.enSubtitlePath = enSubtitlePath;
 	}
+
+
+
 
 
 
@@ -120,9 +165,15 @@ public class Subtitle {
 
 
 
+
+
+
 	public void setMergeSubtitlePath(String mergeSubtitlePath) {
 		this.mergeSubtitlePath = mergeSubtitlePath;
 	}
+
+
+
 
 
 
@@ -132,9 +183,15 @@ public class Subtitle {
 
 
 
+
+
+
 	public void setMjsonSubtitlePath(String mjsonSubtitlePath) {
 		this.mjsonSubtitlePath = mjsonSubtitlePath;
 	}
+
+
+
 
 
 
@@ -144,9 +201,15 @@ public class Subtitle {
 
 
 
+
+
+
 	public void setSubtitleType(String subtitleType) {
 		this.subtitleType = subtitleType;
 	}
+
+
+
 
 
 
