@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.alibaba.fastjson.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +29,8 @@ import com.AISubtitles.Server.service.UserOpVideoService;
 
 @RestController
 public class SubtitleController {
-	  @Autowired
+
+	 // @Autowired
       SubtitleSupportService subtitleSupportService;
 	  
 	  @PostMapping("/SubtitleSupport/audio&sub")
@@ -54,7 +56,7 @@ public class SubtitleController {
       }
       
      @PostMapping("/SubtitleSupport/json2srt")
-	  public Result json2srt(final JSONArray subtitle, final String videoId) 
+	  public Result json2srt(final JSONArray subtitle, final String videoId)
 			  throws IOException {
     	  return subtitleSupportService.subtitleJson2srt(subtitle, videoId);
       }
@@ -78,9 +80,9 @@ public class SubtitleController {
       
       /**
        * Java版本返回json数据
-       * @param pyFilePath
-       * @param srt_filename
-       * @param out_filename
+      // * @param pyFilePath
+       //* @param srt_filename
+       //* @param out_filename
        * @return
        * @throws IOException
        * @throws InterruptedException

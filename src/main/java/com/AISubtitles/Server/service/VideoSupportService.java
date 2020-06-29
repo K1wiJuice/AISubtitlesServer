@@ -27,7 +27,7 @@ public class VideoSupportService {
     VideoDao videodao;
     AudioDao audioDao;
 
-    private static String pythonExe = "python";
+    private static String pythonExe = "python3";
 
     /**
      * 根据不同的系统，更换python执行器
