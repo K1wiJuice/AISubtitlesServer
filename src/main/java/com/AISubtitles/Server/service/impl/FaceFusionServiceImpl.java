@@ -9,6 +9,7 @@ import com.AISubtitles.common.CodeConsts;
 import com.alibaba.fastjson.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -26,8 +27,11 @@ public class FaceFusionServiceImpl implements FaceFusionService {
         Result result = new Result();
         String imgPath = "";
         try {
-            img.transferTo(new File("src/main/resources/imgs", "src/main/resources/imgs/" + img.getOriginalFilename()));
-            imgPath = "src/main/resources/imgs/" + img.getOriginalFilename();
+            String realPath = ResourceUtils.getURL("classpath:").getPath() + "imgs";
+            String dirPath = realPath.substring(1);
+            File dir = new File(dirPath);
+            img.transferTo(new File(dir,  img.getOriginalFilename()));
+            imgPath = dir + "/" + img.getOriginalFilename();
 //            imgPath = "src/main/resources/imgs/baby.jpg";
 
             String newImagePath = imgPath.substring(0, imgPath.length()-4) + "--" + videoId + "--coverPage.jpg";

@@ -184,7 +184,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+    <configuration default="true" type="JetRunConfigurationType">
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -197,7 +197,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <option name="filePath" />
       <option name="vmParameters" />
       <option name="alternativeJrePath" />
@@ -244,6 +244,7 @@
       <item itemvalue="JUnit.FilterTest.testBeauty" />
       <item itemvalue="JUnit.FilterTest.faceFusion" />
       <item itemvalue="JUnit.FilterTest.coverPage" />
+      <item itemvalue="Spring Boot.ServerApplication" />
     </list>
     <recent_temporary>
       <list>
