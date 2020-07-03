@@ -1,8 +1,13 @@
 package com.AISubtitles.Server.utils.tencentai;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class TencentaiInfo {
 
-    public final static String secretId = "";
-    public final static String secretKey = "";
+    @Value("${tencent-Id}")
+	public static String secretId;
+
+	@Value("${tencent-Key}")
+	public static String secretKey;
 
 }

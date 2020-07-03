@@ -31,6 +31,12 @@ public class BeautifyService {
 	@Value("${video-path}")
 	private String videosPath;
 
+	@Value("${tencent-Id}")
+	private String secretId;
+
+	@Value("${tencent-Key}")
+	private String secretKey;
+
 	private static int threadsNums;
 
 	public BeautifyService() {
@@ -145,7 +151,7 @@ public class BeautifyService {
 				String tempImagePath = String.format(imagePath, i);
 				String tempNewImagePath = String.format(newImagePath, i);
 				String base = imagebase64Service.getImageBinary(tempImagePath);
-				String temp = beautifyPicService.beautify_api("", "", base, white, smooth, facelift, eye);
+				String temp = beautifyPicService.beautify_api(secretId, secretKey, base, white, smooth, facelift, eye);
 				imagebase64Service.base64StringToImage(temp,tempNewImagePath);
 			}
 			latch.countDown();
