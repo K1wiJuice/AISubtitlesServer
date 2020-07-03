@@ -1,10 +1,10 @@
 spring:
   mail:
-    host: smtp.163.com
-    username: aisubtitles@163.com
-    password: NZAEPEBLMBIZXHSN
+    host: ""
+    username: ""
+    password: ""
     properties.mail.smtp.port:  465
-    from:  aisubtitles@163.com
+    from: ""
     properties.mail.smtp.starttls.enable: true
     properties.mail.smtp.starttls.required: true
     properties.mail.smtp.ssl.enable: true
