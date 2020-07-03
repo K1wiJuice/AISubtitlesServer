@@ -13,7 +13,7 @@ public class BeautifyPicService {
 
 	public String beautify_api(String SecretID,String SecretKey,String base, int white, int smooth, int facelift, int eye) {
         try {
-            Credential cred = new Credential("AKIDJGwlLenBRIvN246Y3JwOZJQIthYkKDTH", "gBSUNZOxJRL1QpxoNgj5C2dyC9p2B4tp");
+            Credential cred = new Credential(SecretId, SecretKey);
 
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("fmu.ap-beijing.tencentcloudapi.com");
