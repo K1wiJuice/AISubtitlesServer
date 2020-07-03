@@ -23,7 +23,7 @@ nohup java -jar Server-0.0.1-SNAPSHOT.jar > logs.txt &
 
 - #### 提供的部分接口：
 
-  ```url
+  ```
   https://docs.qq.com/doc/DRWVxTkZVZ256dmVG
   ```
 
