@@ -10,8 +10,8 @@ import re
 
 from sys import argv
 
-ID = "AKIDOtAlnatOK1SwFBjQgj169Fhu1xnPmw5x"
-KEY = "sUr2zKPFyzkFWzHMZYIm00xeXCcsugCt"
+ID = ""
+KEY = ""
 
 
 def translate(source, target, ls):
