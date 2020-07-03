@@ -36,7 +36,7 @@ public class RegistTest {
         System.out.println(registService.findByUserEmail(user.getUserEmail()));
         System.out.println(registService.findByUserPhoneNumber(user.getUserPhoneNumber()));
 
-        registService.regist(user, userAuths);
+        //registService.regist(user, userAuths);
 
     }
 }

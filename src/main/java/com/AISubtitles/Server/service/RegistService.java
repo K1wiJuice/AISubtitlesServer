@@ -1,5 +1,8 @@
 package com.AISubtitles.Server.service;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.domain.UserAuths;
@@ -13,5 +16,6 @@ public interface RegistService {
 
     Result findByUserEmail(String userEmail);
 
-    Result regist(User user, UserAuths userAuths);
+    Result regist(User user, UserAuths userAuths,
+                  String emailCode, HttpServletResponse response, HttpSession session);
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.Date;
 
@@ -35,28 +36,27 @@ public class RegisterController {
     FindPasswordService findPasswordService;
 
     @PostMapping(value = "user/regist")
-    public Result handleRegist(HttpSession session, String userName,
-                               String userEmail, String userPassword,
+    public Result handleRegist(HttpSession session, HttpServletResponse response,
+                               String userName, String userEmail, String userPassword,
+                               String userPhoneNumber, String userGender,
                                Date userBirthday, String emailCode) {
-        Result result = findPasswordService.validateCode(emailCode, session);
-        if (result.getCode() == CodeConsts.CODE_SUCCESS);
-        else return result;
-        result = new Result();
+        Result result = new Result();
         
         try {
             User user = new User();
             user.setUserName(userName);
             user.setUserBirthday(userBirthday);
             user.setUserEmail(userEmail);
-            user.setUserPhoneNumber("111");
+            user.setUserPhoneNumber(userPhoneNumber);
+            user.setUserSignature("未设置签名");
             user.setUserGender("male");
-            user.setImage("");
+            user.setImage("/image/Default_user_image.jpg");
 
             UserAuths userAuths = new UserAuths();
             userAuths.setLoginType("email");
             userAuths.setUserPassword(Md5Utils.md5(userPassword));
 
-            result = registService.regist(user, userAuths);
+            result = registService.regist(user, userAuths, emailCode, response, session);
 
         } catch (Exception e) {
             result.setCode(CodeConsts.CODE_SERVER_ERROR);

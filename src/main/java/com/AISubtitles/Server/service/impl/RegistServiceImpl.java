@@ -1,5 +1,8 @@
 package com.AISubtitles.Server.service.impl;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.AISubtitles.Server.dao.UserAuthsDao;
 import com.AISubtitles.Server.dao.UserDao;
@@ -7,6 +10,7 @@ import com.AISubtitles.Server.domain.Result;
 import com.AISubtitles.Server.domain.User;
 import com.AISubtitles.Server.domain.UserAuths;
 import com.AISubtitles.Server.service.RegistService;
+import com.AISubtitles.Server.service.TokenService;
 import com.AISubtitles.common.CodeConsts;
 import com.AISubtitles.common.StringConsts;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,9 @@ public class RegistServiceImpl implements RegistService {
 
     @Autowired
     UserAuthsDao userAuthsDao;
+
+    @Autowired
+    TokenService tokenService;
 
     @Override
     public Result findByUserPhoneNumber(String userPhoneNumber) {
@@ -40,10 +47,10 @@ public class RegistServiceImpl implements RegistService {
     @Override
     public Result findByUserEmail(String userEmail) {
         Result result = new Result();
-        User byUserPhoneNumber = userDao.findByUserPhoneNumber(userEmail);
-        if (byUserPhoneNumber != null) {
+        User byUserEmail = userDao.findByUserEmail(userEmail);
+        if (byUserEmail != null) {
             result.setCode(CodeConsts.CODE_DUPLICATE_EMAIL);
-            result.setData("手机号已注册");
+            result.setData("邮箱已注册");
         } else {
             result.setCode(CodeConsts.CODE_CAN_CREATE_USER);
             result.setData("邮箱未使用，可以创建");
@@ -51,21 +58,37 @@ public class RegistServiceImpl implements RegistService {
         return result;
     }
 
-
     @Override
-    public Result regist(User user, UserAuths userAuths) {
+    public Result regist(User user, UserAuths userAuths,
+                         String emailCode, HttpServletResponse response, HttpSession session) {
         Result result = findByUserEmail(user.getUserEmail());
         if(result.getCode() == CodeConsts.CODE_CAN_CREATE_USER);
         else return result;
         result = findByUserPhoneNumber(user.getUserPhoneNumber());
         if(result.getCode() == CodeConsts.CODE_CAN_CREATE_USER);
         else return result;
+
         result = new Result();
-        result.setCode(CodeConsts.CODE_SUCCESS);
+		String code = (String) session.getAttribute("code");
+		if (code.equals(emailCode)) {
+			result.setCode(CodeConsts.CODE_SUCCESS);
+			result.setData(null);
+			String token = tokenService.getToken(userAuths);
+            Cookie cookie = new Cookie("token", token);
+            cookie.setPath("/");
+            response.addCookie(cookie);
+		} else {
+			result.setCode(CodeConsts.CODE_RECOVER_PASSWORD_ERROR);
+			result.setData("验证码错误");
+			return result;
+        }
+                
+        result = new Result();
         userDao.save(user);
-        System.out.println(user);
         userAuths.setUserId(user.getUserId());
         userAuthsDao.save(userAuths);
+        result.setCode(CodeConsts.CODE_SUCCESS);
+        result.setData(user);
         return result;
     }
 }

@@ -48,4 +48,7 @@ public class User {
     @Column(name = "user_phone_number")
     private String userPhoneNumber;
 
+    @Column(name = "user_signature")
+    private String userSignature;
+
 }

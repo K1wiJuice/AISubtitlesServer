@@ -6,23 +6,19 @@
 </head>
 <body>
 <h3>上传文件</h3>
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="videoToUpload">
+<form action="/uploader/chunk" method="post" enctype="multipart/form-data">
+    <input type="text" name="chunkNumber">
+    <input type="text" name="chunkSize">
+    <input type="text" name="videoName">
+    <input type="text" name="userId">
+    <input type="file" name="file">
     <input type="submit" value="上传文件">
 </form>
-
-<video id="v1" controls="controls">
-    <source src="‪C:\Users\24113\Desktop\video1.mp4", type="video/mp4">
+<video width="300px" height="300px" src="‪D:\\tim_download\\test620.mp4_subtitle.mp4" controls></video>
+<video width="320" height="240" controls>
+    <source src="https://www.bilibili.com/video/BV18b411M7xz/?spm_id_from=333.788.videocard.4"  type="video/mp4">
+<!--    <source src="movie.ogg"  type="video/ogg">-->
+    您的浏览器不支持 HTML5 video 标签。
 </video>
-<button onclick="playPause()">p</button>
-
-<script>
-    var myVideo = document.getElementById("v1");
-    function playPause() {
-        if (myVideo.onpause) myVideo.onplay;
-        else myVideo.onpause;
-    }
-</script>
-
 </body>
 </html>

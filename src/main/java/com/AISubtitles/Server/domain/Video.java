@@ -1,8 +1,31 @@
 package com.AISubtitles.Server.domain;
 
-import javax.persistence.*;
+import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
+@Accessors(chain = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "video_info")
 public class Video {
 
@@ -30,110 +53,33 @@ public class Video {
     private int videoBrowses;
     @Column(name = "video_shares")
     private int videoShares;
+    @Column(name = "video_comments")
+    private int videoComments;
+    @Column(name = "video_collections")
+    private int videoCollections;
 
+    @Column(name = "video_zhsubtitle")
+    private Integer videoZHSubtitle;
+    @Column(name = "video_ensubtitle")
+    private Integer videoENSubtitle;
+    @Column(name = "video_enzhsubtitle")
+    private Integer videoENZHSubtitle;
+    @Column(name = "video_enzhsubtitlejson")
+    private Integer videoENZHSubtitleJSON;
 
-    public int getVideoId() {
-        return videoId;
-    }
+    @Column(name = "video_p")
+    private Integer videoP;
+    @Column(name = "audioType")
+    private Integer audio_type;
 
-    public void setVideoId(int videoId) {
-        this.videoId = videoId;
-    }
+    @Column(name = "process_progress")
+    private Double processProgress;
 
-    public int getUserId() {
-        return userId;
-    }
+    @Column(name = "identifier")
+    private String identifier;
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+    @CreatedDate
+    @Column(name = "operation_time")
+    private Date createTime;
 
-    public String getVideoName() {
-        return videoName;
-    }
-
-    public void setVideoName(String videoName) {
-        this.videoName = videoName;
-    }
-
-    public double getVideoSize() {
-        return videoSize;
-    }
-
-    public void setVideoSize(double videoSize) {
-        this.videoSize = videoSize;
-    }
-
-    public String getVideoPath() {
-        return videoPath;
-    }
-
-    public void setVideoPath(String videoPath) {
-        this.videoPath = videoPath;
-    }
-
-    public String getVideoFormat() {
-        return videoFormat;
-    }
-
-    public void setVideoFormat(String videoFormat) {
-        this.videoFormat = videoFormat;
-    }
-
-    public String getVideoCover() {
-        return videoCover;
-    }
-
-    public void setVideoCover(String videoCover) {
-        this.videoCover = videoCover;
-    }
-
-    public double getVideoDuration() {
-        return videoDuration;
-    }
-
-    public void setVideoDuration(double videoDuration) {
-        this.videoDuration = videoDuration;
-    }
-
-    public int getVideoFavors() {
-        return videoFavors;
-    }
-
-    public void setVideoFavors(int videoFavors) {
-        this.videoFavors = videoFavors;
-    }
-
-    public int getVideoBrowses() {
-        return videoBrowses;
-    }
-
-    public void setVideoBrowses(int videoBrowses) {
-        this.videoBrowses = videoBrowses;
-    }
-
-    public int getVideoShares() {
-        return videoShares;
-    }
-
-    public void setVideoShares(int videoShares) {
-        this.videoShares = videoShares;
-    }
-
-    @Override
-    public String toString() {
-        return "Video{" +
-                "videoId=" + videoId +
-                ", userId=" + userId +
-                ", videoName='" + videoName + '\'' +
-                ", videoPath='" + videoPath + '\'' +
-                ", videoSize=" + videoSize +
-                ", videoFormat='" + videoFormat + '\'' +
-                ", videoCover='" + videoCover + '\'' +
-                ", videoDuration=" + videoDuration +
-                ", videoFavors=" + videoFavors +
-                ", videoBrowses=" + videoBrowses +
-                ", videoShares=" + videoShares +
-                '}';
-    }
 }

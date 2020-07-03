@@ -34,11 +34,11 @@ public interface UserDao extends JpaRepository<User, Integer>{
      * @param id
      * @return
      */
-    @Transactional
-    @Modifying
+    // @Transactional
+    // @Modifying
     
-    @Query(value = "update user_auths  set user_password = :userPassword  where user_id = :userId",nativeQuery = true)
-    public Integer update(@Param("userPassword")String userPassword,@Param("userId") int userId);
+    // @Query(value = "update user_auths  set user_password = :userPassword  where user_id = :userId",nativeQuery = true)
+    // public Integer update(@Param("userPassword")String userPassword,@Param("userId") int userId);
     //@Query(value = "update user_info  set user_password = :userPassword  where user_email = :userEmail",nativeQuery = true)
     //public Integer update(@Param("userPassword")String userPassword,@Param("userEmail") String userEmail);
 

@@ -1,6 +1,7 @@
 package com.AISubtitles.Server.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ import com.AISubtitles.Server.domain.Result;
 /**
  * 
  * @author Gavin
- * session保存服务器发送的验证码,redis存储session
- * 写在前面：为了安全性，发送验证码后不能再修改邮箱（eg：点击发送验证码跳转页面）
+ * session保存服务器发送的验证码 | redis存储session（规划中）
+ * 写在前面：为了安全性，发送验证码后不能再修改邮箱（eg：点击发送验证码跳转页面）:目前后台漏洞
  *
  */
 @Controller
@@ -30,8 +31,8 @@ public class FindPasswordController {
 
     @ResponseBody
     @PostMapping("/selectuserinfo")
-    public Result<User> select(HttpServletRequest request) {
-        return findPasswordService.select(request);
+    public Result<User> select(String accountnum) {
+        return findPasswordService.select(accountnum);
     }
 
     /**
@@ -44,8 +45,22 @@ public class FindPasswordController {
      */
     @ResponseBody
     @PostMapping("/validatecode")
-    public Result<User> validateCode(@RequestParam("emailCode") String emailCode, HttpSession session) {
-        return this.findPasswordService.validateCode(emailCode, session);
+    public Result<User> validateEmailCode(@RequestParam("emailCode") String emailCode, HttpServletResponse response, HttpSession session) {
+        return this.findPasswordService.validateEmailCode(emailCode, response, session);
+    }
+    
+    /**
+     * 验证短信验证码
+     * 
+     * @author Gavin
+     * @param SMSCode
+     * @param session
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/validateSMScode")
+    public Result<User> validateSMSCode(@RequestParam("SMSCode") String SMSCode, HttpSession session) {
+        return this.findPasswordService.validateSMSCode(SMSCode, session);
     }
 
     /**

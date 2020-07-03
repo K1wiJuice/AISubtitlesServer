@@ -12,16 +12,27 @@ spring:
   datasource:
     username: root
     password: AI-subtitle
-    url: jdbc:mysql://localhost:3306/AIsubtitle?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/AIsubtitle?useSSL=false&serverTimezone=UTC&characterEncoding=utf8&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   resources:
-    static-locations: classpath:/templates
+    static-locations: classpath:/static
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
 logging:
   level:
     com.AISubtitles.Server.mapper: debug
 server:
   port: 8083
+
+prop:
+  upload-folder: ./files
+
+video-path: /home/ubuntu/video
+image-path: /home/ubuntu/image

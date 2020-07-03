@@ -1,5 +1,6 @@
 package com.AISubtitles.Server.controller;
 
+import javax.annotation.Generated;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 
@@ -24,25 +25,26 @@ public class SendEmailController {
 	@Autowired
 	SendMailService sendMailService;
 
+	//@Value("${mail.fromMail.addr}")----此处对应properties文件配置
 	@Value("${spring.mail.from}")
 	public String from;
 
 	@PostMapping("/sendCode")
 	@ResponseBody
 	public String sendCode(String email, HttpSession session) throws MessagingException {
-		StringBuilder sb = new StringBuilder();
-		String code = getCode();
+		StringBuilder strbd = new StringBuilder();
+		String code = generateEmailCode();
 		session.setAttribute("code", code);
-		sb.append("<html><head></head>");
-		sb.append("<body><h1>你的验证码是： </h1><p>");
-		sb.append(code);
-		sb.append("</p></body>");
-		sb.append("</html>");
-		sendMailService.sendHtmlMail(from, email, sb.toString());
+		strbd.append("<html><head></head>");
+		strbd.append("<body><h1>你的验证码是： </h1><p>");
+		strbd.append(code);
+		strbd.append("</p></body>");
+		strbd.append("</html>");
+		sendMailService.sendHtmlMail(from, email, strbd.toString());
 		return "success";
 	}
 
-	public String getCode() {
+	public String generateEmailCode() {
 		int codeLength = 6;
 		StringBuilder builder = new StringBuilder();
 		int[] random = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };

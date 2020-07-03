@@ -1,15 +1,31 @@
 package com.AISubtitles.Server.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//时间戳字段由数据库自动记录，不设置setEventId方法
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
+@Accessors(chain = true)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "update_user_info_event")
 public class UserModification {
     @Id
@@ -29,39 +45,8 @@ public class UserModification {
     @Column(name = "user_info_field_new_value", length = 255)
     private String newValue;
 
-    public int getEventId() {
-        return eventId;
-    }
+    @CreatedDate
+    @Column(name = "operation_time")
+    private Date operationTime;
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getFieldName() {
-        return fieldName;
-    }
-
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
-    }
-
-    public String getOldValue() {
-        return oldValue;
-    }
-
-    public void setOldValue(String oldValue) {
-        this.oldValue = oldValue;
-    }
-
-    public String getNewValue() {
-        return newValue;
-    }
-
-    public void setNewValue(String newValue) {
-        this.newValue = newValue;
-    }
 }
