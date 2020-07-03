@@ -137,7 +137,7 @@ public class BeautifyService {
 				String tempImagePath = String.format(imagePath, i);
 				String tempNewImagePath = String.format(newImagePath, i);
 				String base = imagebase64Service.getImageBinary(tempImagePath);
-				String temp = beautifyPicService.beautify_api("AKIDJGwlLenBRIvN246Y3JwOZJQIthYkKDTH", "gBSUNZOxJRL1QpxoNgj5C2dyC9p2B4tp", base, white, smooth, facelift, eye);
+				String temp = beautifyPicService.beautify_api("", "", base, white, smooth, facelift, eye);
 				imagebase64Service.base64StringToImage(temp,tempNewImagePath);
 			}
 			latch.countDown();
