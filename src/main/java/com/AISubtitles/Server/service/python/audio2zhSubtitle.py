@@ -10,8 +10,8 @@ from sys import argv
 import base64
 import json
 
-ID = "AKIDOtAlnatOK1SwFBjQgj169Fhu1xnPmw5x"
-KEY = "sUr2zKPFyzkFWzHMZYIm00xeXCcsugCt"
+ID = ""
+KEY = ""
 
 
 class audio2text(object):
