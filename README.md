@@ -17,14 +17,10 @@
   
 - #### 运行方法：
 
-  ```sh
+ ```sh
 nohup java -jar Server-0.0.1-SNAPSHOT.jar > logs.txt &
-  ```
+ ```
 
-- #### 提供的部分接口：
-
-  ```
-  https://docs.qq.com/doc/DRWVxTkZVZ256dmVG
-  ```
+- #### [提供的部分接口](https://docs.qq.com/doc/DRWVxTkZVZ256dmVG)
 
   
