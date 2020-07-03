@@ -2,39 +2,29 @@
 
 - #### 使用准备：
 
-  - MySql:
+  - Java环境
 
-    - 建立database test01
-
-    - 建表 user_info和update_user_info_event，建表信息在sql.txt中
+  - MySql：建立database AIsubtitle
 
   - 修改resources目录下application.yml中datasource的username和password
+  - 将src/main/resources/python目录上传至服务器/home/ubuntu路径下
 
-- #### 使用方法：
-
-  ```sh
-  ./mvnw spring-boot:run
-  ```
-  
 - #### 打包命令：
 
   ```sh
   ./mvnw clean package -Dmaven.test.skip=true
   ```
+  
+- #### 运行方法：
 
-- #### 我们提供的接口：
+  ```sh
+nohup java -jar Server-0.0.1-SNAPSHOT.jar > logs.txt &
+  ```
 
-  /user/regist
+- #### 提供的部分接口：
 
-  /user/login
+  ```url
+  https://docs.qq.com/doc/DRWVxTkZVZ256dmVG
+  ```
 
-  /user/logout
-
-  /user/userModify
-
-  /email/sendCode
-
-  /findpassword/validatecode
-
-  /findpassword/update
-
+  

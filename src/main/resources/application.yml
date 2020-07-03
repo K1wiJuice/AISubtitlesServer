@@ -11,7 +11,7 @@ spring:
     default-encoding: utf-8
   datasource:
     username: root
-    password: AI-subtitle
+    password: password
     url: jdbc:mysql://localhost:3306/AIsubtitle?useSSL=false&serverTimezone=UTC&characterEncoding=utf8&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   resources:
